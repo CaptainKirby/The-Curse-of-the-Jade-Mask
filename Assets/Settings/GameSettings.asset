@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448fe571927095b44880f7c686e511c3, type: 3}
+  m_Name: GameSettings
+  m_EditorClassIdentifier: 
+  uiCanvas: {fileID: 181246, guid: a8e85369212607d4fbb703fd6176ba0c, type: 2}
+  uiInteractioneMenu: {fileID: 11407976, guid: 1ca692d1763737f44b91240900588c54, type: 2}
