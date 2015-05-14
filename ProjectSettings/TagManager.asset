@@ -44,15 +44,27 @@ TagManager:
   - name: Background
     uniqueID: 428758205
     locked: 0
-  - name: Foreground1
-    uniqueID: 887987005
-    locked: 0
-  - name: Foreground2
-    uniqueID: 2896356163
+  - name: Chracter1
+    uniqueID: 1870786403
     locked: 0
   - name: Interactable1
     uniqueID: 2066154601
     locked: 0
-  - name: New Layer
-    uniqueID: 1870786403
+  - name: Foreground1
+    uniqueID: 887987005
+    locked: 0
+  - name: Character2
+    uniqueID: 1038493277
+    locked: 0
+  - name: Interactable2
+    uniqueID: 4250789535
+    locked: 0
+  - name: Foreground2
+    uniqueID: 2896356163
+    locked: 0
+  - name: Chracter3
+    uniqueID: 1719109013
+    locked: 0
+  - name: Interactable3
+    uniqueID: 110908585
     locked: 0

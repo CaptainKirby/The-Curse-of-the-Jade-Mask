@@ -13,3 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiCanvas: {fileID: 181246, guid: a8e85369212607d4fbb703fd6176ba0c, type: 2}
   uiInteractioneMenu: {fileID: 11407976, guid: 1ca692d1763737f44b91240900588c54, type: 2}
+  interactiveMenuPrefab: {fileID: 111768, guid: a935107b9357fad4299539f29cc2209b,
+    type: 2}
+  pickupIcon: {fileID: 11452726, guid: 7ce611b5900c3064996cb0e01dcc5b48, type: 2}
+  observeIcon: {fileID: 11452726, guid: 7ce611b5900c3064996cb0e01dcc5b48, type: 2}
+  investigateIcon: {fileID: 11452726, guid: 7ce611b5900c3064996cb0e01dcc5b48, type: 2}
+  talkIcon: {fileID: 11452726, guid: 7ce611b5900c3064996cb0e01dcc5b48, type: 2}

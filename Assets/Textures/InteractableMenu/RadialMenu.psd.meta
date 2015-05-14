@@ -1,0 +1,115 @@
+fileFormatVersion: 2
+guid: ba63e1ec4792be14399654683c9f8fb2
+timeCreated: 1431610605
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: RadialMenu_0
+    21300002: RadialMenu_1
+    21300004: RadialMenu_2
+    21300006: RadialMenu_3
+    21300008: RadialMenu_4
+    21300010: RadialMenu_5
+    21300012: RadialMenu_6
+    21300014: RadialMenu_7
+    21300016: RadialMenu_8
+    21300018: RadialMenu_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: RadialMenu_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 566
+        width: 418
+        height: 454
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RadialMenu_1
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 798
+        width: 186
+        height: 189
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RadialMenu_2
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 798
+        width: 186
+        height: 189
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RadialMenu_3
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 602
+        width: 186
+        height: 189
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RadialMenu_5
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 364
+        width: 629
+        height: 123
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 131, y: 0, z: 116, w: 24}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

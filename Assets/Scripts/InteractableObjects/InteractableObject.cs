@@ -4,6 +4,7 @@ public class InteractableObject : MonoBehaviour {
 //	public string name = "Object";
 	public enum InteractionType{Pickup, Interact};
 	public InteractionType interactionType;
+	public string name = "Temp";
 		public virtual void OnMouseDown()
 	{
 		Debug.Log ("Clicked on: " + this.gameObject.name);
@@ -14,6 +15,14 @@ public class InteractableObject : MonoBehaviour {
 
 
 //		Debug.Log (type);
-		GameController.instance.interactionMenu.OpenInteractiveMenu (this.transform.position, interactionType.ToString(), this.gameObject);
+		if (!GameController.instance.interactionMenu.open) 
+		{
+			GameController.instance.interactionMenu.OpenInteractiveMenu (this.transform.position, interactionType, this.gameObject, name);
+		}
+		else
+		{
+			//close?
+		}
 	}
 }
+
