@@ -38,9 +38,11 @@ public class InteractionMenu : MonoBehaviour
 			{	
 				if(hit.collider != null)
 				{
-					if(hit.collider.GetComponent<InteractableObject>() )
+					if(hit.collider.GetComponent<InteractableObject>())
 					{
 						//CloseInteractiveMenu and open
+//						CloseInteractiveMenu();
+//						hit.collider.GetComponent<InteractableObject>().OpenInteractiveMenu();
 					}
 					else
 					{
@@ -74,7 +76,7 @@ public class InteractionMenu : MonoBehaviour
 			currentInteractiveMenu.GetComponent<RectTransform>().localScale = prefab.localScale;
 			currentInteractiveMenu.GetComponent<RectTransform>().pivot = prefab.pivot;
 			currentInteractiveMenu.GetComponent<RectTransform>().sizeDelta = prefab.sizeDelta;
-//			currentInteractiveMenu.GetComponent<RectTransform>() = newRectTransform;
+
 		}
 	}
 	
@@ -95,16 +97,14 @@ public class InteractionMenu : MonoBehaviour
 
 		if(type == InteractableObject.InteractionType.Pickup)
 		{
-			Debug.Log ("FBI");
-
 			numberOfMenuPoints = 2;
-			ShowPickup (0);
-			ShowObserve(1);
+			ShowPickup (0,gObj);
+			ShowObserve(1, gObj);
 		}
 		if(type.Equals(InteractableObject.InteractionType.Interact))
 		{
-			ShowInvestigate (0);
-			ShowObserve(1);
+			ShowInvestigate (0,gObj);
+			ShowObserve(1,gObj);
 		}
 
 	}
@@ -121,14 +121,14 @@ public class InteractionMenu : MonoBehaviour
 		return guiPosition;
 	}
 
-	public void ShowPickup(int pos)
+	public void ShowPickup(int pos, GameObject gObj)
 	{
 		if (pickupIconActive == null) 
 		{
 			//make circle visible
 			circles [pos].gameObject.SetActive (true);
 			//activate icon Set to seperate function?
-			pickupIconActive = ActivateIcon (GameController.instance.gameSettings.pickupIcon, circles [pos].transform.position);
+			pickupIconActive = ActivateIcon (GameController.instance.gameSettings.pickupIcon, circles [pos].transform.position, gObj, true);
 		}
 		else 
 		{
@@ -137,12 +137,12 @@ public class InteractionMenu : MonoBehaviour
 		}
 		//
 	}
-	public void ShowInvestigate(int pos)
+	public void ShowInvestigate(int pos, GameObject gObj)
 	{
 		if (investigateIconActive == null) 
 		{
 			circles [pos].gameObject.SetActive (true);
-			investigateIconActive = ActivateIcon (GameController.instance.gameSettings.investigateIcon, circles [pos].transform.position);
+			investigateIconActive = ActivateIcon (GameController.instance.gameSettings.investigateIcon, circles [pos].transform.position, gObj, true);
 		}
 		else 
 		{
@@ -151,27 +151,29 @@ public class InteractionMenu : MonoBehaviour
 		}
 	}
 
-	public void ShowObserve(int pos)
+	public void ShowObserve(int pos, GameObject gObj)
 	{
 		if(observeIconActive == null)
 		{
 			circles [pos].gameObject.SetActive (true);
-			observeIconActive = ActivateIcon (GameController.instance.gameSettings.observeIcon, circles [pos].transform.position);
+			observeIconActive = ActivateIcon (GameController.instance.gameSettings.observeIcon, circles [pos].transform.position, gObj, true);
 		}
 		else 
 		{
+
 			circles [pos].gameObject.SetActive (true);
-			
+			observeIconActive = ActivateIcon (observeIconActive, circles [pos].transform.position, gObj, false);
+
 		}
 
 	}
 
-	public void ShowTalk(int pos)
+	public void ShowTalk(int pos, GameObject gObj)
 	{
 		if(talkIconActive == null)
 		{
 			circles [pos].gameObject.SetActive (true);
-			talkIconActive = ActivateIcon (GameController.instance.gameSettings.talkIcon, circles [pos].transform.position);
+			talkIconActive = ActivateIcon (GameController.instance.gameSettings.talkIcon, circles [pos].transform.position, gObj, true);
 		}
 		else 
 		{
@@ -180,31 +182,48 @@ public class InteractionMenu : MonoBehaviour
 		}
 	}
 
-	public Image ActivateIcon(Image icon, Vector3 pos)
+	public Image ActivateIcon(Image icon, Vector3 pos, GameObject gObj, bool init)
 	{
-		Image newIcon = Instantiate (icon, pos, Quaternion.identity) as Image;
-		newIcon.transform.SetParent (currentInteractiveMenu.transform);
+//		Debug.Log (gObj);
+
+		Image newIcon = null;
+		if(init)
+		{
+			newIcon = Instantiate (icon, pos, Quaternion.identity) as Image;
+			newIcon.transform.SetParent (currentInteractiveMenu.transform);
+		}
+		else
+		{
+			newIcon = icon;
+		}
 //		newIcon.GetComponent<RectTransform> ().sizeDelta = GameController.instance.gameSettings.talkIcon.GetComponent<RectTransform>().sizeDelta;
-		newIcon.GetComponent<Button> ().onClick.AddListener(() => this.Clicked(newIcon));
+		newIcon.GetComponent<Button> ().onClick.AddListener(() => this.Clicked(newIcon, gObj));
 		return newIcon;
 	}
 
-	public void Clicked(Image img)
+	public void Clicked(Image img, GameObject gObj)
 	{
+
+//		Debug.Log (gObj + "lala");
 		if(img == observeIconActive)
 		{
-
+			DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Observe" );
+			Dialoguer.StartDialogue(diag); 
+			GameController.instance.dCon.obsText.SetActive(true);
 		}
 		if (img == pickupIconActive) 
 		{
+			DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Pickup" );
 
 		}
-		if (img == pickupIconActive) 
+		if (img == talkIconActive) 
 		{
+			DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Talk" );
 
 		}
-		if (img == pickupIconActive) 
+		if (img == investigateIconActive) 
 		{
+			DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Investigate" );
 
 		}
 	}

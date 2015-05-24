@@ -12,6 +12,12 @@ public class GameController : MonoBehaviour {
 	public InteractionMenu interactionMenu;
 
 	public GameSettings gameSettings;
+
+	[HideInInspector]
+	public GameObject dialogueHolder;
+
+	[HideInInspector]
+	public DialogueController dCon;
 	//This is the public reference that other classes will use
 	public static GameController instance
 	{
@@ -26,28 +32,39 @@ public class GameController : MonoBehaviour {
 	}
 
 
-	void Awake () 
+	void Awake ()  
 	{
 
-			if (gameSettings.uiCanvas != null) {
-				//instantiate and declare
-				this.uiCanvas = Instantiate (gameSettings.uiCanvas, Vector3.zero, Quaternion.identity) as GameObject;
-				uiCanvas.gameObject.name = "UiCanvas";
-			} else {
-				Debug.Log ("No UI Canvas assigned in Game Settings!");
-			}
+		if (gameSettings.uiCanvas != null) 
+		{
+			//instantiate and declare
+			this.uiCanvas = Instantiate (gameSettings.uiCanvas, Vector3.zero, Quaternion.identity) as GameObject;
+			uiCanvas.gameObject.name = "UiCanvas";
+		} else 
+		{
+			Debug.Log ("No UI Canvas assigned in Game Settings!");
+		}
 
-			if(gameSettings.uiInteractioneMenu != null)
-			{
-				interactionMenu = Instantiate(gameSettings.uiInteractioneMenu, Vector3.zero, Quaternion.identity) as InteractionMenu;
-				interactionMenu.gameObject.name = "InteractionMenu";
-				interactionMenu.gameObject.transform.SetParent(uiCanvas.transform);
+		if(gameSettings.uiInteractioneMenu != null)
+		{
+			interactionMenu = Instantiate(gameSettings.uiInteractioneMenu, Vector3.zero, Quaternion.identity) as InteractionMenu;
+			interactionMenu.gameObject.name = "InteractionMenu";
+			interactionMenu.gameObject.transform.SetParent(uiCanvas.transform);
 
-			}
-			else
-			{
-				Debug.Log ("No Interaction Menu assigned in Game Settings!");
-			}
+		}
+		else
+		{
+			Debug.Log ("No Interaction Menu assigned in Game Settings!");
+		}
+		if (dialogueHolder == null) 
+		{
+			dialogueHolder = uiCanvas.transform.FindChild("Dialogue").gameObject;
+
+		}
+		if(dCon == null)
+		{
+			dCon = GetComponent<DialogueController>();
+		}
 
 	}
 

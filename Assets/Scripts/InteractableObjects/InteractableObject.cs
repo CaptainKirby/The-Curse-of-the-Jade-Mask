@@ -21,6 +21,8 @@ public class InteractableObject : MonoBehaviour {
 		}
 		else
 		{
+			GameController.instance.interactionMenu.CloseInteractiveMenu();
+			GameController.instance.interactionMenu.OpenInteractiveMenu (this.transform.position, interactionType, this.gameObject, name);
 			//close?
 		}
 	}

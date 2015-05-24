@@ -19,3 +19,5 @@ MonoBehaviour:
   observeIcon: {fileID: 11452726, guid: 7ce611b5900c3064996cb0e01dcc5b48, type: 2}
   investigateIcon: {fileID: 11452726, guid: 7ce611b5900c3064996cb0e01dcc5b48, type: 2}
   talkIcon: {fileID: 11452726, guid: 7ce611b5900c3064996cb0e01dcc5b48, type: 2}
+  observeText: {fileID: 140572, guid: 0d182964487368141bf414ec81d0aa9a, type: 2}
+  continueButton: {fileID: 185312, guid: 44732cef5164eeb46bbed69cecbcb1e0, type: 2}

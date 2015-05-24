@@ -7,7 +7,9 @@ using DialoguerEditor;
 using DialoguerCore;
 
 public class DialogueEditorWindow : EditorWindow {
-	
+
+	private const string FOCUS_REMOVER_NAME = "remove_focus";
+
 	private DialogueEditorSection __selectorSection;
 	private DialogueEditorSection __canvasSection;
 	
@@ -44,15 +46,16 @@ public class DialogueEditorWindow : EditorWindow {
 	// Canvas scroll width object
 	private Vector2 __scrollLimits;
 	
-	[MenuItem ("Dialoguer/Window/Dialogue Editor", false, 0)]
+	//[MenuItem ("Dialoguer/Window/Dialogue Editor", false, 0)]
+	[MenuItem ("Tools/Dialoguer/Dialogue Editor", false, 0)]
 	[MenuItem ("Window/Dialoguer/Dialogue Editor", false, 0)]
-	static void Init () {
+	static public void Init () {
 		DialogueEditorWindow window = (DialogueEditorWindow)EditorWindow.GetWindow(typeof(DialogueEditorWindow));
 		window.title = "Dialogue Editor";
 		window.minSize = new Vector2(1120, 400);
 		window.init();
 	}
-    
+	
 	public void init(){
 		__addMultiple = false;
 		__removeMultiple = false;
@@ -103,7 +106,8 @@ public class DialogueEditorWindow : EditorWindow {
 		// Reset helpers
 		setToolInfo(string.Empty,string.Empty);
 		setTooltip(string.Empty);
-		
+
+		drawFocusRemover();
 		
 		initSections();
 		
@@ -115,6 +119,12 @@ public class DialogueEditorWindow : EditorWindow {
 		
 		//Draw windows
 		drawWindows();
+	}
+
+	// Focus remover
+	private void drawFocusRemover(){
+		GUI.SetNextControlName(FOCUS_REMOVER_NAME);
+		GUI.Label(new Rect(-100, -100, 1, 1), "");
 	}
 	
 	
@@ -252,6 +262,7 @@ public class DialogueEditorWindow : EditorWindow {
 					GUI.Box(row, string.Empty, DialogueEditorGUI.gui.GetStyle("box_outset"));
 					GUI.Box(row, string.Empty, DialogueEditorGUI.gui.GetStyle("box_outset"));
 				}
+				removeFocus();
 			}
 			
 			GUI.color = GUI.contentColor;
@@ -286,7 +297,8 @@ public class DialogueEditorWindow : EditorWindow {
 			GUI.Box(nameShadowRect, string.Empty, DialogueEditorGUI.gui.GetStyle("box_inset"));
 		}
 		if(DialogueEditorDataManager.data.currentDialogueId < DialogueEditorDataManager.data.count && DialogueEditorDataManager.data.currentDialogueId >= 0){
-			DialogueEditorDataManager.data.dialogues[DialogueEditorDataManager.data.currentDialogueId].name = GUI.TextField(nameRect, DialogueEditorDataManager.data.dialogues[DialogueEditorDataManager.data.currentDialogueId].name, nameTextStyle);
+			EditorStyles.textField.wordWrap = false;
+			DialogueEditorDataManager.data.dialogues[DialogueEditorDataManager.data.currentDialogueId].name = EditorGUI.TextField(nameRect, DialogueEditorDataManager.data.dialogues[DialogueEditorDataManager.data.currentDialogueId].name, nameTextStyle);
 			GUI.color = new Color(1,1,1,0.25f);
 			if(DialogueEditorDataManager.data.dialogues[DialogueEditorDataManager.data.currentDialogueId].name == "") GUI.Label(nameRect, "Dialogue Name", nameTextStyle);
 		}
@@ -357,12 +369,31 @@ public class DialogueEditorWindow : EditorWindow {
 		// SAVE BUTTON
 		//GUI.color = DialogueEditorStyles.COLOR_BUTTON_GREEN;
 		if(GUI.Button(new Rect(__canvasSection.toolbarRect.x +__canvasSection.toolbarRect.width - (50 + 5), __canvasSection.toolbarRect.y + 5, 50, __canvasSection.toolbarRect.height - 10), "Save")){
+
+
+			// Add EndPhase to all empty Dialogues
+			for(int i = 0; i<DialogueEditorDataManager.data.dialogues.Count; i++){
+				DialogueEditorDialogueObject d = DialogueEditorDataManager.data.dialogues[i];
+
+				if(d.phases == null || d.phases.Count < 1){
+					DialogueEditorPhaseObject p = new DialogueEditorPhaseObject();
+					p.id = 0;
+					p.type = DialogueEditorPhaseTypes.EndPhase;
+					p.position = new Vector2(200,100);
+					d.phases.Add(p);
+					d.startPage = 0;
+					//Debug.Log("Adding End to empty Dialogue with id: " + i);
+				}
+			}
+
+
 			DialogueEditorDataManager.save();
 		}
 		//GUI.color = GUI.contentColor;
 
 		if(GUI.Button(new Rect(__canvasSection.toolbarRect.x +__canvasSection.toolbarRect.width - (75 + 10), __canvasSection.toolbarRect.y + 5, 25, __canvasSection.toolbarRect.height - 10), "?")){
 			//DialogueEditorDataManager.debugLoad();
+			Application.OpenURL("http://www.dialoguer.info/docs.php");
 		}
 		
 		
@@ -417,14 +448,14 @@ public class DialogueEditorWindow : EditorWindow {
 		GUI.Box(startRect, string.Empty, DialogueEditorGUI.gui.GetStyle("box_opaque"));
 		Rect startLabelRect = new Rect(startRect.x + 4, startRect.y + 3, startRect.width, 20);
 		GUI.Label(startLabelRect, "Start Page");
-		string startConnectorType = (DialogueEditorDataManager.data.dialogues[DialogueEditorDataManager.data.currentDialogueId].startPage != null) ? "connector_full" : "connector_empty" ;
+		string startConnectorType = (DialogueEditorDataManager.data.dialogues[DialogueEditorDataManager.data.currentDialogueId].startPage >= 0) ? "connector_full" : "connector_empty" ;
 		Rect startOutputButtonRect = new Rect(startRect.x + startRect.width - 19,startRect.y + 3,16,16);
 		if(Event.current.type == EventType.MouseDown && startOutputButtonRect.Contains(Event.current.mousePosition)){
 			if (Event.current.button == 0){
-				DialogueEditorDataManager.data.dialogues[DialogueEditorDataManager.data.currentDialogueId].startPage = null;
+				DialogueEditorDataManager.data.dialogues[DialogueEditorDataManager.data.currentDialogueId].startPage = -1;
 				__outputSelection = new DialogueEditorSelectionObject(true);
 			}else if (Event.current.button == 1){
-				DialogueEditorDataManager.data.dialogues[DialogueEditorDataManager.data.currentDialogueId].startPage = null;
+				DialogueEditorDataManager.data.dialogues[DialogueEditorDataManager.data.currentDialogueId].startPage = -1;
 				if(__outputSelection != null && __outputSelection.isStart){
 					__outputSelection = null;
 				}
@@ -531,17 +562,18 @@ public class DialogueEditorWindow : EditorWindow {
 			}
 		}
 		
-		if(dialogue.startPage.HasValue){ 
-			DialogueEditorPhaseObject startPhase = dialogue.phases[dialogue.startPage.Value];
+		if (dialogue.startPage >= 0 && dialogue.phases != null && dialogue.startPage < dialogue.phases.Count && dialogue.phases[dialogue.startPage] != null)
+		{
+			DialogueEditorPhaseObject startPhase = dialogue.phases[dialogue.startPage];
 			DialogueEditorCurve.draw(new Vector2(150, 20), new Vector2(startPhase.position.x + 12, startPhase.position.y + 12));
 		}
 		
 		for(int p = 0; p<dialogue.phases.Count; p+=1){
 			for(int o = 0; o<dialogue.phases[p].outs.Count; o += 1){
 				if(
-					!dialogue.phases[p].outs[o].HasValue
-					|| dialogue.phases[p].outs[o].Value >= dialogue.phases.Count
-					|| dialogue.phases[dialogue.phases[p].outs[o].Value] == null
+					dialogue.phases[p].outs[o] < 0
+					|| dialogue.phases[p].outs[o] >= dialogue.phases.Count
+					|| dialogue.phases[dialogue.phases[p].outs[o]] == null
 				){
 					continue;
 				}
@@ -550,7 +582,7 @@ public class DialogueEditorWindow : EditorWindow {
 				Vector2 outputPhasePos = getPhaseOutputPosition(outputPhaseId, o);
 				//Debug.Log("type: "+ dialogue.phases[p].type.ToString() +"; phaseId: " + outputPhaseId + "; outputIndex: " + o +";");
 				
-				Vector2 inputPhasePos = new Vector2(dialogue.phases[dialogue.phases[p].outs[o].Value].position.x + 12, dialogue.phases[dialogue.phases[p].outs[o].Value].position.y + 12);
+				Vector2 inputPhasePos = new Vector2(dialogue.phases[dialogue.phases[p].outs[o]].position.x + 12, dialogue.phases[dialogue.phases[p].outs[o]].position.y + 12);
 				DialogueEditorCurve.draw(outputPhasePos, inputPhasePos);
 			}
 		}
@@ -712,8 +744,8 @@ public class DialogueEditorWindow : EditorWindow {
 	private void handlePhaseRemoveClick(int phaseId){
 		DialogueEditorDialogueObject dialogue = DialogueEditorDataManager.data.dialogues[DialogueEditorDataManager.data.currentDialogueId];
 		
-		if(dialogue.startPage.HasValue){
-			if(dialogue.startPage.Value == phaseId) dialogue.startPage = null;
+		if(dialogue.startPage >= 0){
+			if(dialogue.startPage == phaseId) dialogue.startPage = -1;
 		}
 		
 		dialogue.removePhase(phaseId);
@@ -801,7 +833,9 @@ public class DialogueEditorWindow : EditorWindow {
 		}else{
 			GUI.Box(DialogueEditorGUI.getOutlineRect(textFieldRect,1), string.Empty, DialogueEditorGUI.gui.GetStyle("box_inset"));
 		}
-		phase.text = GUI.TextArea(textFieldRect, phase.text);
+		EditorStyles.textField.wordWrap = true;
+		phase.text = EditorGUI.TextArea(textFieldRect, phase.text);
+		EditorStyles.textField.wordWrap = false;
 		
 		Rect outputButtonBackRect = new Rect(textBoxTitleRect.x + textBoxRect.width - 30, textBoxTitleRect.y, textBoxTitleRect.height, textBoxTitleRect.height);
 		if(isPro){
@@ -838,8 +872,10 @@ public class DialogueEditorWindow : EditorWindow {
 		}else{
 			GUI.Box(DialogueEditorGUI.getOutlineRect(textFieldRect,1), string.Empty, DialogueEditorGUI.gui.GetStyle("box_inset"));
 		}
-		phase.text = GUI.TextArea(textFieldRect, phase.text);
-		
+		EditorStyles.textField.wordWrap = true;
+		phase.text = EditorGUI.TextArea(textFieldRect, phase.text);
+		EditorStyles.textField.wordWrap = false;
+
 		Rect advancedButtonRect = new Rect(textBoxTitleRect.xMax + 5, textBoxRect.y + 6, 70, textBoxTitleRect.height);
 		phase.advanced = GUI.Toggle(advancedButtonRect, phase.advanced, "Advanced");
 		
@@ -885,7 +921,7 @@ public class DialogueEditorWindow : EditorWindow {
 			}else{
 				GUI.Box(DialogueEditorGUI.getOutlineRect(choiceRect,1), string.Empty, DialogueEditorGUI.gui.GetStyle("box_inset"));
 			}
-			phase.choices[i] = GUI.TextField(choiceRect, phase.choices[i]);
+			phase.choices[i] = EditorGUI.TextField(choiceRect, phase.choices[i]);
 			
 			Rect outputButtonRect = new Rect(choiceTitleRect.x + choiceTitleRect.width - 18, choiceTitleRect.y + 2, 16, 16);
 			drawOutputConnector(phase, new Vector2(outputButtonRect.x, outputButtonRect.y), i);
@@ -1024,7 +1060,7 @@ public class DialogueEditorWindow : EditorWindow {
 				float.TryParse(phase.variableSetValue, out floatVar);
 				phase.variableSetValue = EditorGUI.FloatField(newInputRect, floatVar).ToString();
 			}else{
-				phase.variableSetValue = GUI.TextField(newInputRect, phase.variableSetValue);
+				phase.variableSetValue = EditorGUI.TextField(newInputRect, phase.variableSetValue);
 			}
 		}
 		
@@ -1124,7 +1160,7 @@ public class DialogueEditorWindow : EditorWindow {
 				float.TryParse(phase.variableGetValue, out floatVar);
 				phase.variableGetValue = EditorGUI.FloatField(newInputRect, floatVar).ToString();
 			}else{
-				phase.variableGetValue = GUI.TextField(newInputRect, phase.variableGetValue);
+				phase.variableGetValue = EditorGUI.TextField(newInputRect, phase.variableGetValue);
 			}
 		}
 		
@@ -1144,13 +1180,13 @@ public class DialogueEditorWindow : EditorWindow {
 	
 	// draw SEND MESSAGE
 	private void drawSendMessagePhase(DialogueEditorPhaseObject phase){
-		Rect baseRect = drawPhaseBase(phase, 200, 135);
+		Rect baseRect = drawPhaseBase(phase, 200, 225);
 		
-		Rect sendMessageRect = new Rect(baseRect.x + 5, baseRect.yMax, baseRect.width - 10, 105);
+		Rect sendMessageRect = new Rect(baseRect.x + 5, baseRect.yMax, baseRect.width - 10, 195);
 		Rect sendMessageTitleRect = new Rect(sendMessageRect.x + 5, sendMessageRect.y + 5, sendMessageRect.width - 10, 20);
 		Rect messageInputRect = new Rect(sendMessageTitleRect.x + 2, sendMessageTitleRect.yMax + 5, sendMessageTitleRect.width - 4, 18);
 		Rect metadataTitleRect = new Rect(sendMessageRect.x + 5, messageInputRect.yMax + 5, sendMessageRect.width - 10, 20);
-		Rect metadataInputRect = new Rect(metadataTitleRect.x + 2, metadataTitleRect.yMax + 5, metadataTitleRect.width - 4, 18);
+		Rect metadataInputRect = new Rect(metadataTitleRect.x + 2, metadataTitleRect.yMax + 5, metadataTitleRect.width - 4, 110);
 		
 		if(isPro){
 			DialogueEditorGUI.drawShadowedRect(sendMessageRect);
@@ -1167,9 +1203,9 @@ public class DialogueEditorWindow : EditorWindow {
 		}
 		
 		GUI.Label(new Rect(sendMessageTitleRect.x + 2, sendMessageTitleRect.y + 2, sendMessageTitleRect.width, sendMessageTitleRect.height), "Message Name");
-		phase.messageName = GUI.TextField(messageInputRect, phase.messageName);
+		phase.messageName = EditorGUI.TextField(messageInputRect, phase.messageName);
 		GUI.Label(new Rect(metadataTitleRect.x + 2, metadataTitleRect.y + 2, metadataTitleRect.width, metadataTitleRect.height), "Metadata");
-		phase.metadata = GUI.TextField(metadataInputRect, phase.metadata);
+		phase.metadata = EditorGUI.TextArea(metadataInputRect, phase.metadata);
 		
 		Rect outputButtonRect = new Rect(sendMessageTitleRect.x + sendMessageTitleRect.width - 18, sendMessageTitleRect.y + 2, 16, 16);
 		drawOutputConnector(phase, new Vector2(outputButtonRect.x, outputButtonRect.y), 0);
@@ -1207,13 +1243,14 @@ public class DialogueEditorWindow : EditorWindow {
 				GUI.Box(titleBarRect, string.Empty, DialogueEditorGUI.gui.GetStyle("box_opaque"));
 			}
 		}
-		
+
+		string phaseTitle = phase.id + ": " + DialogueEditorPhaseType.getPhases()[(int)phase.type].name;
 		if(isPro){
 			GUI.color = new Color(0,0,0,0.3f);
-			GUI.Label(new Rect(titleBarRect.x + 1, titleBarRect.y, titleBarRect.width, titleBarRect.height), DialogueEditorPhaseType.getPhases()[(int)phase.type].name, titleBarStyle);
+			GUI.Label(new Rect(titleBarRect.x + 1, titleBarRect.y, titleBarRect.width, titleBarRect.height), phaseTitle, titleBarStyle);
 		}
 		GUI.color = GUI.contentColor;
-		GUI.Label(new Rect(titleBarRect.x, titleBarRect.y - 1, titleBarRect.width, titleBarRect.height), DialogueEditorPhaseType.getPhases()[(int)phase.type].name, titleBarStyle);
+		GUI.Label(new Rect(titleBarRect.x, titleBarRect.y - 1, titleBarRect.width, titleBarRect.height), phaseTitle, titleBarStyle);
 		
 		
 		// Input
@@ -1285,22 +1322,6 @@ public class DialogueEditorWindow : EditorWindow {
 			if(GUI.Button(new Rect(globalVariableStringsRect.x + ((globalVariableStringsRect.width/3) * 1), globalVariableStringsRect.y, globalVariableStringsRect.width/3, globalVariableStringsRect.height), "Float", DialogueEditorGUI.gui.GetStyle("toolbar_center"))){phase.text += "<"+PhaseVarSubStrings.GLOBAL + PhaseVarSubStrings.FLOAT+">" + "0" + "</"+PhaseVarSubStrings.GLOBAL + PhaseVarSubStrings.FLOAT+">";}
 			if(GUI.Button(new Rect(globalVariableStringsRect.x + ((globalVariableStringsRect.width/3) * 2), globalVariableStringsRect.y, globalVariableStringsRect.width/3, globalVariableStringsRect.height), "String", DialogueEditorGUI.gui.GetStyle("toolbar_right"))){phase.text += "<"+PhaseVarSubStrings.GLOBAL + PhaseVarSubStrings.STRING+">" + "0" + "</"+PhaseVarSubStrings.GLOBAL + PhaseVarSubStrings.STRING+">";}
 
-			/*
-			Rect themeBox = new Rect(baseRect.x + 5, varBox.yMax + 5, baseRect.width - 10, 26);
-			if(isPro){
-				DialogueEditorGUI.drawShadowedRect(themeBox,2);
-			}else{
-				GUI.Box(themeBox, string.Empty, DialogueEditorGUI.gui.GetStyle("box_outset"));
-			}
-			GUI.Label(new Rect(themeBox.x + 6, themeBox.y + 5, themeBox.width - 10, 20), "Theme");
-			string[] themes = DialogueEditorDataManager.data.getThemeNames();
-			Rect themeBoxPopupRect = new Rect(themeBox.x + 47 + 5, themeBox.y+5, themeBox.width - 10 - 47 - 90, 20);
-			phase.theme = EditorGUI.Popup(themeBoxPopupRect, phase.theme, themes);
-			
-			Rect newWindowToggleRect = new Rect(themeBoxPopupRect.xMax + 5, themeBoxPopupRect.y - 2, themeBoxPopupRect.width, 26);
-			phase.newWindow = GUI.Toggle(newWindowToggleRect, phase.newWindow, "New Window");
-			*/
-
 			Rect themeBox = new Rect(baseRect.x + 5, varBox.yMax + 5, baseRect.width - 10, 26);
 			if(isPro){
 				DialogueEditorGUI.drawShadowedRect(themeBox,2);
@@ -1315,7 +1336,7 @@ public class DialogueEditorWindow : EditorWindow {
 				GUI.Box(DialogueEditorGUI.getOutlineRect(themeTextFieldRect,1), string.Empty, DialogueEditorGUI.gui.GetStyle("box_inset"));
 			}
 			if(phase.theme == null) phase.theme = string.Empty;
-			phase.theme = GUI.TextField(themeTextFieldRect, phase.theme);
+			phase.theme = EditorGUI.TextField(themeTextFieldRect, phase.theme);
 
 			Rect newWindowToggleRect = new Rect(themeTextFieldRect.xMax + 5, themeTextFieldRect.y, 90, 26);
 			phase.newWindow = GUI.Toggle(newWindowToggleRect, phase.newWindow, "New Window");
@@ -1335,7 +1356,7 @@ public class DialogueEditorWindow : EditorWindow {
 				GUI.Box(DialogueEditorGUI.getOutlineRect(nameTextFieldRect,1), string.Empty, DialogueEditorGUI.gui.GetStyle("box_inset"));
 			}
 			if(phase.name == null) phase.name = string.Empty;
-			phase.name = GUI.TextField(nameTextFieldRect, phase.name);
+			phase.name = EditorGUI.TextField(nameTextFieldRect, phase.name);
 			
 			Rect portraitRect = new Rect(nameRect.x, nameRect.yMax + 5, nameRect.width, 26);
 			if(isPro){
@@ -1351,7 +1372,7 @@ public class DialogueEditorWindow : EditorWindow {
 				GUI.Box(DialogueEditorGUI.getOutlineRect(portraitTextFieldRect,1), string.Empty, DialogueEditorGUI.gui.GetStyle("box_inset"));
 			}
 			if(phase.portrait == null) phase.portrait = string.Empty;
-			phase.portrait = GUI.TextField(portraitTextFieldRect, phase.portrait);
+			phase.portrait = EditorGUI.TextField(portraitTextFieldRect, phase.portrait);
 			
 			Rect metadataRect = new Rect(portraitRect.x, portraitRect.yMax + 5, portraitRect.width, 26);
 			if(isPro){
@@ -1367,7 +1388,7 @@ public class DialogueEditorWindow : EditorWindow {
 				GUI.Box(DialogueEditorGUI.getOutlineRect(metadataTextFieldRect,1), string.Empty, DialogueEditorGUI.gui.GetStyle("box_inset"));
 			}
 			if(phase.metadata == null) phase.metadata = string.Empty;
-			phase.metadata = GUI.TextField(metadataTextFieldRect, phase.metadata);
+			phase.metadata = EditorGUI.TextField(metadataTextFieldRect, phase.metadata);
 			
 			Rect audioRect = new Rect(metadataRect.x, metadataRect.yMax + 5, metadataRect.width, 48);
 			if(isPro){
@@ -1385,7 +1406,7 @@ public class DialogueEditorWindow : EditorWindow {
 			// FIX THIS SHIT
 			//phase.audio = EditorGUI.ObjectField(audioFileFieldRect, phase.audio, typeof(AudioClip), false) as AudioClip;
 			if(phase.audio == null) phase.audio = string.Empty;
-			phase.audio = GUI.TextField(audioTextFieldRect, phase.audio); 
+			phase.audio = EditorGUI.TextField(audioTextFieldRect, phase.audio); 
 			
 			GUI.Label(new Rect(audioRect.x + 4, audioTextFieldRect.yMax + 5, 100, 20), "Delay:");
 			Rect audioDelayTextFieldRect = new Rect(audioRect.x + 65, audioTextFieldRect.yMax + 5, audioRect.width - 65 - 5, 16);
@@ -1590,15 +1611,19 @@ public class DialogueEditorWindow : EditorWindow {
 	
 	
 	#region Phase Utilities
+	private void removeFocus(){
+		GUI.FocusControl(FOCUS_REMOVER_NAME);
+	}
+
 	private void drawOutputConnector(DialogueEditorPhaseObject phase, Vector2 position, int outputIndex){
 		Rect outputButtonRect = new Rect(position.x, position.y, 16, 16);
-		string outputButtonType = (phase.outs[outputIndex] != null) ? "connector_full" : "connector_empty" ;
+		string outputButtonType = (phase.outs[outputIndex] >= 0) ? "connector_full" : "connector_empty" ;
 		if(Event.current.type == EventType.MouseDown && outputButtonRect.Contains(Event.current.mousePosition)){
 			if (Event.current.button == 0){
-				phase.outs[outputIndex] = null;
+				phase.outs[outputIndex] = -1;
 				__outputSelection = new DialogueEditorSelectionObject(phase.id, outputIndex	);
 			}else if (Event.current.button == 1){
-				phase.outs[outputIndex] = null;
+				phase.outs[outputIndex] = -1;
 				if(__outputSelection != null && __outputSelection.phaseId == phase.id && __outputSelection.outputIndex == outputIndex){
 					__outputSelection = null;
 				}

@@ -4,7 +4,17 @@ using System.Collections.Generic;
 using DialoguerCore;
 using DialoguerEditor;
 
-public class DialoguerTextData{
+public struct DialoguerTextData{
+
+	/// <summary>
+	/// The current dialogue tree's ID 
+	/// </summary>
+	public readonly int dialogueID;
+
+	/// <summary>
+	/// The current node's ID (local to each dialogue tree)
+	/// </summary>
+	public readonly int nodeID;
 
 	/// <summary>
 	/// The raw, unformatted text
@@ -61,9 +71,13 @@ public class DialoguerTextData{
 	/// </summary>
 	public string text{
 		get{
-			return DialoguerUtils.insertTextPhaseStringVariables(rawText);
+			if(_cachedText == null){
+				_cachedText = DialoguerUtils.insertTextPhaseStringVariables(rawText);
+			}
+			return _cachedText;
 		}
 	}
+	private string _cachedText;
 
 	/// <summary>
 	/// Returns whether or not the rect field was used for this node
@@ -83,7 +97,9 @@ public class DialoguerTextData{
 		}
 	}
 	
-	public DialoguerTextData(string text, string themeName, bool newWindow, string name, string portrait, string metadata, string audio, float audioDelay, Rect rect, List<string> choices){
+	public DialoguerTextData(string text, string themeName, bool newWindow, string name, string portrait, string metadata, string audio, float audioDelay, Rect rect, List<string> choices, int dialogueID, int nodeID){
+		this.dialogueID = dialogueID;
+		this.nodeID = nodeID;
 		this.rawText = text;
 		this.theme = themeName;
 		this.newWindow = newWindow;
@@ -96,7 +112,10 @@ public class DialoguerTextData{
 		if(choices != null){
 			string[] choicesClone = choices.ToArray();
 			this.choices = choicesClone.Clone() as string[];
+		}else{
+			this.choices = null;
 		}
+		_cachedText = null;
 	}
 
 	
@@ -109,6 +128,8 @@ public class DialoguerTextData{
 			"\nAudio Clip: "+this.audio+
 			"\nAudio Delay: "+this.audioDelay.ToString()+
 			"\nRect: "+this.rect.ToString()+
-			"\nRaw Text: "+this.rawText;
+			"\nRaw Text: "+this.rawText+
+			"\nDialogue ID:"+this.dialogueID+
+			"\nNode ID:"+this.nodeID;
 	}
 }
