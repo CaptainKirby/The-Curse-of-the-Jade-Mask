@@ -48,7 +48,7 @@ public class DialogueController : MonoBehaviour {
 		continueButton.GetComponent<Button> ().onClick.AddListener(() => Dialoguer.ContinueDialogue());
 
 
-		Dialoguer.events.onStarted += OnStarted ;
+		Dialoguer.events.onStarted += OnStarted;
 		Dialoguer.events.onEnded += OnEnded;
 		Dialoguer.events.onTextPhase += OnTextPhase;
 
@@ -57,6 +57,7 @@ public class DialogueController : MonoBehaviour {
 
 	private void OnStarted()
 	{
+		obsText.SetActive (false);
 
 		started = true;
 	}

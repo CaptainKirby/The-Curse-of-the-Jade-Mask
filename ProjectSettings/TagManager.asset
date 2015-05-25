@@ -68,3 +68,6 @@ TagManager:
   - name: Interactable3
     uniqueID: 110908585
     locked: 0
+  - name: Investigate1
+    uniqueID: 2090045315
+    locked: 0

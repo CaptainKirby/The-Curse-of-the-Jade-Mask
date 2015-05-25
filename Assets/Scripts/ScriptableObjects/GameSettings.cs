@@ -11,6 +11,7 @@ public class GameSettings : ScriptableObject {
 	public Image observeIcon;
 	public Image investigateIcon;
 	public Image talkIcon;
+	public Image interactIcon;
 	public GameObject observeText;
 	public GameObject continueButton;
 
