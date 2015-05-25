@@ -9,7 +9,9 @@ namespace DialoguerEditor{
 		public string name;
 		public int startPage = -1;
 		public Vector2 scrollPosition;
+
 		public List<DialogueEditorPhaseObject> phases;
+
 		public DialogueEditorVariablesContainer floats;
 		public DialogueEditorVariablesContainer strings;
 		public DialogueEditorVariablesContainer booleans;

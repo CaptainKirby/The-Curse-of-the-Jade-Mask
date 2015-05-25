@@ -6,6 +6,7 @@ using System.Collections.Generic;
 namespace DialoguerEditor{
 	[System.Serializable]
 	public class DialogueEditorPhaseObject{
+
 		public int id;
 		public DialogueEditorPhaseTypes type;
 		public object paramaters;
@@ -107,7 +108,7 @@ namespace DialoguerEditor{
 			this.iconDark = iconDark;
 			this.iconLight = iconLight;
 		}
-		
+		#if UNITY_EDITOR
 		public static Dictionary<int, DialogueEditorPhaseType> getPhases(){
 			Dictionary<int, DialogueEditorPhaseType> phases = new Dictionary<int, DialogueEditorPhaseType>();
 			
@@ -194,7 +195,7 @@ namespace DialoguerEditor{
 			
 			return phases;
 		}
-		
+		#endif
 		/*
 		private static Texture getIcon(string icon){
 			//string iconPath = DialogueEditorGUI.toolbarIconPath;
@@ -206,15 +207,18 @@ namespace DialoguerEditor{
 			return Resources.LoadAssetAtPath(iconPath, typeof(Texture)) as Texture;
 		}
 		*/
-			
+		#if UNITY_EDITOR
+
 		private static Texture getDarkIcon(string icon){
+		
 			//string iconPath = DialogueEditorGUI.toolbarIconPath;
 			string iconPath = "Assets/Dialoguer/DialogueEditor/Textures/GUI/";
 			//iconPath += (EditorGUIUtility.isProSkin) ? "Dark/" : "Light/";
 			iconPath += "Dark/";
 			iconPath += "icon_"+icon+".png";
-			
+
 			return Resources.LoadAssetAtPath(iconPath, typeof(Texture)) as Texture;
+
 		}
 		
 		private static Texture getLightIcon(string icon){
@@ -223,11 +227,13 @@ namespace DialoguerEditor{
 			//iconPath += (EditorGUIUtility.isProSkin) ? "Dark/" : "Light/";
 			iconPath += "Light/";
 			iconPath += "icon_"+icon+".png";
-			
+
 			return Resources.LoadAssetAtPath(iconPath, typeof(Texture)) as Texture;
+
 		}
+		#endif
 	}
-	
+
 	
 	public class DialogueEditorPhaseTemplates{
 		
@@ -397,5 +403,7 @@ namespace DialoguerEditor{
 			
 			return phase;
 		}
+
 	}
 }
+
