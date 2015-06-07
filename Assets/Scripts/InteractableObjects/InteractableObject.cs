@@ -34,7 +34,7 @@ public class InteractableObject : MonoBehaviour {
 		{
 			if(!cMovement.moving)
 			{
-				StartCoroutine(cMovement.FadeOut(areaComponent.standPosition));
+				StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, areaComponent.characterStance));
 				GameController.instance.currentArea = area;
 			}
 		}

@@ -44,7 +44,7 @@ TagManager:
   - name: Background
     uniqueID: 428758205
     locked: 0
-  - name: Chracter1
+  - name: Character1
     uniqueID: 1870786403
     locked: 0
   - name: Interactable1
@@ -62,7 +62,7 @@ TagManager:
   - name: Foreground2
     uniqueID: 2896356163
     locked: 0
-  - name: Chracter3
+  - name: Character3
     uniqueID: 1719109013
     locked: 0
   - name: Interactable3

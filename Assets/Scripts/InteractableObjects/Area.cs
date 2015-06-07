@@ -4,7 +4,8 @@ using System.Collections;
 public class Area : MonoBehaviour {
 
 	public Vector3 standPosition = Vector3.zero;
-	public string sortingLayerName = "Character 2";
+	public int sortingLayerNr = 2;
+	public GameObject characterStance;
 
 	// Use this for initialization
 	void Start () {
