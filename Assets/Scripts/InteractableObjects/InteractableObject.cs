@@ -8,11 +8,38 @@ public class InteractableObject : MonoBehaviour {
 //	[HideInInspector]
 //	public bool open;
 	public GameObject investigateObj; 
+	[HideInInspector]
+	public GameObject area; 
+	private Area areaComponent;
 
+	[HideInInspector]
+	public CharacterMovement cMovement;
+	void Start()
+	{
+		area = this.transform.parent.gameObject;
+		areaComponent = area.GetComponent<Area> ();
+		cMovement = GameObject.FindObjectOfType<CharacterMovement> ();
+	}
 	public virtual void OnMouseDown()
 	{
 		Debug.Log ("Clicked on: " + this.gameObject.name);
-		OpenInteractiveMenu ();
+		if (GameController.instance.currentArea.Equals (area)) 
+		{
+			//if game controller current area == this area && if chracter not moving
+			if(!cMovement.moving)
+				OpenInteractiveMenu ();
+
+		}
+		else
+		{
+			if(!cMovement.moving)
+			{
+				StartCoroutine(cMovement.FadeOut(areaComponent.standPosition));
+				GameController.instance.currentArea = area;
+			}
+		}
+		//else run chracter  function to move fra position to area pos
+
 	}
 
 //	public void Update()
@@ -45,6 +72,13 @@ public class InteractableObject : MonoBehaviour {
 //			}
 //			
 //	}
+	public void CloseInteractiveMenu()
+	{
+		if (GameController.instance.interactionMenu.open) 
+		{
+		GameController.instance.interactionMenu.CloseInteractiveMenu ();
+		}
+	}
 	public virtual void OpenInteractiveMenu()
 	{
 

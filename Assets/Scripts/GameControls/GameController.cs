@@ -18,6 +18,9 @@ public class GameController : MonoBehaviour {
 
 	[HideInInspector]
 	public DialogueController dCon;
+
+	[HideInInspector]
+	public GameObject currentArea;
 	//This is the public reference that other classes will use
 	public static GameController instance
 	{

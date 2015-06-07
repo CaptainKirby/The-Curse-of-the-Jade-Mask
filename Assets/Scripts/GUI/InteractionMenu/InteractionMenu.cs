@@ -25,6 +25,10 @@ public class InteractionMenu : MonoBehaviour
 	public float screenRatioHeight;
 
 	public GameObject currectActiveObject;
+
+	[HideInInspector]
+	public CharacterMovement cMovement;
+
 	public void Update()
 	{
 //		Debug.Log (UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject);
@@ -34,7 +38,7 @@ public class InteractionMenu : MonoBehaviour
 //	
 		if(Input.GetMouseButtonDown(0))
 		{
-			Debug.Log ("GEGNI");
+//			Debug.Log ("GEGNI");
 
 			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 	
@@ -50,10 +54,17 @@ public class InteractionMenu : MonoBehaviour
 						//CloseInteractiveMenu and open
 						if(currectActiveObject != hit.collider.gameObject)
 						{
+							if (GameController.instance.currentArea.Equals (currectActiveObject.GetComponent<InteractableObject>().area)) 
+							{
 //							Debug.Log (currectActiveObject)
-							Debug.Log ("GENUG");
+//							Debug.Log ("GENUG");
 							CloseInteractiveMenu();
 							hit.collider.GetComponent<InteractableObject>().OpenInteractiveMenu();
+							}
+							else
+							{
+								CloseInteractiveMenu();
+							}
 
 						}
 					}
@@ -75,6 +86,7 @@ public class InteractionMenu : MonoBehaviour
 	}
 	public void Start()
 	{
+		cMovement = GameObject.FindObjectOfType<CharacterMovement> ();
 		if(GameController.instance.gameSettings.interactiveMenuPrefab != null && !open)
 		{
 			currentInteractiveMenu = Instantiate(GameController.instance.gameSettings.interactiveMenuPrefab, Vector3.zero, GameController.instance.gameSettings.interactiveMenuPrefab.transform.rotation) as GameObject;
