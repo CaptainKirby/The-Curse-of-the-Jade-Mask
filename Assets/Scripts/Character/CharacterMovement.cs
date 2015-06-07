@@ -43,11 +43,14 @@ public class CharacterMovement : MonoBehaviour {
 	void SetPosition(Vector2 pos, int nr, GameObject stanceObj)
 	{
 		this.transform.position = pos;
-		Destroy (this.transform.GetChild (0).gameObject);
-		GameObject obj = Instantiate (stanceObj, Vector3.zero, Quaternion.identity) as GameObject;
-		obj.transform.SetParent (this.transform);
-		obj.transform.localPosition = Vector3.zero;
-		sRenderer = obj.GetComponent<SpriteRenderer> ();
+		if (stanceObj != null) 
+		{
+			Destroy (this.transform.GetChild (0).gameObject);
+			GameObject obj = Instantiate (stanceObj, Vector3.zero, Quaternion.identity) as GameObject;
+			obj.transform.SetParent (this.transform);
+			obj.transform.localPosition = Vector3.zero;
+			sRenderer = obj.GetComponent<SpriteRenderer> ();
+		}
 		sRenderer.sortingLayerName = "Character" + nr.ToString ();
 
 		StartCoroutine (FadeIn ());

@@ -12,7 +12,6 @@ GameObject:
   - 114: {fileID: 11452726}
   - 114: {fileID: 11458198}
   - 95: {fileID: 9582794}
-  - 225: {fileID: 22546306}
   m_Layer: 5
   m_Name: ObserveIcon
   m_TagString: Untagged
@@ -133,17 +132,6 @@ RectTransform:
   m_AnchoredPosition: {x: 86, y: -4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
---- !u!225 &22546306
-CanvasGroup:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 176734}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
