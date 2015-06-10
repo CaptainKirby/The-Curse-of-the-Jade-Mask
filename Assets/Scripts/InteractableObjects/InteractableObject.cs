@@ -22,32 +22,69 @@ public class InteractableObject : MonoBehaviour {
 		areaComponent = area.GetComponent<Area> ();
 		cMovement = GameObject.FindObjectOfType<CharacterMovement> ();
 	}
-	public virtual void OnMouseDown()
+	void Update()
 	{
-		Debug.Log ("Clicked on: " + this.gameObject.name);
-		if (GameController.instance.currentArea.Equals (area)) 
+		if(Input.GetMouseButtonUp(0))
 		{
-			//if game controller current area == this area && if chracter not moving
-			if(!cMovement.moving)
-				OpenInteractiveMenu ();
-
-		}
-		else
-		{
-			if(!cMovement.moving)
+			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+			if(hit.collider != null)
 			{
-				if(characterStance == null)
+				if(hit.collider.gameObject == this.gameObject)
 				{
-					StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, areaComponent.characterStance));
+					Debug.Log ("Clicked on: " + this.gameObject.name);
+					if (GameController.instance.currentArea.Equals (area)) 
+					{
+						//if game controller current area == this area && if chracter not moving
+						if(!cMovement.moving)
+							OpenInteractiveMenu ();
+						
+					}
+					else
+					{
+						if(!cMovement.moving)
+						{
+							if(characterStance == null)
+							{
+								StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, areaComponent.characterStance));
+							}
+							else
+							{
+								StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, characterStance));
+								
+							}
+							GameController.instance.currentArea = area;
+						}
+					}
 				}
-				else
-				{
-					StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, characterStance));
-				
-				}
-				GameController.instance.currentArea = area;
 			}
 		}
+	}
+	public virtual void OnMouseUp()
+	{
+//		Debug.Log ("Clicked on: " + this.gameObject.name);
+//		if (GameController.instance.currentArea.Equals (area)) 
+//		{
+//			//if game controller current area == this area && if chracter not moving
+//			if(!cMovement.moving)
+//				OpenInteractiveMenu ();
+//
+//		}
+//		else
+//		{
+//			if(!cMovement.moving)
+//			{
+//				if(characterStance == null)
+//				{
+//					StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, areaComponent.characterStance));
+//				}
+//				else
+//				{
+//					StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, characterStance));
+//				
+//				}
+//				GameController.instance.currentArea = area;
+//			}
+//		}
 		//else run chracter  function to move fra position to area pos
 
 	}

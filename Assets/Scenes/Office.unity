@@ -1910,7 +1910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standPosition: {x: .200000003, y: 1.25, z: 0}
   sortingLayerNr: 3
-  characterStance: {fileID: 144604, guid: 19923e0838af4c34b9c99829c9cffe18, type: 2}
+  characterStance: {fileID: 144604, guid: 7c9c26877ab87d94b938303cf007468f, type: 2}
 --- !u!1 &1471534538
 GameObject:
   m_ObjectHideFlags: 0

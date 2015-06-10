@@ -36,26 +36,29 @@ public class InteractionMenu : MonoBehaviour
 //		pe.position =  Input.mousePosition;
 		
 //	
-		if(Input.GetMouseButtonDown(0))
+		if(Input.GetMouseButtonUp(0))
 		{
-//			Debug.Log ("GEGNI");
+
 
 			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-	
 			if(open && !EventSystem.current.currentSelectedGameObject)
 			{	
 //				Debug.Log (EventSystem.current.currentSelectedGameObject);
 				if(hit.collider != null)
 				{
+					Debug.Log (hit.collider);
 					GameController.instance.dCon.obsText.SetActive(false);
 					GameController.instance.dCon.continueButton.SetActive (false);
 					if(hit.collider.GetComponent<InteractableObject>())
 					{
+
 						//CloseInteractiveMenu and open
 						if(currectActiveObject != hit.collider.gameObject)
 						{
 							if (GameController.instance.currentArea.Equals (currectActiveObject.GetComponent<InteractableObject>().area)) 
 							{
+
+
 //							Debug.Log (currectActiveObject)
 //							Debug.Log ("GENUG");
 							CloseInteractiveMenu();
