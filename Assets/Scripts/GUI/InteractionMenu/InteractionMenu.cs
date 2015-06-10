@@ -118,6 +118,7 @@ public class InteractionMenu : MonoBehaviour
 		CloseIcon(investigateIconActive);
 		CloseIcon(observeIconActive);
 		CloseIcon(pickupIconActive);
+		CloseIcon (interactIconActive);
 		//set position on canvas
 		currentInteractiveMenu.transform.position = WorldToGuiPoint (position);
 

@@ -14,6 +14,8 @@ public class InteractableObject : MonoBehaviour {
 
 	[HideInInspector]
 	public CharacterMovement cMovement;
+
+	public GameObject characterStance = null;
 	void Start()
 	{
 		area = this.transform.parent.gameObject;
@@ -34,7 +36,15 @@ public class InteractableObject : MonoBehaviour {
 		{
 			if(!cMovement.moving)
 			{
-				StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, areaComponent.characterStance));
+				if(characterStance == null)
+				{
+					StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, areaComponent.characterStance));
+				}
+				else
+				{
+					StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, characterStance));
+				
+				}
 				GameController.instance.currentArea = area;
 			}
 		}
@@ -94,6 +104,7 @@ public class InteractableObject : MonoBehaviour {
 		}
 		else
 		{
+
 //			Debug.Log ("gnesug");
 			//if hits another interactable object
 //			GameController.instance.interactionMenu.CloseInteractiveMenu();

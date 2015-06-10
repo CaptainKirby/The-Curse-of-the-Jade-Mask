@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: 0896dd490515a1c49b80abeb86656f6a
+timeCreated: 1433966961
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: QuinnPositions_lookupLeft
+    21300002: QuinnPositions_standTable
+    21300004: QuinnPositions_lookupRight
+    21300006: QuinnPositions_lookRightDown
+    21300008: QuinnPositions_separated_4
+    21300010: QuinnPositions_separated_5
+    21300012: QuinnPositions_drinksStand
+    21300014: QuinnPositions_standleftHand
+    21300016: QuinnPositions_lookdownFront
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: QuinnPositions_lookupLeft
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1323
+        width: 209
+        height: 535
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: QuinnPositions_standTable
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 1466
+        width: 227
+        height: 342
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: QuinnPositions_lookupRight
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 1272
+        width: 177
+        height: 528
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: QuinnPositions_lookRightDown
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 1313
+        width: 169
+        height: 530
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: QuinnPositions_separated_4
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1486
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: QuinnPositions_separated_5
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 1489
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: QuinnPositions_drinksStand
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 298
+        width: 163
+        height: 504
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: QuinnPositions_standleftHand
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 225
+        width: 244
+        height: 543
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: QuinnPositions_lookdownFront
+      rect:
+        serializedVersion: 2
+        x: 1486
+        y: 233
+        width: 187
+        height: 582
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
