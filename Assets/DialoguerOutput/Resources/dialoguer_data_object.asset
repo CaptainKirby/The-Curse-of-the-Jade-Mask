@@ -26,7 +26,8 @@ MonoBehaviour:
         outs: 01000000
         advanced: 0
         metadata: 
-        text: fygfjg
+        text: Mahogany desks are truly beautiful craftmanship. Too bad I can't afford
+          one. This one's oak.
         name: 
         portrait: 
         audio: 
@@ -51,40 +52,9 @@ MonoBehaviour:
         variableGetValue: 
         messageName: 
       - id: 1
-        type: 0
-        theme: 
-        position: {x: 604, y: 42}
-        outs: 02000000
-        advanced: 0
-        metadata: 
-        text: And I suppose it could be tidier..
-        name: 
-        portrait: 
-        audio: 
-        audioDelay: 0
-        rect:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        newWindow: 0
-        choices: []
-        waitType: 0
-        waitDuration: 0
-        variableScope: 0
-        variableType: 0
-        variableId: 0
-        variableScrollPosition: {x: 0, y: 0}
-        variableSetEquation: 0
-        variableSetValue: 
-        variableGetEquation: 0
-        variableGetValue: 
-        messageName: 
-      - id: 2
         type: 6
         theme: 
-        position: {x: 992, y: 37}
+        position: {x: 525, y: 69}
         outs: 
         advanced: 0
         metadata: 
@@ -273,7 +243,7 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: My file cabinet...it's stuffed full with old files.
+        text: Some of these files go all the way back to when Lloyd and I were partners.
         name: 
         portrait: 
         audio: 
@@ -318,7 +288,7 @@ MonoBehaviour:
         outs: 01000000
         advanced: 0
         metadata: 
-        text: '...'
+        text: It's a comfy chair.
         name: 
         portrait: 
         audio: 
@@ -425,7 +395,7 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: My bookshelf.
+        text: 'My bookshelf. '
         name: 
         portrait: 
         audio: 
@@ -501,7 +471,8 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: A mighty fine bourbon!
+        text: Ah... the good stuff. These days I try to only drink on special occasions.
+          Doctor's recommendation. Damn doctors.
         name: 
         portrait: 
         audio: 
@@ -577,7 +548,7 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: Old but good...
+        text: My old Royal. More faithful to me than the women I've known.
         name: 
         portrait: 
         audio: 
@@ -695,41 +666,10 @@ MonoBehaviour:
         type: 0
         theme: 
         position: {x: 89, y: 148}
-        outs: 02000000
-        advanced: 0
-        metadata: 
-        text: I should read more often...
-        name: 
-        portrait: 
-        audio: 
-        audioDelay: 0
-        rect:
-          serializedVersion: 2
-          x: 0
-          y: 0
-          width: 0
-          height: 0
-        newWindow: 0
-        choices: []
-        waitType: 0
-        waitDuration: 0
-        variableScope: 0
-        variableType: 0
-        variableId: 0
-        variableScrollPosition: {x: 0, y: 0}
-        variableSetEquation: 0
-        variableSetValue: 
-        variableGetEquation: 0
-        variableGetValue: 
-        messageName: 
-      - id: 2
-        type: 0
-        theme: 
-        position: {x: 447, y: 142}
         outs: 00000000
         advanced: 0
         metadata: 
-        text: Mostyle thereto impress.
+        text: I should read more often...
         name: 
         portrait: 
         audio: 
@@ -805,7 +745,8 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: My license, that once meant something..
+        text: My P.I. license. It used to mean more to me. But it looks good in a
+          frame.
         name: 
         portrait: 
         audio: 
@@ -881,7 +822,7 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: Recent events..
+        text: Personal notes and things I need to remember. I think.
         name: 
         portrait: 
         audio: 
@@ -957,7 +898,9 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: Can't leave yet.
+        text: '''Douglas Quinn, private investigator.'' Yep, that''s my name on the
+          door. Burke''s name used to be there too, when we were partners. Seems like
+          a lifetime ago.'
         name: 
         portrait: 
         audio: 
@@ -1033,7 +976,7 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: A ruggedy rug.
+        text: It really ties the room together.
         name: 
         portrait: 
         audio: 
@@ -1078,7 +1021,7 @@ MonoBehaviour:
         outs: 01000000
         advanced: 0
         metadata: 
-        text: I think I can see... ah, nevermind
+        text: I hope this heat wave wears off soon. We could use some rain.
         name: 
         portrait: 
         audio: 
@@ -1133,6 +1076,401 @@ MonoBehaviour:
         variableGetEquation: 0
         variableGetValue: 
         messageName: 
+      floats:
+        variables: []
+        selection: 0
+      strings:
+        variables: []
+        selection: 0
+      booleans:
+        variables: []
+        selection: 0
+    - id: 14
+      name: Office_Coatrack_observe
+      startPage: -1
+      scrollPosition: {x: 0, y: 0}
+      phases:
+      - id: 0
+        type: 0
+        theme: 
+        position: {x: 10, y: 103}
+        outs: 01000000
+        advanced: 0
+        metadata: 
+        text: A place to hang your jacket. My customer service is top notch.
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 6
+        theme: 
+        position: {x: 382, y: 129}
+        outs: 
+        advanced: 0
+        metadata: 
+        text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      floats:
+        variables: []
+        selection: 0
+      strings:
+        variables: []
+        selection: 0
+      booleans:
+        variables: []
+        selection: 0
+    - id: 15
+      name: Office_chair_Interact
+      startPage: -1
+      scrollPosition: {x: 0, y: 0}
+      phases:
+      - id: 0
+        type: 0
+        theme: 
+        position: {x: 53, y: 101}
+        outs: 01000000
+        advanced: 0
+        metadata: 
+        text: That's for the clients. It would confuse me if I sat in that one.
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 6
+        theme: 
+        position: {x: 426, y: 126}
+        outs: 
+        advanced: 0
+        metadata: 
+        text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      floats:
+        variables: []
+        selection: 0
+      strings:
+        variables: []
+        selection: 0
+      booleans:
+        variables: []
+        selection: 0
+    - id: 16
+      name: Office_window_interact
+      startPage: -1
+      scrollPosition: {x: 0, y: 0}
+      phases:
+      - id: 0
+        type: 0
+        theme: 
+        position: {x: 11, y: 107}
+        outs: 01000000
+        advanced: 0
+        metadata: 
+        text: The blinds are fine where they are.
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 6
+        theme: 
+        position: {x: 408, y: 138}
+        outs: 
+        advanced: 0
+        metadata: 
+        text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      floats:
+        variables: []
+        selection: 0
+      strings:
+        variables: []
+        selection: 0
+      booleans:
+        variables: []
+        selection: 0
+    - id: 17
+      name: Office_license_interact
+      startPage: -1
+      scrollPosition: {x: 0, y: 0}
+      phases:
+      - id: 0
+        type: 0
+        theme: 
+        position: {x: 38, y: 121}
+        outs: 01000000
+        advanced: 0
+        metadata: 
+        text: I don't need to carry the big license around. I've already got a handy
+          one in my wallet.
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 6
+        theme: 
+        position: {x: 361, y: 48}
+        outs: 
+        advanced: 0
+        metadata: 
+        text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      floats:
+        variables: []
+        selection: 0
+      strings:
+        variables: []
+        selection: 0
+      booleans:
+        variables: []
+        selection: 0
+    - id: 18
+      name: Office_typewriter_interact
+      startPage: -1
+      scrollPosition: {x: 0, y: 0}
+      phases:
+      - id: 0
+        type: 0
+        theme: 
+        position: {x: 22, y: 67}
+        outs: 01000000
+        advanced: 0
+        metadata: 
+        text: There's no paper in it.
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 6
+        theme: 
+        position: {x: 360, y: 76}
+        outs: 
+        advanced: 0
+        metadata: 
+        text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      floats:
+        variables: []
+        selection: 0
+      strings:
+        variables: []
+        selection: 0
+      booleans:
+        variables: []
+        selection: 0
+    - id: 19
+      name: 
+      startPage: -1
+      scrollPosition: {x: 0, y: 0}
+      phases: []
       floats:
         variables: []
         selection: 0
