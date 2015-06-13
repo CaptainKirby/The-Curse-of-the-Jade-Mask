@@ -15,4 +15,5 @@ public enum DialoguerDialogues{
 	Office_door_Observe = 11,
 	Office_carpet_Observe = 12,
 	Office_window_Observe = 13,
+	Office_Coatrack_observe = 14,
 }
