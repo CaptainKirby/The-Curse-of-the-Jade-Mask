@@ -11,7 +11,8 @@ public class InteractionMenu : MonoBehaviour
 	private int numberOfMenuPoints;
 
 	private Image[] circles = new Image[3];
-
+	private string name;
+	private Text nameText;
 	private Image pickupIconActive;
 	public Image observeIconActive;
 	private Image investigateIconActive;
@@ -49,6 +50,7 @@ public class InteractionMenu : MonoBehaviour
 					Debug.Log (hit.collider);
 					GameController.instance.dCon.obsTextObj.SetActive(false);
 					GameController.instance.dCon.continueButton.SetActive (false);
+					GameController.instance.dCon.endButton.SetActive (false);
 					if(hit.collider.GetComponent<InteractableObject>())
 					{
 
@@ -125,6 +127,11 @@ public class InteractionMenu : MonoBehaviour
 		CloseIcon (interactIconActive);
 		//set position on canvas
 		currentInteractiveMenu.transform.position = WorldToGuiPoint (position);
+
+		// get name and text component
+		nameText = currentInteractiveMenu.GetComponent<InteractiveMenuConfig> ().nameText;
+		name = gObj.GetComponent<InteractableObject> ().name;
+		nameText.text = name;
 
 		//get the circles on the current menu
 		circles = currentInteractiveMenu.GetComponent<InteractiveMenuConfig> ().circles;

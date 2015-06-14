@@ -15,5 +15,6 @@ public class GameSettings : ScriptableObject {
 	public GameObject observeText;
 	public GameObject continueButton;
 	public GameObject endButton;
+	public GameObject musicSource;
 
 }

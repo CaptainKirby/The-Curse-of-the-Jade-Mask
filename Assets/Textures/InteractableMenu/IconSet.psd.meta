@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d76ddefd654e2494080d19e89350220c
-timeCreated: 1433966090
+timeCreated: 1434308264
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -57,8 +57,8 @@ TextureImporter:
     - name: observeSprite
       rect:
         serializedVersion: 2
-        x: 75
-        y: 787
+        x: 72
+        y: 792
         width: 150
         height: 150
       alignment: 0

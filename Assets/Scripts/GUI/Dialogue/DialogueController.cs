@@ -18,7 +18,8 @@ public class DialogueController : MonoBehaviour {
 	public GameObject continueButton;
 
 	private GameObject endButtonPrefab;
-	private GameObject endButton;
+	[HideInInspector]
+	public GameObject endButton;
 
 	private string[] choices;
 
