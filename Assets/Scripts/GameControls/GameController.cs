@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
 	private bool loadedScene;
 //	[HideInInspector]
 	public GameObject uiCanvas = null;
+	public bool showBlackBars = true;
 //	[HideInInspector]
 	public InteractionMenu interactionMenu;
 
@@ -44,6 +45,10 @@ public class GameController : MonoBehaviour {
 			//instantiate and declare
 			this.uiCanvas = Instantiate (gameSettings.uiCanvas, Vector3.zero, Quaternion.identity) as GameObject;
 			uiCanvas.gameObject.name = "UiCanvas";
+			if(!showBlackBars)
+			{
+				uiCanvas.transform.FindChild("Blackbars").gameObject.SetActive(false);
+			}
 		} else 
 		{
 			Debug.Log ("No UI Canvas assigned in Game Settings!");

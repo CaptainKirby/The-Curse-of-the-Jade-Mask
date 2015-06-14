@@ -23,3 +23,10 @@ MonoBehaviour:
   observeText: {fileID: 140572, guid: 0d182964487368141bf414ec81d0aa9a, type: 2}
   continueButton: {fileID: 185312, guid: 44732cef5164eeb46bbed69cecbcb1e0, type: 2}
   endButton: {fileID: 132238, guid: c627dd80e1e298a41be312dd4538dd12, type: 2}
+  musicSource: {fileID: 0}
+  mainMenuBg: {fileID: 139034, guid: 017a44fdb3013a94199fc98f95f51ff7, type: 2}
+  mainMenuButton: {fileID: 197408, guid: 0199d04221ae1204588ea4825ea1d1a2, type: 2}
+  hoverColor: {r: .524437726, g: .735294104, b: .620058596, a: 1}
+  mouseDownColor: {r: .283845156, g: .514705896, b: .386449933, a: 1}
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
+  usedColor: {r: .456422985, g: .82921946, b: .926470578, a: 1}
