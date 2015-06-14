@@ -131,6 +131,7 @@ public class InteractionMenu : MonoBehaviour
 		// get name and text component
 		nameText = currentInteractiveMenu.GetComponent<InteractiveMenuConfig> ().nameText;
 		name = gObj.GetComponent<InteractableObject> ().name;
+//		Debug.Log (name);
 		nameText.text = name;
 
 		//get the circles on the current menu
