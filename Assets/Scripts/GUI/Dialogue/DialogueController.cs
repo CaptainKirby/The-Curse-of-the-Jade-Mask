@@ -11,11 +11,14 @@ public class DialogueController : MonoBehaviour {
 	private GameController gCon;
 	private GameObject obsTextPrefab;
 	[HideInInspector]
-	public GameObject obsText;
+	public GameObject obsTextObj;
+	public Text obsTextC;
 	private GameObject continueButtonPrefab;
 	[HideInInspector]
 	public GameObject continueButton;
 
+	private GameObject endButtonPrefab;
+	private GameObject endButton;
 
 	private string[] choices;
 
@@ -31,11 +34,13 @@ public class DialogueController : MonoBehaviour {
 		//observe text init
 		gCon = GameController.instance;
 		obsTextPrefab = gCon.gameSettings.observeText;
-		obsText = Instantiate (obsTextPrefab, Vector3.zero, Quaternion.identity) as GameObject;
-		obsText.transform.SetParent (gCon.dialogueHolder.transform);
-		obsText.GetComponent<RectTransform> ().localPosition = obsTextPrefab.transform.position;
-		obsText.GetComponent<RectTransform> ().localScale = Vector3.one;
-		obsText.SetActive (false);
+		obsTextObj = Instantiate (obsTextPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+		obsTextObj.transform.SetParent (gCon.dialogueHolder.transform);
+		obsTextObj.GetComponent<RectTransform> ().localPosition = obsTextPrefab.transform.position;
+		obsTextObj.GetComponent<RectTransform> ().localScale = Vector3.one;
+		obsTextC = obsTextObj.GetComponentInChildren<Text> ();
+
+		obsTextObj.SetActive (false);
 
 
 		//continue button init
@@ -47,6 +52,15 @@ public class DialogueController : MonoBehaviour {
 		continueButton.SetActive (false);
 		continueButton.GetComponent<Button> ().onClick.AddListener(() => Dialoguer.ContinueDialogue());
 
+		//endButton init
+		endButtonPrefab = gCon.gameSettings.endButton;
+		endButton = Instantiate ( endButtonPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+		endButton.transform.SetParent (gCon.dialogueHolder.transform);
+		endButton.GetComponent<RectTransform> ().localPosition = endButtonPrefab.transform.position;
+		endButton.GetComponent<RectTransform> ().localScale = Vector3.one;
+		endButton.SetActive (false);
+		endButton.GetComponent<Button> ().onClick.AddListener(() => Dialoguer.EndDialogue());
+
 
 		Dialoguer.events.onStarted += OnStarted;
 		Dialoguer.events.onEnded += OnEnded;
@@ -57,7 +71,7 @@ public class DialogueController : MonoBehaviour {
 
 	private void OnStarted()
 	{
-		obsText.SetActive (false);
+		obsTextObj.SetActive (false);
 
 		started = true;
 	}
@@ -65,19 +79,23 @@ public class DialogueController : MonoBehaviour {
 	private void OnEnded()
 	{
 		started = false;
-		obsText.SetActive (false);
+		obsTextObj.SetActive (false);
 		continueButton.SetActive (false);
+		endButton.SetActive (false);
 	}
 
 	private void OnTextPhase(DialoguerTextData data)
 	{
+//		Debug.Log (data.choices);
 		choices = data.choices;
 		text = data.text;
-		if(choices == null)
+		endButton.SetActive (true);
+		if(choices == null) 
 		{
 			continueButton.SetActive(true);
 		}
-		obsText.GetComponent<Text> ().text = text;
+		obsTextC.text = text;
+//		obsText.GetComponentInChildren<Text> ().text = text;
 	}
 
 }

@@ -595,7 +595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4288e2a7d02201449997fa1a1947adf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obsText: {fileID: 0}
+  obsTextObj: {fileID: 0}
+  obsTextC: {fileID: 0}
   continueButton: {fileID: 0}
 --- !u!1 &657114883
 GameObject:

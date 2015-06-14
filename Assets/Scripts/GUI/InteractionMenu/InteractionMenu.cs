@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -47,7 +47,7 @@ public class InteractionMenu : MonoBehaviour
 				if(hit.collider != null)
 				{
 					Debug.Log (hit.collider);
-					GameController.instance.dCon.obsText.SetActive(false);
+					GameController.instance.dCon.obsTextObj.SetActive(false);
 					GameController.instance.dCon.continueButton.SetActive (false);
 					if(hit.collider.GetComponent<InteractableObject>())
 					{
@@ -80,7 +80,7 @@ public class InteractionMenu : MonoBehaviour
 				}
 				else
 				{
-					GameController.instance.dCon.obsText.SetActive(false);
+					GameController.instance.dCon.obsTextObj.SetActive(false);
 					GameController.instance.dCon.continueButton.SetActive (false);
 					CloseInteractiveMenu();
 				}
@@ -94,6 +94,7 @@ public class InteractionMenu : MonoBehaviour
 		{
 			currentInteractiveMenu = Instantiate(GameController.instance.gameSettings.interactiveMenuPrefab, Vector3.zero, GameController.instance.gameSettings.interactiveMenuPrefab.transform.rotation) as GameObject;
 			currentInteractiveMenu.transform.SetParent(GameController.instance.uiCanvas.transform);
+			currentInteractiveMenu.transform.SetAsFirstSibling();
 			currentInteractiveMenu.SetActive(false);
 //			currentInteractiveMenu.GetComponent<RectTransform>().sizeDelta = currentInteractiveMenu.GetComponent<RectTransform>().sizeDelta * 2;
 //			screenRatioWidth = Screen.width / 2048;
@@ -310,7 +311,7 @@ public class InteractionMenu : MonoBehaviour
 //			if(diag.ToString() != gObj.name)
 //			{
 				Dialoguer.StartDialogue(diag); 
-				GameController.instance.dCon.obsText.SetActive(true);
+				GameController.instance.dCon.obsTextObj.SetActive(true);
 //			}
 		}
 		if (img == pickupIconActive) 

@@ -14,5 +14,6 @@ public class GameSettings : ScriptableObject {
 	public Image interactIcon;
 	public GameObject observeText;
 	public GameObject continueButton;
+	public GameObject endButton;
 
 }
