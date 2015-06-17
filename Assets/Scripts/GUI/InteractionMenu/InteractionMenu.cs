@@ -32,18 +32,12 @@ public class InteractionMenu : MonoBehaviour
 	[HideInInspector]
 	public CharacterMovement cMovement;
 
-	public bool isTouching;
-	public bool touchUp;
-	public bool release;
-
+	[HideInInspector]
+	public GameObject backButton;
 
 	public void Update()
 	{
-//		Debug.Log (UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject);
-//		PointerEventData pe = new PointerEventData(EventSystem.current);
-//		pe.position =  Input.mousePosition;
 
-		//		CheckUp ();
 		if(Input.GetMouseButtonUp(0))
 		{
 
@@ -342,12 +336,59 @@ public class InteractionMenu : MonoBehaviour
 				GameController.instance.playerState = GameController.PlayerState.Zoom;
 				CloseInteractiveMenu();
 				gObj.GetComponent<InteractableObject>().investigateObj.SetActive(true);
+
+				if(GameController.instance.gameSettings.zoomIcon != null)
+				{
+					if(backButton == null)
+					{
+						backButton = Instantiate(GameController.instance.gameSettings.zoomBackButton, Vector3.zero, Quaternion.identity) as GameObject;
+						backButton.transform.SetParent(GameController.instance.uiCanvas.transform);
+						RectTransform rT = backButton.GetComponent<RectTransform>();
+
+						rT.anchoredPosition = GameController.instance.gameSettings.zoomBackButton.GetComponent<RectTransform>().anchoredPosition;
+						rT.localScale = GameController.instance.gameSettings.zoomBackButton.GetComponent<RectTransform>().localScale;
+						rT.sizeDelta = GameController.instance.gameSettings.zoomBackButton.GetComponent<RectTransform>().sizeDelta;
+					}
+					else
+					{
+						backButton.SetActive(true);
+					}
+
+					backButton.GetComponent<Button>().onClick.AddListener(() => GoBackFromZoom(gObj.GetComponent<InteractableObject>()));
+				}
 			}
 //			DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Investigate" );
 
 		}
-	}
+		if(img == openIconActive)
+		{
+			CloseInteractiveMenu();
+			InteractableObject iO = gObj.GetComponent<InteractableObject>();
+			if(iO.spriteRendererToUpdate != null)
+			{
+				SpriteRenderer r = iO.spriteRendererToUpdate;
+				if(r.sprite == iO.spriteToUpdateFrom)
+					r.sprite = iO.spriteToUpdateTo;
+				else
+					r.sprite = iO.spriteToUpdateFrom;
+			}
+			if(iO.objsToEnable.Length > 0)
+			{
+				for(int i = 0; i < iO.objsToEnable.Length; i++)
+			    {
+					iO.objsToEnable[i].SetActive(true);
+				}
 
+			}
+
+		}
+	}
+	public void GoBackFromZoom(InteractableObject intObj)
+	{
+		intObj.investigateObj.SetActive (false);
+		backButton.SetActive (false);
+		GameController.instance.playerState = GameController.PlayerState.OpenArea;
+	}
 //	IEnumerator TouchDown(Image newIcon, GameObject gObj)
 //	{
 //		yield return new WaitForSeconds (0.1f);

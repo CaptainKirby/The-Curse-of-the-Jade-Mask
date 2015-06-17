@@ -17,6 +17,10 @@ public class GameSettings : ScriptableObject {
 	public Image useIcon;
 	public Image talkIcon;
 
+
+	[Header("Zoom Gui")]
+
+	 public GameObject zoomBackButton;
 	[Header("Dialogue")]
 	public GameObject observeText;
 	public GameObject continueButton;

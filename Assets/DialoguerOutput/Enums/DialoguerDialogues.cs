@@ -26,4 +26,5 @@ public enum DialoguerDialogues{
 	Desk_papers_Observe = 23,
 	Desk_ashtray_Observe = 24,
 	Desk_drawer_Observe = 25,
+	Writingdesk_drawer_license_Observe = 26,
 }
