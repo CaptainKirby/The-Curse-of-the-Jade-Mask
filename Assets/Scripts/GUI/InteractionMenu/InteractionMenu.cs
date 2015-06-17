@@ -15,9 +15,11 @@ public class InteractionMenu : MonoBehaviour
 	private Text nameText;
 	private Image pickupIconActive;
 	public Image observeIconActive;
-	private Image investigateIconActive;
+	private Image zoomIconActive;
 	private Image talkIconActive;
-	private Image interactIconActive;
+	private Image openIconActive;
+	private Image leaveIconActive;
+	private Image useIconActive;
 
 	[HideInInspector]
 	public bool open = false;
@@ -127,10 +129,12 @@ public class InteractionMenu : MonoBehaviour
 		open = true;
 		currentInteractiveMenu.SetActive (true);
 		CloseIcon(talkIconActive);
-		CloseIcon(investigateIconActive);
+		CloseIcon(zoomIconActive);
 		CloseIcon(observeIconActive);
 		CloseIcon(pickupIconActive);
-		CloseIcon (interactIconActive);
+		CloseIcon (openIconActive);
+		CloseIcon (leaveIconActive);
+		CloseIcon (useIconActive);
 		//set position on canvas
 		currentInteractiveMenu.transform.position = WorldToGuiPoint (position);
 
@@ -146,32 +150,48 @@ public class InteractionMenu : MonoBehaviour
 		{
 			i.gameObject.SetActive(false);
 		}
-		if(type == InteractableObject.InteractionType.Pickup)
+		if(type == InteractableObject.InteractionType.Observe)
 		{
 			numberOfMenuPoints = 2;
-			ShowPickup (0,gObj);
-			ShowObserve(1, gObj);
-//			ShowIcon (0,gObj, pickupIconActive, GameController.instance.gameSettings.pickupIcon);
-//			ShowIcon (1,gObj, observeIconActive, GameController.instance.gameSettings.observeIcon);
-
-			
+//			ShowPickup (0,gObj);
+			ShowObserve(1, gObj);	
 			
 		}
-		if(type.Equals(InteractableObject.InteractionType.Interact))
-		{
-
-//			ShowIcon (0,gObj, investigateIconActive, GameController.instance.gameSettings.investigateIcon);
-			ShowObserve(1,gObj);
-			ShowInteract(0,gObj);
-//			ShowIcon (1,gObj, observeIconActive, GameController.instance.gameSettings.observeIcon);
-//			Debug.Log ("VNEU");
-			
-		}
-		if(type.Equals(InteractableObject.InteractionType.Investigate))
+		if(type == InteractableObject.InteractionType.ObserveZoom)
 		{
 			ShowObserve(1,gObj);
-			ShowInvestigate(0,gObj);
+			ShowZoom(0,gObj);
+			
 		}
+		if(type == InteractableObject.InteractionType.ObserveUse)
+		{
+			ShowObserve(1,gObj);
+			ShowUse(0,gObj);
+		}
+		if(type == InteractableObject.InteractionType.ObservePickup)
+		{
+			ShowObserve(1,gObj);
+			ShowPickup(0,gObj);
+		}
+		if(type == InteractableObject.InteractionType.ObservePickupZoom)
+		{
+			ShowObserve(1,gObj);
+			ShowZoom(0,gObj);
+			ShowPickup(2,gObj);
+		}
+		if(type == InteractableObject.InteractionType.ObserveLeave)
+		{
+			ShowObserve(1,gObj);
+			ShowLeave(0,gObj);
+		}
+		if(type == InteractableObject.InteractionType.ObserveOpen)
+		{
+			ShowObserve(1,gObj);
+			ShowOpen(0,gObj);
+		}
+
+
+
 	}
 
 	void CloseIcon(Image icon)
@@ -199,65 +219,44 @@ public class InteractionMenu : MonoBehaviour
 		return guiPosition;
 	}
 
-//	public void ShowIcon(int pos, GameObject gObj, Image icon, Image iconRef)
-//	{
-////		Debug.Log (iconRef);
-//		if (icon == null) 
-//		{
-//			circles [pos].gameObject.SetActive (true);
-//			icon = ActivateIcon (iconRef, circles [pos].transform.position, gObj, true);
-////			Debug.Log (icon);
-//		}
-//
-//	}
+
 	public void ShowPickup(int pos, GameObject gObj)
 	{
-//		if (pickupIconActive == null) 
-//		{
-			//make circle visible
+
 			circles [pos].gameObject.SetActive (true);
 			//activate icon Set to seperate function?
 			pickupIconActive = ActivateIcon (GameController.instance.gameSettings.pickupIcon, circles [pos].transform.position, gObj, true);
-//		}
-//		else 
-//		{
-//			circles [pos].gameObject.SetActive (true);
-//			pickupIconActive = ActivateIcon (pickupIconActive, circles [pos].transform.position, gObj,false);
-//		}
-		//
+
 	}
-	public void ShowInvestigate(int pos, GameObject gObj)
+	public void ShowZoom(int pos, GameObject gObj)
 	{
-//		if (investigateIconActive == null) 
-//		{
 			circles [pos].gameObject.SetActive (true);
-			investigateIconActive = ActivateIcon (GameController.instance.gameSettings.investigateIcon, circles [pos].transform.position, gObj, true);
-//		}
-//		else 
-//		{
-//			circles [pos].gameObject.SetActive (true);
-//			investigateIconActive = ActivateIcon (investigateIconActive, circles [pos].transform.position, gObj, false);
-//		}
+			zoomIconActive = ActivateIcon (GameController.instance.gameSettings.zoomIcon, circles [pos].transform.position, gObj, true);
+
 	}
 
 	public void ShowObserve(int pos, GameObject gObj)
 	{
-//		if(observeIconActive == null)
-//		{
-//		Debug.Log ("veugs");
 			circles [pos].gameObject.SetActive (true);
 			observeIconActive = ActivateIcon (GameController.instance.gameSettings.observeIcon, circles [pos].transform.position, gObj, true);
-//		}
-//		else 
-//		{
-//
-//			circles [pos].gameObject.SetActive (true);
-//			observeIconActive = ActivateIcon (observeIconActive, circles [pos].transform.position, gObj, false);
-//
-//		}
+	}
+	public void ShowUse(int pos, GameObject gObj)
+	{
+		circles [pos].gameObject.SetActive (true);
+		useIconActive = ActivateIcon (GameController.instance.gameSettings.useIcon, circles [pos].transform.position, gObj, true);
+	}	
 
+	public void ShowLeave(int pos, GameObject gObj)
+	{
+		circles [pos].gameObject.SetActive (true);
+		leaveIconActive = ActivateIcon (GameController.instance.gameSettings.leaveIcon, circles [pos].transform.position, gObj, true);
 	}
 
+	public void ShowOpen(int pos, GameObject gObj)
+	{
+		circles [pos].gameObject.SetActive (true);
+		openIconActive = ActivateIcon (GameController.instance.gameSettings.openIcon, circles [pos].transform.position, gObj, true);
+	}
 	public void ShowTalk(int pos, GameObject gObj)
 	{
 //		if(talkIconActive == null)
@@ -272,19 +271,19 @@ public class InteractionMenu : MonoBehaviour
 //		}
 	}
 
-	public void ShowInteract(int pos, GameObject gObj)
-	{
-		//		if(talkIconActive == null)
-		//		{
-		circles [pos].gameObject.SetActive (true);
-		interactIconActive = ActivateIcon (GameController.instance.gameSettings.interactIcon, circles [pos].transform.position, gObj, true);
-		//		}
-		//		else 
-		//		{
-		//			circles [pos].gameObject.SetActive (true);
-		//			
-		//		}
-	}
+//	public void ShowZoom(int pos, GameObject gObj)
+//	{
+//		//		if(talkIconActive == null)
+//		//		{
+//		circles [pos].gameObject.SetActive (true);
+//		interactIconActive = ActivateIcon (GameController.instance.gameSettings.interactIcon, circles [pos].transform.position, gObj, true);
+//		//		}
+//		//		else 
+//		//		{
+//		//			circles [pos].gameObject.SetActive (true);
+//		//			
+//		//		}
+//	}
 	public Image ActivateIcon(Image icon, Vector3 pos, GameObject gObj, bool init)
 	{
 //		Debug.Log (gObj + " wut");
@@ -338,7 +337,7 @@ public class InteractionMenu : MonoBehaviour
 //			DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Talk" );
 
 		}
-		if (img == investigateIconActive) 
+		if (img == zoomIconActive) 
 		{
 			if(gObj.GetComponent<InteractableObject>().investigateObj != null)
 			{

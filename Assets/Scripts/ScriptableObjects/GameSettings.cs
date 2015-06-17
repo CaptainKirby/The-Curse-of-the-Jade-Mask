@@ -11,9 +11,11 @@ public class GameSettings : ScriptableObject {
 	public GameObject interactiveMenuPrefab;
 	public Image pickupIcon;
 	public Image observeIcon;
-	public Image investigateIcon;
+	public Image zoomIcon;
+	public Image openIcon;
+	public Image leaveIcon;
+	public Image useIcon;
 	public Image talkIcon;
-	public Image interactIcon;
 
 	[Header("Dialogue")]
 	public GameObject observeText;

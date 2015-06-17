@@ -2,7 +2,7 @@
 using System.Collections;
 public class InteractableObject : MonoBehaviour {
 //	public string name = "Object";
-	public enum InteractionType{Pickup, Interact, Investigate};
+	public enum InteractionType{Observe, ObserveZoom, ObserveUse, ObservePickup, ObservePickupZoom, ObserveLeave, ObserveOpen};
 	public InteractionType interactionType;
 	public string name = "Temp";
 //	[HideInInspector]
