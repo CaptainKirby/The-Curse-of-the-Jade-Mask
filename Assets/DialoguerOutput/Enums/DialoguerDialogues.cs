@@ -16,4 +16,8 @@ public enum DialoguerDialogues{
 	Office_carpet_Observe = 12,
 	Office_window_Observe = 13,
 	Office_Coatrack_observe = 14,
+	Office_chair_Interact = 15,
+	Office_window_interact = 16,
+	Office_license_interact = 17,
+	Office_typewriter_interact = 18,
 }
