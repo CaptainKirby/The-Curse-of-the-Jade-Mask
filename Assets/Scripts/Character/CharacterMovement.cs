@@ -18,7 +18,7 @@ public class CharacterMovement : MonoBehaviour {
 
 		startColor = sRenderer.color;
 	}
-	public IEnumerator FadeOut(Vector2 pos, int nr, GameObject stanceObj)
+	public IEnumerator FadeOut(Vector2 pos, int nr, GameObject stanceObj, InteractableObject intObj)
 	{
 		moving = true;
 		float mTime = 0;
@@ -32,7 +32,7 @@ public class CharacterMovement : MonoBehaviour {
 			}
 			else
 			{
-				SetPosition(pos, nr, stanceObj); 
+				SetPosition(pos, nr, stanceObj, intObj); 
 				onOff = false;
 				yield break;
 			}
@@ -40,7 +40,7 @@ public class CharacterMovement : MonoBehaviour {
 		}
 	}
 
-	void SetPosition(Vector2 pos, int nr, GameObject stanceObj)
+	void SetPosition(Vector2 pos, int nr, GameObject stanceObj, InteractableObject intObj)
 	{
 		this.transform.position = pos;
 		if (stanceObj != null) 
@@ -53,9 +53,9 @@ public class CharacterMovement : MonoBehaviour {
 		}
 		sRenderer.sortingLayerName = "Character" + nr.ToString ();
 
-		StartCoroutine (FadeIn ());
+		StartCoroutine (FadeIn (intObj));
 	}
-	public IEnumerator FadeIn()
+	public IEnumerator FadeIn(InteractableObject intObj)
 	{
 		float mTime = 0;
 		bool onOff = true;
@@ -69,6 +69,7 @@ public class CharacterMovement : MonoBehaviour {
 			else
 			{
 //				SetArea();
+				intObj.OpenInteractiveMenu();
 				moving = false;
 				onOff = false;
 				yield break;

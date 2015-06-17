@@ -16,6 +16,28 @@ public class InteractableObject : MonoBehaviour {
 	public CharacterMovement cMovement;
 
 	public GameObject characterStance = null;
+	public bool isTouching;
+	public bool touchUp;
+	public bool release;
+//	void CheckUp()
+//	{
+//		if( Input.touchCount == 1 )
+//		{
+//			isTouching  = true;
+//			//			info = Input.touches[0];
+//		}
+//		if( isTouching )
+//		{
+//			if(Input.touchCount < 1)
+//			{
+//				isTouching = false;
+//				release = true;
+//			}
+//		}
+//		if (release)
+//			release = false;
+//	}
+
 	void Start()
 	{
 		area = this.transform.parent.gameObject;
@@ -24,6 +46,7 @@ public class InteractableObject : MonoBehaviour {
 	}
 	void Update()
 	{
+
 		if(Input.GetMouseButtonUp(0))
 		{
 			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
@@ -31,8 +54,8 @@ public class InteractableObject : MonoBehaviour {
 			{
 				if(hit.collider.gameObject == this.gameObject)
 				{
-					Debug.Log ("Clicked on: " + this.gameObject.name);
-					if (GameController.instance.currentArea.Equals (area)) 
+//					Debug.Log ("Clicked on: " + this.gameObject.name);
+					if (GameController.instance.currentArea == area) 
 					{
 						//if game controller current area == this area && if chracter not moving
 						if(!cMovement.moving)
@@ -45,11 +68,11 @@ public class InteractableObject : MonoBehaviour {
 						{
 							if(characterStance == null)
 							{
-								StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, areaComponent.characterStance));
+								StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, areaComponent.characterStance, this));
 							}
 							else
 							{
-								StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, characterStance));
+								StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, characterStance, this));
 								
 							}
 							GameController.instance.currentArea = area;

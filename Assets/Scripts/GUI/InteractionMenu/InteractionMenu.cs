@@ -30,14 +30,20 @@ public class InteractionMenu : MonoBehaviour
 	[HideInInspector]
 	public CharacterMovement cMovement;
 
+	public bool isTouching;
+	public bool touchUp;
+	public bool release;
+
+
 	public void Update()
 	{
 //		Debug.Log (UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject);
 //		PointerEventData pe = new PointerEventData(EventSystem.current);
 //		pe.position =  Input.mousePosition;
-		
-//	
+
+		//		CheckUp ();
 		if(Input.GetMouseButtonUp(0))
+		
 		{
 
 
@@ -57,7 +63,7 @@ public class InteractionMenu : MonoBehaviour
 						//CloseInteractiveMenu and open
 						if(currectActiveObject != hit.collider.gameObject)
 						{
-							if (GameController.instance.currentArea.Equals (currectActiveObject.GetComponent<InteractableObject>().area)) 
+							if (GameController.instance.currentArea == currectActiveObject.GetComponent<InteractableObject>().area) 
 							{
 
 
