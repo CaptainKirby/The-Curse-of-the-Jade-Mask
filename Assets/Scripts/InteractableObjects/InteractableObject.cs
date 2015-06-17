@@ -16,27 +16,13 @@ public class InteractableObject : MonoBehaviour {
 	public CharacterMovement cMovement;
 
 	public GameObject characterStance = null;
-	public bool isTouching;
-	public bool touchUp;
-	public bool release;
-//	void CheckUp()
-//	{
-//		if( Input.touchCount == 1 )
-//		{
-//			isTouching  = true;
-//			//			info = Input.touches[0];
-//		}
-//		if( isTouching )
-//		{
-//			if(Input.touchCount < 1)
-//			{
-//				isTouching = false;
-//				release = true;
-//			}
-//		}
-//		if (release)
-//			release = false;
-//	}
+	
+	public SpriteRenderer spriteRendererToUpdate;
+	public Sprite spriteToUpdateFrom;
+
+	public Sprite spriteToUpdateTo;
+
+	public GameObject[] objsToEnable;
 
 	void Start()
 	{
