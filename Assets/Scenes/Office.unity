@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 3440385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.19999981, y: 4.0999999, z: -.899999976}
   m_LocalScale: {x: 1.5151515, y: 1.5151515, z: 1.5151515}
   m_Children: []
   m_Father: {fileID: 1809138929}
@@ -170,7 +170,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -3.38000011, y: -2.71000004}
   m_Points:
     m_Paths:
     - - {x: 3.56656241, y: 3.26339531}
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 1
-  name: Temp
+  name: Ashtray
   investigateObj: {fileID: 0}
   area: {fileID: 0}
   cMovement: {fileID: 0}
@@ -353,7 +353,7 @@ GameObject:
   - 114: {fileID: 248712183}
   - 60: {fileID: 248712182}
   m_Layer: 0
-  m_Name: Office_typewriter
+  m_Name: Office_writingdesk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,8 +537,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 1
-  name: Typewriter
-  investigateObj: {fileID: 0}
+  name: Writing Desk
+  investigateObj: {fileID: 2114436175}
   area: {fileID: 0}
   cMovement: {fileID: 0}
   characterStance: {fileID: 0}
@@ -663,6 +663,7 @@ MonoBehaviour:
   dialogueHolder: {fileID: 0}
   dCon: {fileID: 0}
   currentArea: {fileID: 0}
+  playerState: 0
 --- !u!114 &646021619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,7 +1077,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 766589947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -.899999976}
   m_LocalScale: {x: 1.5151515, y: 1.5151515, z: 1.5151515}
   m_Children: []
   m_Father: {fileID: 1809138929}
@@ -1111,7 +1112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 1
-  name: Temp
+  name: Drawer
   investigateObj: {fileID: 0}
   area: {fileID: 0}
   cMovement: {fileID: 0}
@@ -1145,6 +1146,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1809138929}
+  - {fileID: 2114436176}
   m_Father: {fileID: 0}
   m_RootOrder: 5
 --- !u!1 &957566555
@@ -2095,6 +2097,74 @@ MonoBehaviour:
   standPosition: {x: .200000003, y: 1.25, z: 0}
   sortingLayerNr: 3
   characterStance: {fileID: 144604, guid: 7c9c26877ab87d94b938303cf007468f, type: 2}
+--- !u!1 &1441964206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1441964209}
+  - 60: {fileID: 1441964208}
+  - 114: {fileID: 1441964207}
+  m_Layer: 0
+  m_Name: Writingdesk_typewriter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1441964207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1441964206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 0
+  name: Typewriter
+  investigateObj: {fileID: 0}
+  area: {fileID: 0}
+  cMovement: {fileID: 0}
+  characterStance: {fileID: 0}
+  isTouching: 0
+  touchUp: 0
+  release: 0
+--- !u!60 &1441964208
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1441964206}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -1.51466799, y: 1.76898527}
+      - {x: 2.11618495, y: 1.73047519}
+      - {x: 2.16360378, y: -.765852153}
+      - {x: 1.82282245, y: -2.20717263}
+      - {x: -1.84612525, y: -1.88093638}
+      - {x: -1.74334443, y: .495438099}
+--- !u!4 &1441964209
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1441964206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.23000002, y: 3.48000002, z: -.930000007}
+  m_LocalScale: {x: 1.5151515, y: 1.5151515, z: 1.5151515}
+  m_Children: []
+  m_Father: {fileID: 2114436176}
+  m_RootOrder: 0
 --- !u!1 &1471534538
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,7 +2498,7 @@ GameObject:
   - 212: {fileID: 1809138930}
   - 225: {fileID: 1809138931}
   - 114: {fileID: 1809138932}
-  - 65: {fileID: 1809138933}
+  - 61: {fileID: 1809138933}
   m_Layer: 0
   m_Name: Desk_Investigated
   m_TagString: Untagged
@@ -2443,7 +2513,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1809138928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0850656033, y: .000783145428, z: -7.99894333e-05}
+  m_LocalPosition: {x: .0900000036, y: 0, z: -.280000001}
   m_LocalScale: {x: .660000026, y: .660000026, z: .660000026}
   m_Children:
   - {fileID: 2099245088}
@@ -2484,10 +2554,10 @@ CanvasGroup:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1809138928}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Alpha: 1
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &1809138932
 MonoBehaviour:
@@ -2503,18 +2573,19 @@ MonoBehaviour:
   standPosition: {x: 0, y: 0, z: 0}
   sortingLayerNr: 2
   characterStance: {fileID: 0}
---- !u!65 &1809138933
-BoxCollider:
+--- !u!61 &1809138933
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1809138928}
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 2.98023224e-08, y: 2.32830644e-10}
   serializedVersion: 2
-  m_Size: {x: 20.4799995, y: 15.3599997, z: .200000003}
-  m_Center: {x: 2.98023224e-08, y: 2.32830644e-10, z: 0}
+  m_Size: {x: 20.4799995, y: 15.3599997}
 --- !u!1 &1831106507
 GameObject:
   m_ObjectHideFlags: 0
@@ -2722,7 +2793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionType: 2
+  interactionType: 1
   name: Desk
   investigateObj: {fileID: 1809138928}
   area: {fileID: 0}
@@ -2896,7 +2967,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1972659779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.4000001, y: 2.0999999, z: -.899999976}
   m_LocalScale: {x: 1.5151515, y: 1.5151515, z: 1.5151515}
   m_Children: []
   m_Father: {fileID: 1809138929}
@@ -2911,7 +2982,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -3.56999993, y: -1.25999999}
   m_Points:
     m_Paths:
     - - {x: 3.97808933, y: 2.25744152}
@@ -2931,7 +3002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 1
-  name: Temp
+  name: Papers
   investigateObj: {fileID: 0}
   area: {fileID: 0}
   cMovement: {fileID: 0}
@@ -3029,7 +3100,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2099245087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.5999999, y: 3.5, z: -.899999976}
   m_LocalScale: {x: 1.5151515, y: 1.5151515, z: 1.5151515}
   m_Children: []
   m_Father: {fileID: 1809138929}
@@ -3044,7 +3115,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 3.00999999, y: -2.31999993}
   m_Points:
     m_Paths:
     - - {x: -2.17194414, y: 4.17789841}
@@ -3068,7 +3139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 1
-  name: Temp
+  name: Lamp
   investigateObj: {fileID: 0}
   area: {fileID: 0}
   cMovement: {fileID: 0}
@@ -3076,6 +3147,169 @@ MonoBehaviour:
   isTouching: 0
   touchUp: 0
   release: 0
+--- !u!1 &2113183872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2113183873}
+  - 60: {fileID: 2113183875}
+  - 114: {fileID: 2113183874}
+  m_Layer: 0
+  m_Name: Writingdesk_drawer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2113183873
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2113183872}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .980000019, y: -1.85000002, z: -.930000007}
+  m_LocalScale: {x: 1.5151515, y: 1.5151515, z: 1.5151515}
+  m_Children: []
+  m_Father: {fileID: 2114436176}
+  m_RootOrder: 1
+--- !u!114 &2113183874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2113183872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 0
+  name: Drawer
+  investigateObj: {fileID: 0}
+  area: {fileID: 0}
+  cMovement: {fileID: 0}
+  characterStance: {fileID: 0}
+  isTouching: 0
+  touchUp: 0
+  release: 0
+--- !u!60 &2113183875
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2113183872}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -1.26269197, y: .378924608}
+      - {x: 1.51113141, y: .212856695}
+      - {x: 1.42667878, y: -.436175764}
+      - {x: -1.31016552, y: -.319662899}
+--- !u!1 &2114436175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2114436176}
+  - 212: {fileID: 2114436180}
+  - 225: {fileID: 2114436179}
+  - 114: {fileID: 2114436178}
+  - 61: {fileID: 2114436177}
+  m_Layer: 0
+  m_Name: Writingdesk_Investigate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2114436176
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2114436175}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .0900000036, y: 0, z: -.280000001}
+  m_LocalScale: {x: .660000026, y: .660000026, z: .660000026}
+  m_Children:
+  - {fileID: 1441964209}
+  - {fileID: 2113183873}
+  m_Father: {fileID: 843935428}
+  m_RootOrder: 1
+--- !u!61 &2114436177
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2114436175}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 2.98023224e-08, y: 2.32830644e-10}
+  serializedVersion: 2
+  m_Size: {x: 20.4799995, y: 15.3599997}
+--- !u!114 &2114436178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2114436175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466695e5c67f8d648979098bc87c1ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standPosition: {x: 0, y: 0, z: 0}
+  sortingLayerNr: 2
+  characterStance: {fileID: 0}
+--- !u!225 &2114436179
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2114436175}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!212 &2114436180
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2114436175}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 2090045315
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 6ac4af9d8ed63544ebc07c1929af3a7f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2144474336
 GameObject:
   m_ObjectHideFlags: 0

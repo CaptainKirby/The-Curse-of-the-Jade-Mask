@@ -22,7 +22,10 @@ public class GameController : MonoBehaviour {
 
 	[HideInInspector]
 	public GameObject currentArea;
-	
+
+	[HideInInspector]
+	public enum PlayerState{OpenArea, Zoom};
+	public PlayerState playerState = PlayerState.OpenArea;
 	//This is the public reference that other classes will use
 	public static GameController instance
 	{

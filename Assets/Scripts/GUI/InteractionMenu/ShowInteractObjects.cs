@@ -39,7 +39,7 @@ public class ShowInteractObjects : MonoBehaviour {
 
 	void Update()
 	{
-		if(Input.GetMouseButtonDown(0))
+		if(Input.GetMouseButtonDown(0) && GameController.instance.playerState != GameController.PlayerState.Zoom)
 		{
 			StartCoroutine (Counter ());
 			down = true;

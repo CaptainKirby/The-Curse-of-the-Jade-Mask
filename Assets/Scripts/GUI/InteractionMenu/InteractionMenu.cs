@@ -45,7 +45,6 @@ public class InteractionMenu : MonoBehaviour
 
 		//		CheckUp ();
 		if(Input.GetMouseButtonUp(0))
-		
 		{
 
 
@@ -142,7 +141,7 @@ public class InteractionMenu : MonoBehaviour
 		nameText = currentInteractiveMenu.GetComponent<InteractiveMenuConfig> ().nameText;
 		name = gObj.GetComponent<InteractableObject> ().name;
 //		Debug.Log (name);
-		nameText.text = name;
+		nameText.text = name.ToUpper();
 
 		//get the circles on the current menu
 		circles = currentInteractiveMenu.GetComponent<InteractiveMenuConfig> ().circles;
@@ -232,7 +231,6 @@ public class InteractionMenu : MonoBehaviour
 	{
 			circles [pos].gameObject.SetActive (true);
 			zoomIconActive = ActivateIcon (GameController.instance.gameSettings.zoomIcon, circles [pos].transform.position, gObj, true);
-
 	}
 
 	public void ShowObserve(int pos, GameObject gObj)
@@ -341,6 +339,7 @@ public class InteractionMenu : MonoBehaviour
 		{
 			if(gObj.GetComponent<InteractableObject>().investigateObj != null)
 			{
+				GameController.instance.playerState = GameController.PlayerState.Zoom;
 				CloseInteractiveMenu();
 				gObj.GetComponent<InteractableObject>().investigateObj.SetActive(true);
 			}

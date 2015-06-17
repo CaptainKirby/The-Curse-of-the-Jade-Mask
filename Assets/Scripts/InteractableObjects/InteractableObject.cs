@@ -64,18 +64,25 @@ public class InteractableObject : MonoBehaviour {
 					}
 					else
 					{
-						if(!cMovement.moving)
+						if(GameController.instance.playerState == GameController.PlayerState.OpenArea)
 						{
-							if(characterStance == null)
+							if(!cMovement.moving)
 							{
-								StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, areaComponent.characterStance, this));
+								if(characterStance == null)
+								{
+									StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, areaComponent.characterStance, this));
+								}
+								else
+								{
+									StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, characterStance, this));
+									
+								}
+								GameController.instance.currentArea = area;
 							}
-							else
-							{
-								StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, characterStance, this));
-								
-							}
-							GameController.instance.currentArea = area;
+						}
+						else
+						{
+							OpenInteractiveMenu ();
 						}
 					}
 				}
