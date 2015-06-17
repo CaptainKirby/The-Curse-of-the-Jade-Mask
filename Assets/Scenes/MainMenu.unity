@@ -235,6 +235,7 @@ MonoBehaviour:
   dialogueHolder: {fileID: 0}
   dCon: {fileID: 0}
   currentArea: {fileID: 0}
+  playerState: 0
 --- !u!4 &404048243
 Transform:
   m_ObjectHideFlags: 0
