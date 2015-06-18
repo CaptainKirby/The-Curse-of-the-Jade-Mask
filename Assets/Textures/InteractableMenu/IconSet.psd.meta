@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d76ddefd654e2494080d19e89350220c
-timeCreated: 1434308264
+timeCreated: 1434666228
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,6 +9,8 @@ TextureImporter:
     21300004: interactSprite
     21300006: speakIcon
     21300008: exitIcon
+    21300010: IconSet_0
+    21300012: IconSet_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -97,10 +99,30 @@ TextureImporter:
     - name: exitIcon
       rect:
         serializedVersion: 2
-        x: 62
-        y: 542
+        x: 72
+        y: 524
         width: 150
         height: 150
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: IconSet_0
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 512
+        width: 185
+        height: 185
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: IconSet_1
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 507
+        width: 183
+        height: 183
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

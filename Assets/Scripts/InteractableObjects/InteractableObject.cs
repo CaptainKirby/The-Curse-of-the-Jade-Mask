@@ -24,6 +24,12 @@ public class InteractableObject : MonoBehaviour {
 
 	public GameObject[] objsToEnable;
 
+	public GameObject inventoryObject;
+	public GameObject[] neededInventoryObjs;
+	public bool disableOnPickup;
+	public bool disableOnOpen;
+
+
 	void Start()
 	{
 		area = this.transform.parent.gameObject;

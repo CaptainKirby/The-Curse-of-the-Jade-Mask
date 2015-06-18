@@ -14,11 +14,15 @@ public class GameController : MonoBehaviour {
 
 	public GameSettings gameSettings;
 
+
 	[HideInInspector]
 	public GameObject dialogueHolder;
 
 	[HideInInspector]
 	public DialogueController dCon;
+
+	[HideInInspector]
+	public Inventory inventoryController;
 
 	[HideInInspector]
 	public GameObject currentArea;
@@ -68,6 +72,20 @@ public class GameController : MonoBehaviour {
 		{
 			Debug.Log ("No Interaction Menu assigned in Game Settings!");
 		}
+
+//		if(gameSettings.uiInteractioneMenu != null)
+//		{
+//			interactionMenu = Instantiate(gameSettings.uiInteractioneMenu, Vector3.zero, Quaternion.identity) as InteractionMenu;
+//			interactionMenu.gameObject.name = "InteractionMenu";
+//			interactionMenu.gameObject.transform.SetParent(uiCanvas.transform);
+		inventoryController = uiCanvas.GetComponentInChildren<Inventory> ();
+			
+//		}
+//		else
+//		{
+//			Debug.Log ("No Interaction Menu assigned in Game Settings!");
+//		}
+
 		if (dialogueHolder == null) 
 		{
 			dialogueHolder = uiCanvas.transform.FindChild("Dialogue").gameObject;

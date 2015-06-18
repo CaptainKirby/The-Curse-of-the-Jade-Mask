@@ -321,7 +321,26 @@ public class InteractionMenu : MonoBehaviour
 		}
 		if (img == pickupIconActive) 
 		{
-//			DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Pickup" );
+
+			if(gObj.GetComponent<InteractableObject>().inventoryObject != null)
+			{
+//				Debug.Log(gObj.GetComponent<InteractableObject>().investigateObj);
+
+//				GameController.instance.inventoryController.addObj = gObj.GetComponent<InteractableObject>().investigateObj;
+				GameController.instance.inventoryController.AddToInventory(gObj.GetComponent<InteractableObject>().inventoryObject);
+			}
+			DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Pickup" );
+			Dialoguer.StartDialogue(diag); 
+			GameController.instance.dCon.obsTextObj.SetActive(true);
+			
+			if(gObj.GetComponent<InteractableObject>().disableOnPickup)
+			{
+				gObj.SetActive(false);
+			}
+			Debug.Log("GBNEU");
+			gObj.SetActive(false);
+			CloseInteractiveMenu();
+
 
 		}
 		if (img == talkIconActive) 
@@ -362,6 +381,7 @@ public class InteractionMenu : MonoBehaviour
 		}
 		if(img == openIconActive)
 		{
+
 			CloseInteractiveMenu();
 			InteractableObject iO = gObj.GetComponent<InteractableObject>();
 			if(iO.spriteRendererToUpdate != null)
@@ -380,7 +400,38 @@ public class InteractionMenu : MonoBehaviour
 				}
 
 			}
+			if(gObj.GetComponent<InteractableObject>().disableOnOpen)
+			{
+				gObj.SetActive(false);
+			}
 
+		}
+		if(img == leaveIconActive)
+		{
+			int itemsNeeded = 0;
+			if(gObj.GetComponent<InteractableObject>().neededInventoryObjs.Length > 0)
+			{
+				foreach(GameObject g in gObj.GetComponent<InteractableObject>().neededInventoryObjs)
+				{
+					if(GameController.instance.inventoryController.inventoryObjects.Contains(g.ToString()))
+					{
+						itemsNeeded++;
+					}
+				}
+				if(gObj.GetComponent<InteractableObject>().neededInventoryObjs.Length == itemsNeeded)
+				{
+					DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Leave_True" );
+					Dialoguer.StartDialogue(diag); 
+					GameController.instance.dCon.obsTextObj.SetActive(true);
+				}
+
+				else
+				{
+					DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Leave_False" );
+					Dialoguer.StartDialogue(diag); 
+					GameController.instance.dCon.obsTextObj.SetActive(true);
+				}
+			}
 		}
 	}
 	public void GoBackFromZoom(InteractableObject intObj)

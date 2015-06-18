@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11458198}
   - 95: {fileID: 9582794}
   m_Layer: 5
-  m_Name: PickupIcon
+  m_Name: UseIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300010, guid: d76ddefd654e2494080d19e89350220c, type: 3}
+  m_Sprite: {fileID: 21300004, guid: d76ddefd654e2494080d19e89350220c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

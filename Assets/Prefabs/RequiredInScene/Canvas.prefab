@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &111556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 478364}
+  - 114: {fileID: 11431850}
+  m_Layer: 0
+  m_Name: InventoryController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &113424
 GameObject:
   m_ObjectHideFlags: 1
@@ -124,6 +140,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 22467264}
   m_RootOrder: 0
+--- !u!4 &478364
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 42, y: 78, z: 0}
+  m_LocalScale: {x: 3.1867218, y: 3.1867218, z: 3.1867218}
+  m_Children: []
+  m_Father: {fileID: 22467264}
+  m_RootOrder: 3
 --- !u!114 &11416280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,6 +185,18 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11431850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b7af7fda6371d4c8b9ddb33748ab76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryObjects: []
 --- !u!114 &11463046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -307,6 +347,7 @@ RectTransform:
   - {fileID: 452578}
   - {fileID: 22414664}
   - {fileID: 431422}
+  - {fileID: 478364}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
