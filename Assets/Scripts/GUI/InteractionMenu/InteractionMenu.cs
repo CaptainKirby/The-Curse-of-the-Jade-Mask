@@ -131,7 +131,9 @@ public class InteractionMenu : MonoBehaviour
 		//set position on canvas
 		currentInteractiveMenu.transform.position = WorldToGuiPoint (position);
 		currentInteractiveMenu.gameObject.GetComponent<Animator> ().Play ("MenuPopup");
-
+		GameController.instance.audioClipSource.GetComponent<AudioSource> ().clip = GameController.instance.gameSettings.clickSound3;
+		GameController.instance.audioClipSource.GetComponent<AudioSource> ().pitch = Random.Range (0.85f, 1.15f);
+		GameController.instance.audioClipSource.GetComponent<AudioSource> ().Play ();
 		// get name and text component
 		nameText = currentInteractiveMenu.GetComponent<InteractiveMenuConfig> ().nameText;
 		name = gObj.GetComponent<InteractableObject> ().name;
