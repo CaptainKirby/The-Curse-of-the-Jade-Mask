@@ -10,9 +10,9 @@ namespace DialoguerEditor{
 			get{
 				if(__gui == null){
 					if(EditorGUIUtility.isProSkin){
-						__gui = Resources.LoadAssetAtPath("Assets/Dialoguer/DialogueEditor/Skins/dialogueEditorSkinDark.guiskin", typeof(GUISkin)) as GUISkin;
+						__gui = AssetDatabase.LoadAssetAtPath("Assets/Dialoguer/DialogueEditor/Skins/dialogueEditorSkinDark.guiskin", typeof(GUISkin)) as GUISkin;
 					}else{
-						__gui = Resources.LoadAssetAtPath("Assets/Dialoguer/DialogueEditor/Skins/dialogueEditorSkinLight.guiskin", typeof(GUISkin)) as GUISkin;
+						__gui = AssetDatabase.LoadAssetAtPath("Assets/Dialoguer/DialogueEditor/Skins/dialogueEditorSkinLight.guiskin", typeof(GUISkin)) as GUISkin;
 					}
 				}
 				return __gui;
@@ -35,7 +35,7 @@ namespace DialoguerEditor{
 		public static Texture2D bezierTexture{
 			get{
 				if(__bezierTexture == null){
-					__bezierTexture = Resources.LoadAssetAtPath("Assets/Dialoguer/DialogueEditor/Textures/GUI/Dark/bezier_texture.png", typeof(Texture2D)) as Texture2D;
+					__bezierTexture = AssetDatabase.LoadAssetAtPath("Assets/Dialoguer/DialogueEditor/Textures/GUI/Dark/bezier_texture.png", typeof(Texture2D)) as Texture2D;
 				}
 				return __bezierTexture;
 			}
@@ -45,7 +45,7 @@ namespace DialoguerEditor{
 		public static Texture2D scrollboxBgTexture{
 			get{
 				if(__scrollboxBgTexture == null){
-					__scrollboxBgTexture = Resources.LoadAssetAtPath("Assets/Dialoguer/DialogueEditor/Textures/GUI/Dark/scrollbox_bg.png", typeof(Texture2D)) as Texture2D;
+					__scrollboxBgTexture = AssetDatabase.LoadAssetAtPath("Assets/Dialoguer/DialogueEditor/Textures/GUI/Dark/scrollbox_bg.png", typeof(Texture2D)) as Texture2D;
 					__scrollboxBgTexture.wrapMode = TextureWrapMode.Repeat;
 				}
 				return __scrollboxBgTexture;
