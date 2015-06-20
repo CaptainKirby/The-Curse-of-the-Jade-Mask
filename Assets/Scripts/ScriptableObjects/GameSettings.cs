@@ -28,6 +28,12 @@ public class GameSettings : ScriptableObject {
 	[Header("Audio")]
 	public GameObject endButton;
 	public GameObject musicSource;
+	public GameObject audioClipSource;
+	public AudioClip pickupSound;
+	public AudioClip clickSound1;
+	public AudioClip clickSound2;
+	public AudioClip clickSound3;
+	public AudioClip clickSound4;
 //	[Space(10)]
 	[Header("MainMenu Stuff")]
 	[Tooltip("MM Background")]

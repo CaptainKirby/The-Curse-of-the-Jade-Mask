@@ -29,7 +29,7 @@ public class InteractableObject : MonoBehaviour {
 	public bool disableOnPickup;
 	public bool disableOnOpen;
 
-
+	public AudioClip clipPlay;
 	void Start()
 	{
 		area = this.transform.parent.gameObject;
@@ -49,9 +49,12 @@ public class InteractableObject : MonoBehaviour {
 //					Debug.Log ("Clicked on: " + this.gameObject.name);
 					if (GameController.instance.currentArea == area) 
 					{
+
 						//if game controller current area == this area && if chracter not moving
 						if(!cMovement.moving)
+						{
 							OpenInteractiveMenu ();
+						}
 						
 					}
 					else

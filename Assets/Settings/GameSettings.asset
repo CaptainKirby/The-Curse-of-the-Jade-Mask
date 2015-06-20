@@ -27,6 +27,12 @@ MonoBehaviour:
   continueButton: {fileID: 185312, guid: 44732cef5164eeb46bbed69cecbcb1e0, type: 2}
   endButton: {fileID: 132238, guid: c627dd80e1e298a41be312dd4538dd12, type: 2}
   musicSource: {fileID: 0}
+  audioClipSource: {fileID: 109928, guid: f0146f1fe2d3b5f4e8e7d8ec289a159c, type: 2}
+  pickupSound: {fileID: 8300000, guid: 87567a6130246a341a2422677119178b, type: 3}
+  clickSound1: {fileID: 8300000, guid: bdfb517b851521d48a3f4f5ffb67a354, type: 3}
+  clickSound2: {fileID: 8300000, guid: 2ee2bf4bd426059449adcc6bec0813f2, type: 3}
+  clickSound3: {fileID: 8300000, guid: 87567a6130246a341a2422677119178b, type: 3}
+  clickSound4: {fileID: 8300000, guid: 210b0a60993bbf0479c3756301936f67, type: 3}
   mainMenuBg: {fileID: 139034, guid: 017a44fdb3013a94199fc98f95f51ff7, type: 2}
   mainMenuButton: {fileID: 197408, guid: 0199d04221ae1204588ea4825ea1d1a2, type: 2}
   hoverColor: {r: .524437726, g: .735294104, b: .620058596, a: 1}

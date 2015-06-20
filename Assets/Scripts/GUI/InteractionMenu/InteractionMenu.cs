@@ -65,7 +65,7 @@ public class InteractionMenu : MonoBehaviour
 //							Debug.Log (currectActiveObject)
 //							Debug.Log ("GENUG");
 							CloseInteractiveMenu();
-							hit.collider.GetComponent<InteractableObject>().OpenInteractiveMenu();
+//							hit.collider.GetComponent<InteractableObject>().OpenInteractiveMenu();
 							}
 							else
 							{
@@ -130,6 +130,7 @@ public class InteractionMenu : MonoBehaviour
 		CloseIcon (useIconActive);
 		//set position on canvas
 		currentInteractiveMenu.transform.position = WorldToGuiPoint (position);
+		currentInteractiveMenu.gameObject.GetComponent<Animator> ().Play ("MenuPopup");
 
 		// get name and text component
 		nameText = currentInteractiveMenu.GetComponent<InteractiveMenuConfig> ().nameText;
@@ -306,7 +307,7 @@ public class InteractionMenu : MonoBehaviour
 
 //		Debug.Log (gObj + "lala");
 //		Debug.Log ("GEGNI1");
-
+		InteractableObject iO = gObj.GetComponent<InteractableObject>();
 		if(img == observeIconActive)
 		{
 //			if(DialoguerDialogues
@@ -337,7 +338,10 @@ public class InteractionMenu : MonoBehaviour
 			{
 				gObj.SetActive(false);
 			}
-			Debug.Log("GBNEU");
+			GameController.instance.audioClipSource.GetComponent<AudioSource>().clip = GameController.instance.gameSettings.clickSound1;
+			GameController.instance.audioClipSource.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+			GameController.instance.audioClipSource.GetComponent<AudioSource>().Play ();
+//			Debug.Log("GBNEU");
 			gObj.SetActive(false);
 			CloseInteractiveMenu();
 
@@ -383,7 +387,8 @@ public class InteractionMenu : MonoBehaviour
 		{
 
 			CloseInteractiveMenu();
-			InteractableObject iO = gObj.GetComponent<InteractableObject>();
+
+
 			if(iO.spriteRendererToUpdate != null)
 			{
 				SpriteRenderer r = iO.spriteRendererToUpdate;
@@ -403,6 +408,12 @@ public class InteractionMenu : MonoBehaviour
 			if(gObj.GetComponent<InteractableObject>().disableOnOpen)
 			{
 				gObj.SetActive(false);
+			}
+
+			if(iO.clipPlay != null)
+			{
+				GameController.instance.audioClipSource.GetComponent<AudioSource>().clip = iO.clipPlay;
+				GameController.instance.audioClipSource.GetComponent<AudioSource>().Play();
 			}
 
 		}
