@@ -36,6 +36,7 @@ public enum DialoguerDialogues{
 	Desk_phone_Observe = 33,
 	Inventory_pen_Observe = 34,
 	Desk_cabinet_Observe = 35,
+	Desk_drawer2_Observe = 36,
 	Inventory_gun_Observe = 37,
 	Desk_cabinet_Pickup = 38,
 	Inventory_key_Pickup = 39,
