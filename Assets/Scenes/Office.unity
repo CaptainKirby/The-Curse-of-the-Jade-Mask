@@ -1276,7 +1276,7 @@ MonoBehaviour:
   neededInventoryObjs: []
   disableOnPickup: 0
   disableOnOpen: 1
-  clipPlay: {fileID: 8300000, guid: f1fe8aef823b1ae42a70a155408ddc0c, type: 3}
+  clipPlay: {fileID: 8300000, guid: 37bbb87be24fff6439c52b0f2c711e5e, type: 3}
   clickInventoryItemNeeded: {fileID: 0}
 --- !u!60 &747023259
 PolygonCollider2D:

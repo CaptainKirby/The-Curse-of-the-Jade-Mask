@@ -10,10 +10,13 @@ public class Inventory : MonoBehaviour {
 	public Transform invHolderLarge;
 
 	public GameObject selectedObj;
-
+	public GameObject highlight;
 	void Start () 
 	{
-	
+		highlight = Instantiate (GameController.instance.gameSettings.selectImage, Vector3.zero, Quaternion.identity) as GameObject;
+		highlight.SetActive (false);
+		highlight.transform.SetParent (this.transform);
+
 	}
 	
 	void Update () 
@@ -23,14 +26,20 @@ public class Inventory : MonoBehaviour {
 
 	public void SelectDeselect(GameObject obj)
 	{
-		Debug.Log ("NGUENU");
+//		Debug.Log ("NGUENU");
 		if(selectedObj == obj)
 		{
 			selectedObj = null;
+			highlight.SetActive(false);
 		}
 		else
 		{
 			selectedObj = obj;
+			highlight.transform.position = obj.transform.position;
+			highlight.SetActive(true);
+			highlight.GetComponent<RectTransform>().localScale = GameController.instance.gameSettings.selectImage.GetComponent<RectTransform>().localScale;
+			highlight.GetComponent<RectTransform>().pivot = GameController.instance.gameSettings.selectImage.GetComponent<RectTransform>().pivot;
+			highlight.GetComponent<RectTransform>().sizeDelta = GameController.instance.gameSettings.selectImage.GetComponent<RectTransform>().sizeDelta;
 		}
 	}
 	public void AddToInventory(GameObject obj, bool small)
@@ -62,7 +71,7 @@ public class Inventory : MonoBehaviour {
 
 	public void RemoveFromInventory()
 	{
-
+		highlight.SetActive(false);
 		selectedObj.SetActive (false);
 		selectedObj = null;
 	}

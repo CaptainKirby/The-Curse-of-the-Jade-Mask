@@ -94,6 +94,7 @@ public class InteractableObject : MonoBehaviour {
 						Dialoguer.StartDialogue(DialoguerDialogues.Cant); 
 						GameController.instance.dCon.obsTextObj.SetActive(true);
 						GameController.instance.inventoryController.selectedObj = null;
+						GameController.instance.inventoryController.highlight.SetActive(false);
 						CloseInteractiveMenu();
 						GameController.instance.interactionMenu.open = true;
 						

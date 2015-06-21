@@ -19,6 +19,8 @@ public class GameSettings : ScriptableObject {
 	public GameObject clickCircle;
 
 
+	[Header("Inventory")]
+	public GameObject selectImage;
 	[Header("Zoom Gui")]
 
 	 public GameObject zoomBackButton;
