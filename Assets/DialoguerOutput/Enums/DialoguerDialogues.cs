@@ -62,7 +62,7 @@ public enum DialoguerDialogues{
 	Shelf_globe_Pickup = 60,
 	Shelf_books_observe = 61,
 	Shelf_box_Observe = 62,
-	Shelf_box_Open = 63,
+	Shelf_box_Pickup = 63,
 	Writingdesk_drawer_Open_False = 64,
 	Writingdesk_typewriter_Use = 65,
 	Writingdesk_drawer_open_True = 66,

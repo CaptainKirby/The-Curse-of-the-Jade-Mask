@@ -4739,7 +4739,7 @@ MonoBehaviour:
         variables: []
         selection: 0
     - id: 63
-      name: Shelf_box_Open
+      name: Shelf_box_Pickup
       startPage: 0
       scrollPosition: {x: 0, y: 0}
       phases:
@@ -5056,4 +5056,4 @@ MonoBehaviour:
     themes:
       themes: []
       selection: 0
-    selectorScrollPosition: {x: 0, y: 0}
+    selectorScrollPosition: {x: 0, y: 536}
