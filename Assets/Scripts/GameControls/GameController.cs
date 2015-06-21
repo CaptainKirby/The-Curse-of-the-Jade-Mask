@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour {
 
 	public GameSettings gameSettings;
 
+
 	[HideInInspector]
 	public GameObject dialogueHolder;
 
@@ -21,11 +22,16 @@ public class GameController : MonoBehaviour {
 	public DialogueController dCon;
 
 	[HideInInspector]
+	public Inventory inventoryController;
+
+	[HideInInspector]
 	public GameObject currentArea;
 
 	[HideInInspector]
 	public enum PlayerState{OpenArea, Zoom};
 	public PlayerState playerState = PlayerState.OpenArea;
+
+	public GameObject audioClipSource;
 	//This is the public reference that other classes will use
 	public static GameController instance
 	{
@@ -68,6 +74,22 @@ public class GameController : MonoBehaviour {
 		{
 			Debug.Log ("No Interaction Menu assigned in Game Settings!");
 		}
+
+
+		inventoryController = uiCanvas.GetComponentInChildren<Inventory> ();
+			
+		if(gameSettings.audioClipSource != null)
+		{
+			audioClipSource = Instantiate(gameSettings.audioClipSource, Vector3.zero, Quaternion.identity) as GameObject;
+			audioClipSource.gameObject.name = "AudioClipSource";
+			audioClipSource.gameObject.transform.SetParent(GameObject.Find("AUDIO").transform);
+			
+		}
+		else
+		{
+			Debug.Log ("No Interaction Menu assigned in Game Settings!");
+		}
+
 		if (dialogueHolder == null) 
 		{
 			dialogueHolder = uiCanvas.transform.FindChild("Dialogue").gameObject;

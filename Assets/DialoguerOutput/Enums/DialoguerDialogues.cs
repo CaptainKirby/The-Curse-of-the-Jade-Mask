@@ -26,6 +26,7 @@ public enum DialoguerDialogues{
 	Desk_papers_Observe = 23,
 	Desk_ashtray_Observe = 24,
 	Desk_drawer_Observe = 25,
+<<<<<<< HEAD
 	Office_Cabinet_Use = 26,
 	Office_chair_Observe = 27,
 	Coatrack_jacket_Observe = 28,
@@ -35,4 +36,12 @@ public enum DialoguerDialogues{
 	Desk_cabinet_Observe = 32,
 	Inventory_gun_Observe = 33,
 	Inventory_gun_Pickup = 34,
+=======
+	Writingdesk_drawer_license_Observe = 26,
+	Writingdesk_drawer_license_Pickup = 27,
+	Office_door_Leave_True = 28,
+	Office_door_Leave_False = 29,
+	Office_jacket_Observe = 30,
+	Office_jacket_Pickup = 31,
+>>>>>>> origin/master
 }

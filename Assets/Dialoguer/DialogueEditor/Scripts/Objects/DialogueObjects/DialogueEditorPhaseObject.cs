@@ -217,7 +217,7 @@ namespace DialoguerEditor{
 			iconPath += "Dark/";
 			iconPath += "icon_"+icon+".png";
 
-			return Resources.LoadAssetAtPath(iconPath, typeof(Texture)) as Texture;
+			return UnityEditor.AssetDatabase.LoadAssetAtPath(iconPath, typeof(Texture)) as Texture;
 
 		}
 		
@@ -228,7 +228,7 @@ namespace DialoguerEditor{
 			iconPath += "Light/";
 			iconPath += "icon_"+icon+".png";
 
-			return Resources.LoadAssetAtPath(iconPath, typeof(Texture)) as Texture;
+			return UnityEditor.AssetDatabase.LoadAssetAtPath(iconPath, typeof(Texture)) as Texture;
 
 		}
 		#endif

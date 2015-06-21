@@ -25,6 +25,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22437776}
   - 114: {fileID: 11419388}
+  - 95: {fileID: 9567046}
   m_Layer: 0
   m_Name: RadialMenu
   m_TagString: Untagged
@@ -137,6 +138,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &9567046
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111768}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bde9f2680dbe4e24fb5028671da7ffde, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11408152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -233,9 +251,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 429ddebe51d1c47eda7a68acaec36e55, type: 3}
     m_FontSize: 77
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 19
+    m_MaxSize: 68
     m_Alignment: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -441,8 +459,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 318, y: -28}
-  m_SizeDelta: {x: 493, y: 70.9000015}
+  m_AnchoredPosition: {x: 322.399994, y: -32.9000015}
+  m_SizeDelta: {x: 528.700012, y: 72.4000015}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22498702
 RectTransform:

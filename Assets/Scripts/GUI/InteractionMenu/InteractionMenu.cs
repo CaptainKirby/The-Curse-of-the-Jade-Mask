@@ -65,7 +65,7 @@ public class InteractionMenu : MonoBehaviour
 //							Debug.Log (currectActiveObject)
 //							Debug.Log ("GENUG");
 							CloseInteractiveMenu();
-							hit.collider.GetComponent<InteractableObject>().OpenInteractiveMenu();
+//							hit.collider.GetComponent<InteractableObject>().OpenInteractiveMenu();
 							}
 							else
 							{
@@ -130,7 +130,10 @@ public class InteractionMenu : MonoBehaviour
 		CloseIcon (useIconActive);
 		//set position on canvas
 		currentInteractiveMenu.transform.position = WorldToGuiPoint (position);
-
+		currentInteractiveMenu.gameObject.GetComponent<Animator> ().Play ("MenuPopup");
+		GameController.instance.audioClipSource.GetComponent<AudioSource> ().clip = GameController.instance.gameSettings.clickSound3;
+		GameController.instance.audioClipSource.GetComponent<AudioSource> ().pitch = Random.Range (0.85f, 1.15f);
+		GameController.instance.audioClipSource.GetComponent<AudioSource> ().Play ();
 		// get name and text component
 		nameText = currentInteractiveMenu.GetComponent<InteractiveMenuConfig> ().nameText;
 		name = gObj.GetComponent<InteractableObject> ().name;
@@ -307,8 +310,14 @@ public class InteractionMenu : MonoBehaviour
 //		Debug.Log (gObj + "lala");
 //		Debug.Log ("GEGNI1");
 
+
+		InteractableObject iO = gObj.GetComponent<InteractableObject>();
 		if(img == observeIconActive)
 		{
+			PlaySound(GameController.instance.gameSettings.clickSound1);
+
+
+			CCircle(img);
 //			if(DialoguerDialogues
 //			if(
 			DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Observe" );
@@ -321,7 +330,30 @@ public class InteractionMenu : MonoBehaviour
 		}
 		if (img == pickupIconActive) 
 		{
-//			DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Pickup" );
+			PlaySound(GameController.instance.gameSettings.clickSound2);
+
+
+			CCircle(img);
+			if(gObj.GetComponent<InteractableObject>().inventoryObject != null)
+			{
+//				Debug.Log(gObj.GetComponent<InteractableObject>().investigateObj);
+
+//				GameController.instance.inventoryController.addObj = gObj.GetComponent<InteractableObject>().investigateObj;
+				GameController.instance.inventoryController.AddToInventory(gObj.GetComponent<InteractableObject>().inventoryObject);
+			}
+			DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Pickup" );
+			Dialoguer.StartDialogue(diag); 
+			GameController.instance.dCon.obsTextObj.SetActive(true);
+			
+			if(gObj.GetComponent<InteractableObject>().disableOnPickup)
+			{
+				gObj.SetActive(false);
+			}
+
+//			Debug.Log("GBNEU");
+			gObj.SetActive(false);
+			CloseInteractiveMenu();
+
 
 		}
 		if (img == talkIconActive) 
@@ -331,6 +363,9 @@ public class InteractionMenu : MonoBehaviour
 		}
 		if (img == zoomIconActive) 
 		{
+			PlaySound(GameController.instance.gameSettings.clickSound1);
+
+
 			if(gObj.GetComponent<InteractableObject>().investigateObj != null)
 			{
 				GameController.instance.playerState = GameController.PlayerState.Zoom;
@@ -362,8 +397,13 @@ public class InteractionMenu : MonoBehaviour
 		}
 		if(img == openIconActive)
 		{
+
+			PlaySound(GameController.instance.gameSettings.clickSound1);
+
+
 			CloseInteractiveMenu();
-			InteractableObject iO = gObj.GetComponent<InteractableObject>();
+			CCircle(img);
+
 			if(iO.spriteRendererToUpdate != null)
 			{
 				SpriteRenderer r = iO.spriteRendererToUpdate;
@@ -380,7 +420,47 @@ public class InteractionMenu : MonoBehaviour
 				}
 
 			}
+			if(gObj.GetComponent<InteractableObject>().disableOnOpen)
+			{
+				gObj.SetActive(false);
+			}
 
+			if(iO.clipPlay != null)
+			{
+				GameController.instance.audioClipSource.GetComponent<AudioSource>().clip = iO.clipPlay;
+				GameController.instance.audioClipSource.GetComponent<AudioSource>().Play();
+			}
+
+		}
+		if(img == leaveIconActive)
+		{
+			PlaySound(GameController.instance.gameSettings.clickSound1);
+
+			CCircle(img);
+			int itemsNeeded = 0;
+			if(gObj.GetComponent<InteractableObject>().neededInventoryObjs.Length > 0)
+			{
+				foreach(GameObject g in gObj.GetComponent<InteractableObject>().neededInventoryObjs)
+				{
+					if(GameController.instance.inventoryController.inventoryObjects.Contains(g.ToString()))
+					{
+						itemsNeeded++;
+					}
+				}
+				if(gObj.GetComponent<InteractableObject>().neededInventoryObjs.Length == itemsNeeded)
+				{
+					DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Leave_True" );
+					Dialoguer.StartDialogue(diag); 
+					GameController.instance.dCon.obsTextObj.SetActive(true);
+				}
+
+				else
+				{
+					DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Leave_False" );
+					Dialoguer.StartDialogue(diag); 
+					GameController.instance.dCon.obsTextObj.SetActive(true);
+				}
+			}
 		}
 	}
 	public void GoBackFromZoom(InteractableObject intObj)
@@ -388,6 +468,24 @@ public class InteractionMenu : MonoBehaviour
 		intObj.investigateObj.SetActive (false);
 		backButton.SetActive (false);
 		GameController.instance.playerState = GameController.PlayerState.OpenArea;
+	}
+
+	void CCircle(Image img)
+	{
+		if(GameController.instance.gameSettings.clickCircle != null)
+		{
+			GameObject c = Instantiate(GameController.instance.gameSettings.clickCircle, Vector3.zero, Quaternion.identity) as GameObject;
+			c.transform.SetParent(GameController.instance.uiCanvas.transform);
+			c.transform.position = img.transform.position;
+			Destroy (c, 1);
+		}
+	}
+
+	void PlaySound(AudioClip c)
+	{
+		GameController.instance.audioClipSource.GetComponent<AudioSource>().clip = c;
+		GameController.instance.audioClipSource.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+		GameController.instance.audioClipSource.GetComponent<AudioSource>().Play ();
 	}
 //	IEnumerator TouchDown(Image newIcon, GameObject gObj)
 //	{

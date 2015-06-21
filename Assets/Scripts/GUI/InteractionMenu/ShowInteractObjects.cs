@@ -10,6 +10,8 @@ public class ShowInteractObjects : MonoBehaviour {
 	public List<InteractableObject> intObjects;
 	public List<GameObject> intObjGraphics;
 	public GameObject graphic;
+	private float cd;
+	private bool clickCircleShow;
 	void Start () 
 	{
 		foreach(InteractableObject iO in GameObject.FindObjectsOfType<InteractableObject> ())
@@ -41,6 +43,16 @@ public class ShowInteractObjects : MonoBehaviour {
 	{
 		if(Input.GetMouseButtonDown(0) && GameController.instance.playerState != GameController.PlayerState.Zoom)
 		{
+			if(GameController.instance.gameSettings.clickCircle != null && !clickCircleShow)
+			{
+				GameObject c = Instantiate(GameController.instance.gameSettings.clickCircle, Vector3.zero, Quaternion.identity) as GameObject;
+				c.transform.SetParent(GameController.instance.uiCanvas.transform);
+				Vector3 guiPosition = Input.mousePosition;
+				c.transform.position = guiPosition;
+				Destroy (c, 1);
+				StartCoroutine(Cooldown());
+			}
+
 			StartCoroutine (Counter ());
 			down = true;
 		}
@@ -62,6 +74,12 @@ public class ShowInteractObjects : MonoBehaviour {
 //		down = false;
 //		ToggleGraphics(false);
 //	}
+	IEnumerator Cooldown()
+	{
+		clickCircleShow = true;
+		yield return new WaitForSeconds (0.4f);
+		clickCircleShow = false;
+	}
 	IEnumerator Counter()
 	{
 		yield return new WaitForSeconds(waitBeforeShow);
