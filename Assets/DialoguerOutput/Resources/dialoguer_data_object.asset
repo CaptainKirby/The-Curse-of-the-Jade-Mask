@@ -26,8 +26,8 @@ MonoBehaviour:
         outs: 01000000
         advanced: 0
         metadata: 
-        text: Mahogany desks are truly beautiful craftmanship. Too bad I can't afford
-          one. This one's oak.
+        text: "A mahogany desk is truly beautiful craftmanship. Too bad I can\u2019t
+          afford one. This is made of oak."
         name: 
         portrait: 
         audio: 
@@ -243,7 +243,8 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: Some of these files go all the way back to when Lloyd and I were partners.
+        text: Some of these files go all the way back to when Lloyd and I were working
+          together.
         name: 
         portrait: 
         audio: 
@@ -288,7 +289,9 @@ MonoBehaviour:
         outs: 01000000
         advanced: 0
         metadata: 
-        text: It's a comfy chair.
+        text: 'My clients sit here when they tell me what their problem is.
+
+          I should advertise as a psychologist, charge double.'
         name: 
         portrait: 
         audio: 
@@ -395,7 +398,8 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: 'My bookshelf. '
+        text: "My bookcase. It\u2019s for books. Sometimes I live on edge and store
+          other objects there, too."
         name: 
         portrait: 
         audio: 
@@ -471,8 +475,8 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: Ah... the good stuff. These days I try to only drink on special occasions.
-          Doctor's recommendation. Damn doctors.
+        text: It's where I keep my whiskey. I find it good for the soul, and it makes
+          people talk.
         name: 
         portrait: 
         audio: 
@@ -548,7 +552,8 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: My old Royal. More faithful to me than the women I've known.
+        text: "It\u2019s where I sit and use my typewriter. I can\u2019t afford a
+          secretary. \nSomeday, Quinn... Someday."
         name: 
         portrait: 
         audio: 
@@ -703,7 +708,7 @@ MonoBehaviour:
         variables: []
         selection: 0
     - id: 9
-      name: Office_licence_Observe
+      name: Office_license_Observe
       startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
@@ -745,8 +750,8 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: My P.I. license. It used to mean more to me. But it looks good in a
-          frame.
+        text: My P.I. license. It used to mean more to me. But it sure looks good
+          in a frame!
         name: 
         portrait: 
         audio: 
@@ -822,7 +827,7 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: Personal notes and things I need to remember. I think.
+        text: Sometimes I think better visually, so I use this for hanging up notes.
         name: 
         portrait: 
         audio: 
@@ -858,7 +863,7 @@ MonoBehaviour:
     - id: 11
       name: Office_door_Observe
       startPage: 1
-      scrollPosition: {x: 0, y: 0}
+      scrollPosition: {x: 22.0019531, y: 60}
       phases:
       - id: 0
         type: 6
@@ -898,9 +903,9 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: '''Douglas Quinn, private investigator.'' Yep, that''s my name on the
-          door. Burke''s name used to be there too, when we were partners. Seems like
-          a lifetime ago.'
+        text: "\u201CDouglas Quinn, P.I.\u201D Yeah, that\u2019s my name there. Burke\u2019s
+          used to be there, too, when we were partners. \nSometimes, money comes walking
+          through here, in the shape of a client. I sure could use some at the moment."
         name: 
         portrait: 
         audio: 
@@ -1021,7 +1026,7 @@ MonoBehaviour:
         outs: 01000000
         advanced: 0
         metadata: 
-        text: I hope this heat wave wears off soon. We could use some rain.
+        text: I sure hope this heat wave will wear off soon. We could use some rain.
         name: 
         portrait: 
         audio: 
@@ -1162,18 +1167,18 @@ MonoBehaviour:
         variables: []
         selection: 0
     - id: 15
-      name: Office_chair_Interact
-      startPage: -1
+      name: Office_chair_Use
+      startPage: 0
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
         type: 0
         theme: 
-        position: {x: 53, y: 101}
+        position: {x: 97, y: 224}
         outs: 01000000
         advanced: 0
         metadata: 
-        text: That's for the clients. It would confuse me if I sat in that one.
+        text: "No, that\u2019s the client chair. It would confuse me to sit in that."
         name: 
         portrait: 
         audio: 
@@ -1238,7 +1243,7 @@ MonoBehaviour:
         variables: []
         selection: 0
     - id: 16
-      name: Office_window_interact
+      name: Office_window_Use
       startPage: -1
       scrollPosition: {x: 0, y: 0}
       phases:
@@ -1249,7 +1254,7 @@ MonoBehaviour:
         outs: 01000000
         advanced: 0
         metadata: 
-        text: The blinds are fine where they are.
+        text: I like the blinds where they are. Better for the eyes that way.
         name: 
         portrait: 
         audio: 
@@ -1314,7 +1319,7 @@ MonoBehaviour:
         variables: []
         selection: 0
     - id: 17
-      name: Office_license_interact
+      name: Office_license_Pickup
       startPage: -1
       scrollPosition: {x: 0, y: 0}
       phases:
@@ -1325,8 +1330,8 @@ MonoBehaviour:
         outs: 01000000
         advanced: 0
         metadata: 
-        text: I don't need to carry the big license around. I've already got a handy
-          one in my wallet.
+        text: "Nah, I won\u2019t carry this around. I\u2019ve got a wallet-sized version
+          somewhere."
         name: 
         portrait: 
         audio: 
@@ -1513,17 +1518,48 @@ MonoBehaviour:
         selection: 0
     - id: 20
       name: Writingdesk_drawer_Observe
-      startPage: 0
-      scrollPosition: {x: 0, y: 0}
+      startPage: 1
+      scrollPosition: {x: 0, y: 54}
       phases:
       - id: 0
         type: 6
         theme: 
-        position: {x: 200, y: 100}
+        position: {x: 290, y: 104}
         outs: 
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 101, y: 188}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: It's a desk drawer.
         name: 
         portrait: 
         audio: 
@@ -1558,17 +1594,48 @@ MonoBehaviour:
         selection: 0
     - id: 21
       name: Writingdesk_typewriter_Observe
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
         type: 6
         theme: 
-        position: {x: 200, y: 100}
+        position: {x: 421, y: 121}
         outs: 
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 70, y: 149}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: "My old Royal. More faithful to me than the women I\u2019ve known."
         name: 
         portrait: 
         audio: 
@@ -1603,7 +1670,7 @@ MonoBehaviour:
         selection: 0
     - id: 22
       name: Desk_lamp_Observe
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -1614,6 +1681,37 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 82, y: 153}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: I guess I'm a bit of a night owl, hence the need for a lamp.
         name: 
         portrait: 
         audio: 
@@ -1648,7 +1746,7 @@ MonoBehaviour:
         selection: 0
     - id: 23
       name: Desk_papers_Observe
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -1659,6 +1757,39 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 79, y: 180}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: "Notes from a previous case of a missing husband. He\u2019d jumped on
+          a train to San Francisco. Tracked him down drunk at a bar, gambling away
+          their savings."
         name: 
         portrait: 
         audio: 
@@ -1693,7 +1824,7 @@ MonoBehaviour:
         selection: 0
     - id: 24
       name: Desk_ashtray_Observe
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -1704,6 +1835,38 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 121, y: 163}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: 'Many a good cigarette has ended its life in this ashtray. Lou always
+          tried to make me quit smoking. I guess it didn''t work. '
         name: 
         portrait: 
         audio: 
@@ -1738,7 +1901,7 @@ MonoBehaviour:
         selection: 0
     - id: 25
       name: Desk_drawer_Observe
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -1749,6 +1912,37 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 20, y: 228}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: A desk drawer.
         name: 
         portrait: 
         audio: 
@@ -1783,7 +1977,7 @@ MonoBehaviour:
         selection: 0
     - id: 26
       name: Writingdesk_drawer_license_Observe
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -1794,6 +1988,37 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 65, y: 159}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: My wallet-sized license. Never leave home without it.
         name: 
         portrait: 
         audio: 
@@ -1869,7 +2094,7 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: My license..never leave without it.
+        text: "I\u2019ll put this back in my wallet. There we go."
         name: 
         portrait: 
         audio: 
@@ -1945,7 +2170,8 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: WOOH LEAVING
+        text: I'm ready to go now. I'll se if I can track down this Morgan guy at
+          Pier 5.
         name: 
         portrait: 
         audio: 
@@ -2021,7 +2247,8 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: Can't leave yet..
+        text: "I can\u2019t leave until I\u2019ve collected my jacket, license and
+          gun somewhere."
         name: 
         portrait: 
         audio: 
@@ -2056,8 +2283,8 @@ MonoBehaviour:
         selection: 0
     - id: 30
       name: Office_jacket_Observe
-      startPage: 0
-      scrollPosition: {x: 0, y: 0}
+      startPage: 1
+      scrollPosition: {x: 0, y: 120}
       phases:
       - id: 0
         type: 6
@@ -2067,6 +2294,38 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 10, y: 254}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: My jacket. Fits me well. It used to be Lou who picked out my clothes..
+          she was good at that stuff.
         name: 
         portrait: 
         audio: 
@@ -2101,8 +2360,8 @@ MonoBehaviour:
         selection: 0
     - id: 31
       name: Office_jacket_Pickup
-      startPage: 0
-      scrollPosition: {x: 0, y: 0}
+      startPage: 1
+      scrollPosition: {x: 0, y: 100}
       phases:
       - id: 0
         type: 6
@@ -2112,6 +2371,39 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 79, y: 234}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: "You\u2019re coming with me, old jacket. I\u2019m not wearing it until
+          I\u2019m leaving though. It's bad enough that I have to wear it outside
+          in this heat."
         name: 
         portrait: 
         audio: 
@@ -2191,7 +2483,7 @@ MonoBehaviour:
         selection: 0
     - id: 33
       name: Desk_phone_Observe
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -2202,6 +2494,37 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 51, y: 154}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: Ring, dammit ring. Bring me money.
         name: 
         portrait: 
         audio: 
@@ -2236,7 +2559,7 @@ MonoBehaviour:
         selection: 0
     - id: 34
       name: Inventory_pen_Observe
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -2247,6 +2570,37 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 36, y: 218}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: "It\u2019s a ballpoint black pen. "
         name: 
         portrait: 
         audio: 
@@ -2281,7 +2635,7 @@ MonoBehaviour:
         selection: 0
     - id: 35
       name: Desk_cabinet_Observe
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -2315,6 +2669,37 @@ MonoBehaviour:
         variableGetEquation: 0
         variableGetValue: 
         messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 70, y: 205}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: I need to tidy up the cabinet one of these days.
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
       floats:
         variables: []
         selection: 0
@@ -2325,7 +2710,7 @@ MonoBehaviour:
         variables: []
         selection: 0
     - id: 36
-      name: Desk_drawer_Observe
+      name: Desk_drawer2_Observe
       startPage: 0
       scrollPosition: {x: 0, y: 0}
       phases:
@@ -2371,7 +2756,7 @@ MonoBehaviour:
         selection: 0
     - id: 37
       name: Inventory_gun_Observe
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -2382,6 +2767,38 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 47, y: 160}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: "It\u2019s my Colt Detective Special. I don\u2019t particularly enjoy
+          packing heat, but in this line of business..."
         name: 
         portrait: 
         audio: 
@@ -2416,7 +2833,7 @@ MonoBehaviour:
         selection: 0
     - id: 38
       name: Desk_cabinet_Pickup
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -2427,6 +2844,37 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 43, y: 188}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: Ah. So that's where I put my gun.
         name: 
         portrait: 
         audio: 
@@ -2461,7 +2909,7 @@ MonoBehaviour:
         selection: 0
     - id: 39
       name: Inventory_key_Pickup
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -2472,6 +2920,38 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 38, y: 156}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: There we go. Maybe you and I will find some money? Hopefully, I locked
+          that drawer for a reason.
         name: 
         portrait: 
         audio: 
@@ -2506,7 +2986,7 @@ MonoBehaviour:
         selection: 0
     - id: 40
       name: Inventory_gun_Pickup
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -2517,6 +2997,37 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 23, y: 245}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: Gotcha.
         name: 
         portrait: 
         audio: 
@@ -2551,7 +3062,7 @@ MonoBehaviour:
         selection: 0
     - id: 41
       name: Inventory_cigarettes_Observe
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -2562,6 +3073,37 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 13, y: 154}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: Domino's, my favorite brand.
         name: 
         portrait: 
         audio: 
@@ -2596,7 +3138,7 @@ MonoBehaviour:
         selection: 0
     - id: 42
       name: Inventory_cigarettes_Pickup
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -2607,6 +3149,37 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 22, y: 165}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: Hello, friends.
         name: 
         portrait: 
         audio: 
@@ -2641,7 +3214,7 @@ MonoBehaviour:
         selection: 0
     - id: 43
       name: Inventory_pen_Pickup
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -2652,6 +3225,38 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 90, y: 202}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: I already have my journal pen.. but why not. This pen looks like it
+          will be much happier in my pocket.
         name: 
         portrait: 
         audio: 
@@ -2686,7 +3291,7 @@ MonoBehaviour:
         selection: 0
     - id: 44
       name: Office_window_Use
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -2697,6 +3302,37 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 22, y: 302}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: I like the blinds where they are. Better for the eyes that way.
         name: 
         portrait: 
         audio: 
@@ -2731,7 +3367,7 @@ MonoBehaviour:
         selection: 0
     - id: 45
       name: Office_deskchair_Observe
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -2742,6 +3378,38 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 61, y: 303}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: It's a comfy chair. Which is good. I've spent a considerable amount
+          of time in it.
         name: 
         portrait: 
         audio: 
@@ -2776,7 +3444,7 @@ MonoBehaviour:
         selection: 0
     - id: 46
       name: Office_deskchair_Use
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -2787,6 +3455,38 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 54, y: 202}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: I don't feel like sitting down right now. I should find my things and
+          get outta here.
         name: 
         portrait: 
         audio: 
@@ -2866,7 +3566,7 @@ MonoBehaviour:
         selection: 0
     - id: 48
       name: Office_cabinet_Use
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -2877,6 +3577,37 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 116, y: 374}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: I don't need to reminisce about old cases at the moment.
         name: 
         portrait: 
         audio: 
@@ -2911,17 +3642,49 @@ MonoBehaviour:
         selection: 0
     - id: 49
       name: License_license_Observe
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
         type: 6
         theme: 
-        position: {x: 200, y: 100}
+        position: {x: 273, y: 28}
         outs: 
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 144, y: 130}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: If a clients ever doubts my professionalism, I can point them to this...
+          I framed it perfectly.
         name: 
         portrait: 
         audio: 
@@ -2956,7 +3719,7 @@ MonoBehaviour:
         selection: 0
     - id: 50
       name: License_license_Pickup
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -2967,6 +3730,38 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 43, y: 173}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: "I won\u2019t carry this around. I\u2019ve got a wallet-sized version
+          somewhere."
         name: 
         portrait: 
         audio: 
@@ -3001,7 +3796,7 @@ MonoBehaviour:
         selection: 0
     - id: 51
       name: Desk_phone_Use
-      startPage: 0
+      startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
       - id: 0
@@ -3012,6 +3807,37 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: 
+        name: 
+        portrait: 
+        audio: 
+        audioDelay: 0
+        rect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        newWindow: 0
+        choices: []
+        waitType: 0
+        waitDuration: 0
+        variableScope: 0
+        variableType: 0
+        variableId: 0
+        variableScrollPosition: {x: 0, y: 0}
+        variableSetEquation: 0
+        variableSetValue: 
+        variableGetEquation: 0
+        variableGetValue: 
+        messageName: 
+      - id: 1
+        type: 0
+        theme: 
+        position: {x: 63, y: 355}
+        outs: 00000000
+        advanced: 0
+        metadata: 
+        text: I have no need to call anyone right now. Especially not Lou.
         name: 
         portrait: 
         audio: 
@@ -3133,4 +3959,4 @@ MonoBehaviour:
     themes:
       themes: []
       selection: 0
-    selectorScrollPosition: {x: 0, y: 251}
+    selectorScrollPosition: {x: 0, y: 358}
