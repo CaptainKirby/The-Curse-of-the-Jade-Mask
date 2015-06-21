@@ -4,6 +4,10 @@ using System.Collections.Generic;
 public class Inventory : MonoBehaviour {
 	public List<string> inventoryObjects = new List<string>();
 //	public GameObject addObj;
+	public Transform notebookHolder;
+	public Transform invHolderSmall;
+	public Transform invHolderLarge;
+
 	void Start () 
 	{
 	
