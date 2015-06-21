@@ -40,14 +40,14 @@ public class InteractionMenu : MonoBehaviour
 
 		if(Input.GetMouseButtonUp(0))
 		{
-
-
 			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+			if(hit.collider != null)
+			{
+
 			if(open && !EventSystem.current.currentSelectedGameObject)
 			{	
 //				Debug.Log (EventSystem.current.currentSelectedGameObject);
-				if(hit.collider != null)
-				{
+
 					Debug.Log ("GNEU");
 					Debug.Log (hit.collider);
 					GameController.instance.dCon.obsTextObj.SetActive(false);
@@ -85,11 +85,17 @@ public class InteractionMenu : MonoBehaviour
 				}
 				else
 				{
-					GameController.instance.dCon.obsTextObj.SetActive(false);
-					GameController.instance.dCon.continueButton.SetActive (false);
-					GameController.instance.dCon.endButton.SetActive (false);
-					CloseInteractiveMenu();
+
+//					CloseInteractiveMenu();
 				}
+
+			}
+			else
+			{
+				CloseInteractiveMenu();
+				GameController.instance.dCon.obsTextObj.SetActive(false);
+				GameController.instance.dCon.continueButton.SetActive (false);
+				GameController.instance.dCon.endButton.SetActive (false);
 
 			}
 
@@ -425,7 +431,8 @@ public class InteractionMenu : MonoBehaviour
 
 //			Debug.Log("GBNEU");
 			gObj.SetActive(false);
-//			CloseInteractiveMenu();
+			CloseInteractiveMenu();
+			open = true;
 
 
 		}
@@ -614,7 +621,7 @@ public class InteractionMenu : MonoBehaviour
 		GameController.instance.audioClipSource.GetComponent<AudioSource>().Play ();
 	}
 
-	void OpenStuff(InteractableObject iO, GameObject gObj)
+	public void OpenStuff(InteractableObject iO, GameObject gObj)
 	{
 
 		//open stuff

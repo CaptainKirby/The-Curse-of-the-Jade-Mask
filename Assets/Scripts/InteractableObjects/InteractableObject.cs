@@ -81,15 +81,15 @@ public class InteractableObject : MonoBehaviour {
 			{
 				if (hit.collider.gameObject == this.gameObject) 
 				{
-//					if(hit.collider.GetComponent<InteractableObject>().clickInventoryItemNeeded.ToString() == GameController.instance.inventoryController.selectedObj.ToString())
-//					{
+					if(hit.collider.GetComponent<InteractableObject>().clickInventoryItemNeeded.ToString() == GameController.instance.inventoryController.selectedObj.ToString())
+					{
 //						
-//						GameController.instance.interactionMenu.OpenStuff(hit.collider.GetComponent<InteractableObject>(), hit.collider.gameObject);
+						GameController.instance.interactionMenu.OpenStuff(hit.collider.GetComponent<InteractableObject>(), hit.collider.gameObject);
 //						CloseInteractiveMenu();
-//						GameController.instance.inventoryController.RemoveFromInventory();
-//					}
-//					else
-//					{
+						GameController.instance.inventoryController.RemoveFromInventory();
+					}
+					else
+					{
 						
 						Dialoguer.StartDialogue(DialoguerDialogues.Cant); 
 						GameController.instance.dCon.obsTextObj.SetActive(true);
@@ -98,7 +98,7 @@ public class InteractableObject : MonoBehaviour {
 						CloseInteractiveMenu();
 						GameController.instance.interactionMenu.open = true;
 						
-//					}
+					}
 				}
 			}
 		}

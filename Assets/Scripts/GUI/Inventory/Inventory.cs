@@ -11,12 +11,16 @@ public class Inventory : MonoBehaviour {
 
 	public GameObject selectedObj;
 	public GameObject highlight;
+	public List<GameObject> objsInSmall;
+	public List<GameObject> objsInLarge;
+
 	void Start () 
 	{
 		highlight = Instantiate (GameController.instance.gameSettings.selectImage, Vector3.zero, Quaternion.identity) as GameObject;
 		highlight.SetActive (false);
 		highlight.transform.SetParent (this.transform);
-
+		invHolderLarge.gameObject.SetActive (false);
+		invHolderSmall.gameObject.SetActive (false);
 	}
 	
 	void Update () 
@@ -51,11 +55,23 @@ public class Inventory : MonoBehaviour {
 		g.GetComponent<Button>().onClick.AddListener(() => SelectDeselect(g));
 		if(small)
 		{
+			if(invHolderSmall.gameObject.activeSelf == false)
+				invHolderSmall.gameObject.SetActive(true);
+
+			objsInSmall.Add(g);
+
+
 			g.transform.SetParent (invHolderSmall.transform);
 		}
 		else
 		{
-			
+			if(invHolderLarge.gameObject.activeSelf == false)
+				invHolderLarge.gameObject.SetActive(true);
+
+			objsInLarge.Add(g);
+
+
+
 			g.transform.SetParent (invHolderLarge.transform);
 		}
 //		g.transform.SetParent (GameController.instance.uiCanvas.transform);
@@ -71,8 +87,24 @@ public class Inventory : MonoBehaviour {
 
 	public void RemoveFromInventory()
 	{
+		if(objsInSmall.Contains(selectedObj))
+			objsInSmall.Remove(selectedObj);
+
+
+		if (objsInLarge.Contains (selectedObj))
+			objsInLarge.Remove (selectedObj);
+
+		if (objsInLarge.Count < 1 && invHolderLarge.gameObject.activeSelf == true)
+			invHolderLarge.gameObject.SetActive (false);
+
+		if (objsInSmall.Count < 1 && invHolderSmall.gameObject.activeSelf == true)
+			invHolderSmall.gameObject.SetActive (false);
+
+
+
 		highlight.SetActive(false);
 		selectedObj.SetActive (false);
 		selectedObj = null;
+
 	}
 }
