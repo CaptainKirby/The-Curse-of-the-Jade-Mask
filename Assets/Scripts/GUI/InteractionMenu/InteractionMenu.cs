@@ -161,7 +161,11 @@ public class InteractionMenu : MonoBehaviour
 
 		}
 	}
-	
+
+//	public void ChangeIcon(Sprite toSprite, Image fromImage)
+//	{
+//		fromImage.sprite = toSprite;
+//	}
 	public virtual void OpenInteractiveMenu(Vector3 position, InteractableObject.InteractionType type, GameObject gObj, string name) 
 	{
 //		CloseInteractiveMenu ();

@@ -48,36 +48,34 @@ public class GameController : MonoBehaviour {
 
 	void Awake ()  
 	{
-
-		if (gameSettings.uiCanvas != null) 
-		{
-			//instantiate and declare
-			this.uiCanvas = Instantiate (gameSettings.uiCanvas, Vector3.zero, Quaternion.identity) as GameObject;
-			uiCanvas.gameObject.name = "UiCanvas";
-			if(!showBlackBars)
-			{
-				uiCanvas.transform.FindChild("Blackbars").gameObject.SetActive(false);
+		if (Application.loadedLevelName != "MainMenu") {
+			if (gameSettings.uiCanvas != null) {
+				//instantiate and declare
+				this.uiCanvas = Instantiate (gameSettings.uiCanvas, Vector3.zero, Quaternion.identity) as GameObject;
+				uiCanvas.gameObject.name = "UiCanvas";
+				if (!showBlackBars) {
+					uiCanvas.transform.FindChild ("Blackbars").gameObject.SetActive (false);
+				}
+			} else {
+				Debug.Log ("No UI Canvas assigned in Game Settings!");
 			}
-		} else 
+		}
+		if (Application.loadedLevelName != "MainMenu") {
+			if (gameSettings.uiInteractioneMenu != null) {
+				interactionMenu = Instantiate (gameSettings.uiInteractioneMenu, Vector3.zero, Quaternion.identity) as InteractionMenu;
+				interactionMenu.gameObject.name = "InteractionMenu";
+				interactionMenu.gameObject.transform.SetParent (uiCanvas.transform);
+
+			} else {
+				Debug.Log ("No Interaction Menu assigned in Game Settings!");
+			}
+		}
+		if (Application.loadedLevelName != "MainMenu") 
 		{
-			Debug.Log ("No UI Canvas assigned in Game Settings!");
+			inventoryController = uiCanvas.GetComponentInChildren<Inventory> ();
 		}
 
-		if(gameSettings.uiInteractioneMenu != null)
-		{
-			interactionMenu = Instantiate(gameSettings.uiInteractioneMenu, Vector3.zero, Quaternion.identity) as InteractionMenu;
-			interactionMenu.gameObject.name = "InteractionMenu";
-			interactionMenu.gameObject.transform.SetParent(uiCanvas.transform);
 
-		}
-		else
-		{
-			Debug.Log ("No Interaction Menu assigned in Game Settings!");
-		}
-
-
-		inventoryController = uiCanvas.GetComponentInChildren<Inventory> ();
-			
 		if(gameSettings.audioClipSource != null)
 		{
 			audioClipSource = Instantiate(gameSettings.audioClipSource, Vector3.zero, Quaternion.identity) as GameObject;
@@ -89,15 +87,14 @@ public class GameController : MonoBehaviour {
 		{
 			Debug.Log ("No Interaction Menu assigned in Game Settings!");
 		}
+		if (Application.loadedLevelName != "MainMenu") {
+			if (dialogueHolder == null) {
+				dialogueHolder = uiCanvas.transform.FindChild ("Dialogue").gameObject;
 
-		if (dialogueHolder == null) 
-		{
-			dialogueHolder = uiCanvas.transform.FindChild("Dialogue").gameObject;
-
-		}
-		if(dCon == null)
-		{
-			dCon = GetComponent<DialogueController>();
+			}
+			if (dCon == null) {
+				dCon = GetComponent<DialogueController> ();
+			}
 		}
 
 	}

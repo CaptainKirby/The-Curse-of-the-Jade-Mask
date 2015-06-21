@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 public class InteractableObject : MonoBehaviour {
 //	public string name = "Object";
 	public enum InteractionType{Observe, ObserveZoom, ObserveUse, ObservePickup, ObservePickupZoom, ObserveLeave, ObserveOpen};
@@ -35,6 +36,7 @@ public class InteractableObject : MonoBehaviour {
 	public AudioClip clipPlay;
 
 	public GameObject clickInventoryItemNeeded;
+	public Image changeToImage;
 	void Start()
 	{
 		area = this.transform.parent.gameObject;
