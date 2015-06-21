@@ -51,4 +51,5 @@ public enum DialoguerDialogues{
 	License_license_Observe = 49,
 	License_license_Pickup = 50,
 	Desk_phone_Use = 51,
+	Cant = 52,
 }

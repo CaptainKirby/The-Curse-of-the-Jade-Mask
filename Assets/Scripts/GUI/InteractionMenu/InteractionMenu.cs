@@ -38,7 +38,7 @@ public class InteractionMenu : MonoBehaviour
 	public void Update()
 	{
 
-		if(Input.GetMouseButtonUp(0))
+		if(Input.GetMouseButtonUp(0) && GameController.instance.inventoryController.selectedObj == null)
 		{
 
 
@@ -89,6 +89,40 @@ public class InteractionMenu : MonoBehaviour
 				}
 			}
 		}	
+		else if(Input.GetMouseButtonUp(0) && GameController.instance.inventoryController.selectedObj != null)
+		{
+			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+			if(open && !EventSystem.current.currentSelectedGameObject)
+			{	
+				//				Debug.Log (EventSystem.current.currentSelectedGameObject);
+				if(hit.collider != null)
+				{
+					Debug.Log (hit.collider);
+					GameController.instance.dCon.obsTextObj.SetActive(false);
+					GameController.instance.dCon.continueButton.SetActive (false);
+					GameController.instance.dCon.endButton.SetActive (false);
+					if(hit.collider.GetComponent<InteractableObject>())
+					{
+						if(hit.collider.GetComponent<InteractableObject>().clickInventoryItemNeeded != null)
+						{
+							if(hit.collider.GetComponent<InteractableObject>().clickInventoryItemNeeded == GameController.instance.inventoryController.selectedObj)
+							{
+								//open stuff
+								CloseInteractiveMenu();
+							}
+							else
+							{
+								CloseInteractiveMenu();
+								Dialoguer.StartDialogue(DialoguerDialogues.Cant); 
+								GameController.instance.dCon.obsTextObj.SetActive(true);
+							}
+						}
+					}
+
+				}
+
+			}
+		}
 	}
 	public void Start()
 	{
@@ -350,7 +384,7 @@ public class InteractionMenu : MonoBehaviour
 //				Debug.Log(gObj.GetComponent<InteractableObject>().investigateObj);
 
 //				GameController.instance.inventoryController.addObj = gObj.GetComponent<InteractableObject>().investigateObj;
-				GameController.instance.inventoryController.AddToInventory(gObj.GetComponent<InteractableObject>().inventoryObject);
+				GameController.instance.inventoryController.AddToInventory(gObj.GetComponent<InteractableObject>().inventoryObject, gObj.GetComponent<InteractableObject>().smallObj);
 			}
 
 //			if(System.Enum.IsDefined(typeof(DialoguerDialogues), (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Pickup" )))
@@ -425,6 +459,11 @@ public class InteractionMenu : MonoBehaviour
 				}
 			}
 //			DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Investigate" );
+
+		}
+		if (img == useIconActive) 
+		{
+			PlaySound(GameController.instance.gameSettings.clickSound1);
 
 		}
 		if(img == openIconActive)
