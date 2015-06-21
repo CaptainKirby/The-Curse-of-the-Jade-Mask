@@ -90,10 +90,10 @@ public class DialogueController : MonoBehaviour {
 //		Debug.Log (data.choices);
 		choices = data.choices;
 		text = data.text;
-		endButton.SetActive (true);
+//		endButton.SetActive (true);
 		if(choices == null) 
 		{
-			continueButton.SetActive(true);
+//			continueButton.SetActive(true);
 		}
 		obsTextC.text = text;
 //		obsText.GetComponentInChildren<Text> ().text = text;

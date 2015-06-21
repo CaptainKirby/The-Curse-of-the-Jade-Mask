@@ -23,6 +23,7 @@ public class Inventory : MonoBehaviour {
 
 	public void SelectDeselect(GameObject obj)
 	{
+		Debug.Log ("NGUENU");
 		if(selectedObj == obj)
 		{
 			selectedObj = null;
@@ -37,7 +38,8 @@ public class Inventory : MonoBehaviour {
 		GameObject g = Instantiate (obj, Vector3.zero, Quaternion.identity) as GameObject;
 		GameController.instance.inventoryController.inventoryObjects.Add (obj.ToString());
 //		selectedObj = obj;
-		g.GetComponent<Button>().onClick.AddListener(() => SelectDeselect(obj));
+		g.name = obj.name;
+		g.GetComponent<Button>().onClick.AddListener(() => SelectDeselect(g));
 		if(small)
 		{
 			g.transform.SetParent (invHolderSmall.transform);
@@ -56,5 +58,12 @@ public class Inventory : MonoBehaviour {
 		rT.sizeDelta = obj.GetComponent<RectTransform>().sizeDelta;
 
 		//Sort according to position
+	}
+
+	public void RemoveFromInventory()
+	{
+
+		selectedObj.SetActive (false);
+		selectedObj = null;
 	}
 }

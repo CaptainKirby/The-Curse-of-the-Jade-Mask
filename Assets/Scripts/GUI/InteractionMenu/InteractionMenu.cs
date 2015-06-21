@@ -85,6 +85,7 @@ public class InteractionMenu : MonoBehaviour
 				{
 					GameController.instance.dCon.obsTextObj.SetActive(false);
 					GameController.instance.dCon.continueButton.SetActive (false);
+					GameController.instance.dCon.endButton.SetActive (false);
 					CloseInteractiveMenu();
 				}
 			}
@@ -105,10 +106,12 @@ public class InteractionMenu : MonoBehaviour
 					{
 						if(hit.collider.GetComponent<InteractableObject>().clickInventoryItemNeeded != null)
 						{
-							if(hit.collider.GetComponent<InteractableObject>().clickInventoryItemNeeded == GameController.instance.inventoryController.selectedObj)
+							if(hit.collider.GetComponent<InteractableObject>().clickInventoryItemNeeded.ToString() == GameController.instance.inventoryController.selectedObj.ToString())
 							{
-								//open stuff
+								Debug.Log ("GBEU");
+								OpenStuff(hit.collider.GetComponent<InteractableObject>(), hit.collider.gameObject);
 								CloseInteractiveMenu();
+								GameController.instance.inventoryController.RemoveFromInventory();
 							}
 							else
 							{
@@ -464,46 +467,85 @@ public class InteractionMenu : MonoBehaviour
 		if (img == useIconActive) 
 		{
 			PlaySound(GameController.instance.gameSettings.clickSound1);
-
+			DialoguerDialogues diag = DialoguerDialogues.None;
+			try{
+				diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Use" );
+			}
+			catch
+			{
+				Debug.Log ("Dialogue needs to be set!");
+			}
+			
+			if(diag != DialoguerDialogues.None)
+			{
+				Dialoguer.StartDialogue(diag); 
+				GameController.instance.dCon.obsTextObj.SetActive(true);
+				
+				
+			}
 		}
 		if(img == openIconActive)
 		{
+
 
 			PlaySound(GameController.instance.gameSettings.clickSound1);
 
 
 			CloseInteractiveMenu();
 			CCircle(img);
-
-			if(iO.spriteToActivate != null)
+			if(iO.clickInventoryItemNeeded == null)
 			{
-				iO.spriteToActivate.gameObject.SetActive(true);
+//				Debug.Log ("BGNEU");
+				OpenStuff(iO, gObj);
+//				if(iO.spriteToActivate != null)
+//				{
+//					iO.spriteToActivate.gameObject.SetActive(true);
+//				}
+//				if(iO.spriteRendererToUpdate != null)
+//				{
+//					SpriteRenderer r = iO.spriteRendererToUpdate;
+//					if(r.sprite == iO.spriteToUpdateFrom)
+//						r.sprite = iO.spriteToUpdateTo;
+//					else
+//						r.sprite = iO.spriteToUpdateFrom;
+//				}
+//				if(iO.objsToEnable.Length > 0)
+//				{
+//					for(int i = 0; i < iO.objsToEnable.Length; i++)
+//				    {
+//						iO.objsToEnable[i].SetActive(true);
+//					}
+//
+//				}
+//				if(gObj.GetComponent<InteractableObject>().disableOnOpen)
+//				{
+//					gObj.SetActive(false);
+//				}
+//
+//				if(iO.clipPlay != null)
+//				{
+//					GameController.instance.audioClipSource.GetComponent<AudioSource>().clip = iO.clipPlay;
+//					GameController.instance.audioClipSource.GetComponent<AudioSource>().Play();
+//				}
 			}
-			if(iO.spriteRendererToUpdate != null)
+			else
 			{
-				SpriteRenderer r = iO.spriteRendererToUpdate;
-				if(r.sprite == iO.spriteToUpdateFrom)
-					r.sprite = iO.spriteToUpdateTo;
-				else
-					r.sprite = iO.spriteToUpdateFrom;
-			}
-			if(iO.objsToEnable.Length > 0)
-			{
-				for(int i = 0; i < iO.objsToEnable.Length; i++)
-			    {
-					iO.objsToEnable[i].SetActive(true);
+				DialoguerDialogues diag = DialoguerDialogues.None;
+				try{
+					diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Open" );
 				}
-
-			}
-			if(gObj.GetComponent<InteractableObject>().disableOnOpen)
-			{
-				gObj.SetActive(false);
-			}
-
-			if(iO.clipPlay != null)
-			{
-				GameController.instance.audioClipSource.GetComponent<AudioSource>().clip = iO.clipPlay;
-				GameController.instance.audioClipSource.GetComponent<AudioSource>().Play();
+				catch
+				{
+					Debug.Log ("Dialogue needs to be set!");
+				}
+				
+				if(diag != DialoguerDialogues.None)
+				{
+					Dialoguer.StartDialogue(diag); 
+					GameController.instance.dCon.obsTextObj.SetActive(true);
+					
+					
+				}
 			}
 
 		}
@@ -541,10 +583,14 @@ public class InteractionMenu : MonoBehaviour
 	public void GoBackFromZoom(InteractableObject intObj)
 	{
 		intObj.investigateObj.SetActive (false);
+		CloseInteractiveMenu ();
 		backButton.SetActive (false);
 		GameController.instance.playerState = GameController.PlayerState.OpenArea;
+		GameController.instance.dCon.obsTextObj.SetActive(false);
+		GameController.instance.dCon.continueButton.SetActive (false);
+		GameController.instance.dCon.endButton.SetActive (false);
 	}
-
+	
 	void CCircle(Image img)
 	{
 		if(GameController.instance.gameSettings.clickCircle != null)
@@ -552,6 +598,7 @@ public class InteractionMenu : MonoBehaviour
 			GameObject c = Instantiate(GameController.instance.gameSettings.clickCircle, Vector3.zero, Quaternion.identity) as GameObject;
 			c.transform.SetParent(GameController.instance.uiCanvas.transform);
 			c.transform.position = img.transform.position;
+//			Dialoguer.EndDialogue();
 			Destroy (c, 1);
 		}
 	}
@@ -562,14 +609,57 @@ public class InteractionMenu : MonoBehaviour
 		GameController.instance.audioClipSource.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
 		GameController.instance.audioClipSource.GetComponent<AudioSource>().Play ();
 	}
-//	IEnumerator TouchDown(Image newIcon, GameObject gObj)
-//	{
-//		yield return new WaitForSeconds (0.1f);
-//		newIcon.GetComponent<Button> ().onClick.AddListener(() => this.Clicked(newIcon, gObj));
 
-//		while(true)
-//		{
-//			yield return null;
+	void OpenStuff(InteractableObject iO, GameObject gObj)
+	{
+
+		//open stuff
+		PlaySound(GameController.instance.gameSettings.clickSound1);
+		
+		
+		CloseInteractiveMenu();
+//		
+
+			if(iO.spriteToActivate != null)
+			{
+				iO.spriteToActivate.gameObject.SetActive(true);
+			}
+			if(iO.spriteRendererToUpdate != null)
+			{
+				SpriteRenderer r = iO.spriteRendererToUpdate;
+				if(r.sprite == iO.spriteToUpdateFrom)
+					r.sprite = iO.spriteToUpdateTo;
+				else
+					r.sprite = iO.spriteToUpdateFrom;
+			}
+			if(iO.objsToEnable.Length > 0)
+			{
+				for(int i = 0; i < iO.objsToEnable.Length; i++)
+				{
+					iO.objsToEnable[i].SetActive(true);
+				}
+				
+			}
+			if(gObj.GetComponent<InteractableObject>().disableOnOpen)
+			{
+				gObj.SetActive(false);
+			}
+			
+			if(iO.clipPlay != null)
+			{
+				GameController.instance.audioClipSource.GetComponent<AudioSource>().clip = iO.clipPlay;
+				GameController.instance.audioClipSource.GetComponent<AudioSource>().Play();
+			}
+
+	}
+	//	IEnumerator TouchDown(Image newIcon, GameObject gObj)
+	//	{
+	//		yield return new WaitForSeconds (0.1f);
+	//		newIcon.GetComponent<Button> ().onClick.AddListener(() => this.Clicked(newIcon, gObj));
+	
+	//		while(true)
+	//		{
+	//			yield return null;
 //			if(Input.GetMouseButtonUp(0))
 //			{
 //				
