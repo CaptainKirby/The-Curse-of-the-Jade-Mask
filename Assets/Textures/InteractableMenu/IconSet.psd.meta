@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d76ddefd654e2494080d19e89350220c
-timeCreated: 1434666228
+timeCreated: 1434922428
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -11,6 +11,7 @@ TextureImporter:
     21300008: exitIcon
     21300010: IconSet_0
     21300012: IconSet_1
+    21300014: IconSet_Key
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -123,6 +124,16 @@ TextureImporter:
         y: 507
         width: 183
         height: 183
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: IconSet_Key
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 524
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

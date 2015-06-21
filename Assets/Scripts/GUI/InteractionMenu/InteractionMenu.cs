@@ -17,7 +17,7 @@ public class InteractionMenu : MonoBehaviour
 	public Image observeIconActive;
 	private Image zoomIconActive;
 	private Image talkIconActive;
-	private Image openIconActive;
+	public Image openIconActive;
 	private Image leaveIconActive;
 	private Image useIconActive;
 
@@ -162,10 +162,17 @@ public class InteractionMenu : MonoBehaviour
 		}
 	}
 
-//	public void ChangeIcon(Sprite toSprite, Image fromImage)
-//	{
-//		fromImage.sprite = toSprite;
-//	}
+	public void ChangeIcon(Sprite toSprite, Image fromImage)
+	{
+		if(fromImage.sprite == toSprite)
+		{
+			fromImage.sprite = GameController.instance.gameSettings.openIcon.GetComponent<Image>().sprite;
+		}
+		else
+		{
+		fromImage.sprite = toSprite;
+		}
+	}
 	public virtual void OpenInteractiveMenu(Vector3 position, InteractableObject.InteractionType type, GameObject gObj, string name) 
 	{
 //		CloseInteractiveMenu ();

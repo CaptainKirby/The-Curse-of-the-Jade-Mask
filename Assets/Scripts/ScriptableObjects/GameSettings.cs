@@ -16,6 +16,7 @@ public class GameSettings : ScriptableObject {
 	public Image leaveIcon;
 	public Image useIcon;
 	public Image talkIcon;
+	public Image keyIcon;
 	public GameObject clickCircle;
 
 

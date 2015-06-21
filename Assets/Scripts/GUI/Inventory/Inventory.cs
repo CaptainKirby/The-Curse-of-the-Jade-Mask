@@ -35,9 +35,19 @@ public class Inventory : MonoBehaviour {
 		{
 			selectedObj = null;
 			highlight.SetActive(false);
+			if(GameController.instance.interactionMenu.openIconActive.IsActive())
+			{
+				//				Debug.Log ("CHANGE ICON");
+				GameController.instance.interactionMenu.ChangeIcon(GameController.instance.gameSettings.keyIcon.GetComponent<Image>().sprite, GameController.instance.interactionMenu.openIconActive.GetComponent<Image>()); 
+			}
 		}
 		else
 		{
+			if(GameController.instance.interactionMenu.openIconActive.IsActive())
+			{
+//				Debug.Log ("CHANGE ICON");
+				GameController.instance.interactionMenu.ChangeIcon(GameController.instance.gameSettings.keyIcon.GetComponent<Image>().sprite, GameController.instance.interactionMenu.openIconActive.GetComponent<Image>()); 
+			}
 			selectedObj = obj;
 			highlight.transform.position = obj.transform.position;
 			highlight.SetActive(true);

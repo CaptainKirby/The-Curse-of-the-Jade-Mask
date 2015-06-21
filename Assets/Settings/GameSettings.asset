@@ -22,6 +22,7 @@ MonoBehaviour:
   leaveIcon: {fileID: 11452726, guid: c518bfce4354e1047895c7be41f10f17, type: 2}
   useIcon: {fileID: 11452726, guid: e976dd90c4654904eb788b66dabdec83, type: 2}
   talkIcon: {fileID: 11452726, guid: 895a509b9217aef4fac1448e09dbb99e, type: 2}
+  keyIcon: {fileID: 11452726, guid: 5bf5f4efbeb406b44ac73618412eac12, type: 2}
   clickCircle: {fileID: 148520, guid: 38bae1101dffced40a83af23a2d91f42, type: 2}
   selectImage: {fileID: 112356, guid: 75df199ca75c7d24a8f33d4b6d84ee3b, type: 2}
   zoomBackButton: {fileID: 142360, guid: 7f406458473ad2a429cdc28871bdaba0, type: 2}
