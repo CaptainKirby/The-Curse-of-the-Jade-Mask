@@ -309,9 +309,15 @@ public class InteractionMenu : MonoBehaviour
 
 //		Debug.Log (gObj + "lala");
 //		Debug.Log ("GEGNI1");
+
+
 		InteractableObject iO = gObj.GetComponent<InteractableObject>();
 		if(img == observeIconActive)
 		{
+			PlaySound(GameController.instance.gameSettings.clickSound1);
+
+
+			CCircle(img);
 //			if(DialoguerDialogues
 //			if(
 			DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Observe" );
@@ -324,7 +330,10 @@ public class InteractionMenu : MonoBehaviour
 		}
 		if (img == pickupIconActive) 
 		{
+			PlaySound(GameController.instance.gameSettings.clickSound2);
 
+
+			CCircle(img);
 			if(gObj.GetComponent<InteractableObject>().inventoryObject != null)
 			{
 //				Debug.Log(gObj.GetComponent<InteractableObject>().investigateObj);
@@ -340,9 +349,7 @@ public class InteractionMenu : MonoBehaviour
 			{
 				gObj.SetActive(false);
 			}
-			GameController.instance.audioClipSource.GetComponent<AudioSource>().clip = GameController.instance.gameSettings.clickSound1;
-			GameController.instance.audioClipSource.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
-			GameController.instance.audioClipSource.GetComponent<AudioSource>().Play ();
+
 //			Debug.Log("GBNEU");
 			gObj.SetActive(false);
 			CloseInteractiveMenu();
@@ -356,6 +363,9 @@ public class InteractionMenu : MonoBehaviour
 		}
 		if (img == zoomIconActive) 
 		{
+			PlaySound(GameController.instance.gameSettings.clickSound1);
+
+
 			if(gObj.GetComponent<InteractableObject>().investigateObj != null)
 			{
 				GameController.instance.playerState = GameController.PlayerState.Zoom;
@@ -388,8 +398,11 @@ public class InteractionMenu : MonoBehaviour
 		if(img == openIconActive)
 		{
 
-			CloseInteractiveMenu();
+			PlaySound(GameController.instance.gameSettings.clickSound1);
 
+
+			CloseInteractiveMenu();
+			CCircle(img);
 
 			if(iO.spriteRendererToUpdate != null)
 			{
@@ -421,6 +434,9 @@ public class InteractionMenu : MonoBehaviour
 		}
 		if(img == leaveIconActive)
 		{
+			PlaySound(GameController.instance.gameSettings.clickSound1);
+
+			CCircle(img);
 			int itemsNeeded = 0;
 			if(gObj.GetComponent<InteractableObject>().neededInventoryObjs.Length > 0)
 			{
@@ -452,6 +468,24 @@ public class InteractionMenu : MonoBehaviour
 		intObj.investigateObj.SetActive (false);
 		backButton.SetActive (false);
 		GameController.instance.playerState = GameController.PlayerState.OpenArea;
+	}
+
+	void CCircle(Image img)
+	{
+		if(GameController.instance.gameSettings.clickCircle != null)
+		{
+			GameObject c = Instantiate(GameController.instance.gameSettings.clickCircle, Vector3.zero, Quaternion.identity) as GameObject;
+			c.transform.SetParent(GameController.instance.uiCanvas.transform);
+			c.transform.position = img.transform.position;
+			Destroy (c, 1);
+		}
+	}
+
+	void PlaySound(AudioClip c)
+	{
+		GameController.instance.audioClipSource.GetComponent<AudioSource>().clip = c;
+		GameController.instance.audioClipSource.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+		GameController.instance.audioClipSource.GetComponent<AudioSource>().Play ();
 	}
 //	IEnumerator TouchDown(Image newIcon, GameObject gObj)
 //	{

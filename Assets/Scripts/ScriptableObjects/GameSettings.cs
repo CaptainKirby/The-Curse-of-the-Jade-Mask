@@ -16,6 +16,7 @@ public class GameSettings : ScriptableObject {
 	public Image leaveIcon;
 	public Image useIcon;
 	public Image talkIcon;
+	public GameObject clickCircle;
 
 
 	[Header("Zoom Gui")]
