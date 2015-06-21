@@ -38,7 +38,7 @@ public class InteractionMenu : MonoBehaviour
 	public void Update()
 	{
 
-		if(Input.GetMouseButtonUp(0) && GameController.instance.inventoryController.selectedObj == null)
+		if(Input.GetMouseButtonUp(0))
 		{
 
 
@@ -48,6 +48,7 @@ public class InteractionMenu : MonoBehaviour
 //				Debug.Log (EventSystem.current.currentSelectedGameObject);
 				if(hit.collider != null)
 				{
+					Debug.Log ("GNEU");
 					Debug.Log (hit.collider);
 					GameController.instance.dCon.obsTextObj.SetActive(false);
 					GameController.instance.dCon.continueButton.SetActive (false);
@@ -58,6 +59,7 @@ public class InteractionMenu : MonoBehaviour
 						//CloseInteractiveMenu and open
 						if(currectActiveObject != hit.collider.gameObject)
 						{
+
 							if (GameController.instance.currentArea == currectActiveObject.GetComponent<InteractableObject>().area) 
 							{
 
@@ -88,44 +90,46 @@ public class InteractionMenu : MonoBehaviour
 					GameController.instance.dCon.endButton.SetActive (false);
 					CloseInteractiveMenu();
 				}
+
 			}
+
 		}	
-		else if(Input.GetMouseButtonUp(0) && GameController.instance.inventoryController.selectedObj != null)
-		{
-			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-			if(open && !EventSystem.current.currentSelectedGameObject)
-			{	
-				//				Debug.Log (EventSystem.current.currentSelectedGameObject);
-				if(hit.collider != null)
-				{
-					Debug.Log (hit.collider);
-					GameController.instance.dCon.obsTextObj.SetActive(false);
-					GameController.instance.dCon.continueButton.SetActive (false);
-					GameController.instance.dCon.endButton.SetActive (false);
-					if(hit.collider.GetComponent<InteractableObject>())
-					{
-						if(hit.collider.GetComponent<InteractableObject>().clickInventoryItemNeeded != null)
-						{
-							if(hit.collider.GetComponent<InteractableObject>().clickInventoryItemNeeded.ToString() == GameController.instance.inventoryController.selectedObj.ToString())
-							{
-								Debug.Log ("GBEU");
-								OpenStuff(hit.collider.GetComponent<InteractableObject>(), hit.collider.gameObject);
-								CloseInteractiveMenu();
-								GameController.instance.inventoryController.RemoveFromInventory();
-							}
-							else
-							{
-								CloseInteractiveMenu();
-								Dialoguer.StartDialogue(DialoguerDialogues.Cant); 
-								GameController.instance.dCon.obsTextObj.SetActive(true);
-							}
-						}
-					}
-
-				}
-
-			}
-		}
+//		else if(Input.GetMouseButtonUp(0) && GameController.instance.inventoryController.selectedObj != null)
+//		{
+//			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+//			if(open && !EventSystem.current.currentSelectedGameObject)
+//			{	
+//				//				Debug.Log (EventSystem.current.currentSelectedGameObject);
+//				if(hit.collider != null)
+//				{
+//					Debug.Log (hit.collider);
+//					GameController.instance.dCon.obsTextObj.SetActive(false);
+//					GameController.instance.dCon.continueButton.SetActive (false);
+//					GameController.instance.dCon.endButton.SetActive (false);
+//					if(hit.collider.GetComponent<InteractableObject>())
+//					{
+//						if(hit.collider.GetComponent<InteractableObject>().clickInventoryItemNeeded != null)
+//						{
+//							if(hit.collider.GetComponent<InteractableObject>().clickInventoryItemNeeded.ToString() == GameController.instance.inventoryController.selectedObj.ToString())
+//							{
+//
+//								OpenStuff(hit.collider.GetComponent<InteractableObject>(), hit.collider.gameObject);
+//								CloseInteractiveMenu();
+//								GameController.instance.inventoryController.RemoveFromInventory();
+//							}
+//							else
+//							{
+//								CloseInteractiveMenu();
+//								Dialoguer.StartDialogue(DialoguerDialogues.Cant); 
+//								GameController.instance.dCon.obsTextObj.SetActive(true);
+//							}
+//						}
+//					}
+//
+//				}
+//
+//			}
+//		}
 	}
 	public void Start()
 	{
@@ -421,7 +425,7 @@ public class InteractionMenu : MonoBehaviour
 
 //			Debug.Log("GBNEU");
 			gObj.SetActive(false);
-			CloseInteractiveMenu();
+//			CloseInteractiveMenu();
 
 
 		}

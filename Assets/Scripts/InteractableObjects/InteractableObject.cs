@@ -44,47 +44,60 @@ public class InteractableObject : MonoBehaviour {
 	void Update()
 	{
 
-		if(Input.GetMouseButtonUp(0))
-		{
-			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-			if(hit.collider != null)
-			{
-				if(hit.collider.gameObject == this.gameObject)
-				{
+		if (Input.GetMouseButtonUp (0) && GameController.instance.inventoryController.selectedObj == null) {
+			RaycastHit2D hit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero);
+			if (hit.collider != null) {
+				if (hit.collider.gameObject == this.gameObject) {
 //					Debug.Log ("Clicked on: " + this.gameObject.name);
-					if (GameController.instance.currentArea == area) 
-					{
+					if (GameController.instance.currentArea == area) {
 
 						//if game controller current area == this area && if chracter not moving
-						if(!cMovement.moving)
-						{
+						if (!cMovement.moving) {
 							OpenInteractiveMenu ();
 						}
 						
-					}
-					else
-					{
-						if(GameController.instance.playerState == GameController.PlayerState.OpenArea)
-						{
-							if(!cMovement.moving)
-							{
-								if(characterStance == null)
-								{
-									StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, areaComponent.characterStance, this));
-								}
-								else
-								{
-									StartCoroutine(cMovement.FadeOut(areaComponent.standPosition, areaComponent.sortingLayerNr, characterStance, this));
+					} else {
+						if (GameController.instance.playerState == GameController.PlayerState.OpenArea) {
+							if (!cMovement.moving) {
+								if (characterStance == null) {
+									StartCoroutine (cMovement.FadeOut (areaComponent.standPosition, areaComponent.sortingLayerNr, areaComponent.characterStance, this));
+								} else {
+									StartCoroutine (cMovement.FadeOut (areaComponent.standPosition, areaComponent.sortingLayerNr, characterStance, this));
 									
 								}
 								GameController.instance.currentArea = area;
 							}
-						}
-						else
-						{
+						} else {
 							OpenInteractiveMenu ();
 						}
 					}
+				}
+			}
+		} 
+		else if (Input.GetMouseButtonUp (0) && GameController.instance.inventoryController.selectedObj != null) 
+		{
+			RaycastHit2D hit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero);
+			if (hit.collider != null) 
+			{
+				if (hit.collider.gameObject == this.gameObject) 
+				{
+//					if(hit.collider.GetComponent<InteractableObject>().clickInventoryItemNeeded.ToString() == GameController.instance.inventoryController.selectedObj.ToString())
+//					{
+//						
+//						GameController.instance.interactionMenu.OpenStuff(hit.collider.GetComponent<InteractableObject>(), hit.collider.gameObject);
+//						CloseInteractiveMenu();
+//						GameController.instance.inventoryController.RemoveFromInventory();
+//					}
+//					else
+//					{
+						
+						Dialoguer.StartDialogue(DialoguerDialogues.Cant); 
+						GameController.instance.dCon.obsTextObj.SetActive(true);
+						GameController.instance.inventoryController.selectedObj = null;
+						CloseInteractiveMenu();
+						GameController.instance.interactionMenu.open = true;
+						
+//					}
 				}
 			}
 		}
@@ -153,7 +166,8 @@ public class InteractableObject : MonoBehaviour {
 	{
 		if (GameController.instance.interactionMenu.open) 
 		{
-		GameController.instance.interactionMenu.CloseInteractiveMenu ();
+			GameController.instance.interactionMenu.CloseInteractiveMenu ();
+			GameController.instance.interactionMenu.open = false;
 		}
 	}
 	public virtual void OpenInteractiveMenu()
