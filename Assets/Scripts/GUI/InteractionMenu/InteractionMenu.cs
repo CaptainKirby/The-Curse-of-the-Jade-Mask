@@ -320,12 +320,23 @@ public class InteractionMenu : MonoBehaviour
 			CCircle(img);
 //			if(DialoguerDialogues
 //			if(
-			DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Observe" );
-//			Debug.Log (diag.ToString());
-//			if(diag.ToString() != gObj.name)
-//			{
+
+			DialoguerDialogues diag = DialoguerDialogues.None;
+			try{
+				diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Observe" );
+			}
+			catch
+			{
+				Debug.Log ("Dialogue needs to be set!");
+			}
+			
+			if(diag != DialoguerDialogues.None)
+			{
 				Dialoguer.StartDialogue(diag); 
 				GameController.instance.dCon.obsTextObj.SetActive(true);
+				
+				
+			}
 //			}
 		}
 		if (img == pickupIconActive) 
@@ -341,10 +352,31 @@ public class InteractionMenu : MonoBehaviour
 //				GameController.instance.inventoryController.addObj = gObj.GetComponent<InteractableObject>().investigateObj;
 				GameController.instance.inventoryController.AddToInventory(gObj.GetComponent<InteractableObject>().inventoryObject);
 			}
-			DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Pickup" );
-			Dialoguer.StartDialogue(diag); 
-			GameController.instance.dCon.obsTextObj.SetActive(true);
-			
+
+//			if(System.Enum.IsDefined(typeof(DialoguerDialogues), (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Pickup" )))
+//			{
+//
+//			}
+//			Debug.Log ();
+
+			DialoguerDialogues diag = DialoguerDialogues.None;
+			try{
+				diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Pickup" );
+			}
+			catch
+			{
+				Debug.Log ("Dialogue needs to be set!");
+			}
+
+			if(diag != DialoguerDialogues.None)
+			{
+				Dialoguer.StartDialogue(diag); 
+				GameController.instance.dCon.obsTextObj.SetActive(true);
+
+				
+			}
+
+
 			if(gObj.GetComponent<InteractableObject>().disableOnPickup)
 			{
 				gObj.SetActive(false);

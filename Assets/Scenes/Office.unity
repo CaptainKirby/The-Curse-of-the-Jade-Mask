@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionType: 1
+  interactionType: 0
   name: Coatrack
   investigateObj: {fileID: 0}
   area: {fileID: 0}
@@ -659,7 +659,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .0900000036, y: 0, z: -.280000001}
   m_LocalScale: {x: .660000026, y: .660000026, z: .660000026}
-  m_Children: []
+  m_Children:
+  - {fileID: 1240106828}
+  - {fileID: 1284800444}
   m_Father: {fileID: 843935428}
   m_RootOrder: 2
 --- !u!1 &488773864
@@ -910,7 +912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionType: 0
+  interactionType: 2
   name: Chair
   investigateObj: {fileID: 0}
   area: {fileID: 0}
@@ -1004,6 +1006,102 @@ PolygonCollider2D:
       - {x: -.165000007, y: -1.30499995}
       - {x: -.165000007, y: -.754999995}
       - {x: -.174999997, y: -.545000017}
+--- !u!1 &687193687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 687193688}
+  - 212: {fileID: 687193692}
+  - 225: {fileID: 687193691}
+  - 114: {fileID: 687193690}
+  - 61: {fileID: 687193689}
+  m_Layer: 0
+  m_Name: License_zoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &687193688
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 687193687}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .0900000036, y: 0, z: -.280000001}
+  m_LocalScale: {x: .660000026, y: .660000026, z: .660000026}
+  m_Children:
+  - {fileID: 1359833043}
+  m_Father: {fileID: 843935428}
+  m_RootOrder: 4
+--- !u!61 &687193689
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 687193687}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 2.98023224e-08, y: 2.32830644e-10}
+  serializedVersion: 2
+  m_Size: {x: 20.4799995, y: 15.3599997}
+--- !u!114 &687193690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 687193687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466695e5c67f8d648979098bc87c1ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standPosition: {x: 0, y: 0, z: 0}
+  sortingLayerNr: 2
+  characterStance: {fileID: 0}
+--- !u!225 &687193691
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 687193687}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!212 &687193692
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 687193687}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 2090045315
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: c2c3aad720061d643ae9bd16bea46cef, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &705667074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,6 +1461,8 @@ Transform:
   - {fileID: 1809138929}
   - {fileID: 2114436176}
   - {fileID: 349332136}
+  - {fileID: 1670362955}
+  - {fileID: 687193688}
   m_Father: {fileID: 0}
   m_RootOrder: 5
 --- !u!1 &957566555
@@ -1608,7 +1708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionType: 1
+  interactionType: 2
   name: Window
   investigateObj: {fileID: 0}
   area: {fileID: 0}
@@ -1641,6 +1741,10 @@ PolygonCollider2D:
       - {x: 2.37254333, y: 2.28052664}
       - {x: 2.30626464, y: -.626709938}
       - {x: 1.90721202, y: -.46378684}
+      - {x: 1.24013662, y: -.776417136}
+      - {x: 1.12551832, y: -.532359719}
+      - {x: .396550596, y: -.835849643}
+      - {x: .456073701, y: -1.14066827}
       - {x: -.238846064, y: -1.4247365}
       - {x: -.202864408, y: -2.03499627}
       - {x: -.832900763, y: -2.29157591}
@@ -1761,6 +1865,79 @@ PolygonCollider2D:
       - {x: -.155000001, y: -.555000007}
       - {x: -.0149999997, y: -.504999995}
       - {x: .405000001, y: -.38499999}
+--- !u!1 &1007868037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1007868038}
+  - 114: {fileID: 1007868040}
+  - 60: {fileID: 1007868039}
+  m_Layer: 0
+  m_Name: Shelf_box
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1007868038
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1007868037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.73999977, y: 1.30999994, z: 0}
+  m_LocalScale: {x: 1.5151515, y: 1.5151515, z: 1.5151515}
+  m_Children: []
+  m_Father: {fileID: 1670362955}
+  m_RootOrder: 0
+--- !u!60 &1007868039
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1007868037}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -1.00525558, y: .798948586}
+      - {x: 1.05158138, y: .836776435}
+      - {x: .964756012, y: -.557703316}
+      - {x: -.939625263, y: -.633097231}
+--- !u!114 &1007868040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1007868037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 2
+  name: Box
+  investigateObj: {fileID: 0}
+  area: {fileID: 0}
+  cMovement: {fileID: 0}
+  characterStance: {fileID: 0}
+  spriteRendererToUpdate: {fileID: 0}
+  spriteToUpdateFrom: {fileID: 0}
+  spriteToUpdateTo: {fileID: 0}
+  spriteToActivate: {fileID: 0}
+  objsToEnable: []
+  inventoryObject: {fileID: 0}
+  neededInventoryObjs: []
+  disableOnPickup: 0
+  disableOnOpen: 0
+  clipPlay: {fileID: 0}
 --- !u!1001 &1008080967
 Prefab:
   m_ObjectHideFlags: 0
@@ -2065,7 +2242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionType: 1
+  interactionType: 0
   name: Carpet
   investigateObj: {fileID: 0}
   area: {fileID: 0}
@@ -2261,8 +2438,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionType: 1
+  interactionType: 2
   name: Drinks
+  investigateObj: {fileID: 349332131}
+  area: {fileID: 0}
+  cMovement: {fileID: 0}
+  characterStance: {fileID: 0}
+  spriteRendererToUpdate: {fileID: 0}
+  spriteToUpdateFrom: {fileID: 0}
+  spriteToUpdateTo: {fileID: 0}
+  spriteToActivate: {fileID: 0}
+  objsToEnable: []
+  inventoryObject: {fileID: 0}
+  neededInventoryObjs: []
+  disableOnPickup: 0
+  disableOnOpen: 0
+  clipPlay: {fileID: 0}
+--- !u!1 &1131684681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1131684682}
+  - 114: {fileID: 1131684683}
+  - 60: {fileID: 1131684685}
+  m_Layer: 0
+  m_Name: Office_deskchar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1131684682
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1131684681}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.93299997, y: 1.36500001, z: -.829077721}
+  m_LocalScale: {x: .655929148, y: .655928969, z: .655928969}
+  m_Children:
+  - {fileID: 1923269102}
+  m_Father: {fileID: 1201677072}
+  m_RootOrder: 1
+--- !u!114 &1131684683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1131684681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 2
+  name: Desk Chair
   investigateObj: {fileID: 0}
   area: {fileID: 0}
   cMovement: {fileID: 0}
@@ -2277,6 +2511,23 @@ MonoBehaviour:
   disableOnPickup: 0
   disableOnOpen: 0
   clipPlay: {fileID: 0}
+--- !u!60 &1131684685
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1131684681}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: .462688297, y: .642230332}
+      - {x: .615896046, y: .161012128}
+      - {x: -.461164236, y: -.30620113}
+      - {x: -.614446878, y: .182219863}
 --- !u!1 &1168635861
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,6 +2703,83 @@ Transform:
   - {fileID: 646021617}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1 &1200384214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1200384215}
+  - 60: {fileID: 1200384217}
+  - 114: {fileID: 1200384216}
+  m_Layer: 0
+  m_Name: Desk_phone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1200384215
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1200384214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.3499999, y: 4.34000015, z: -.899999976}
+  m_LocalScale: {x: 1.5151515, y: 1.5151515, z: 1.5151515}
+  m_Children: []
+  m_Father: {fileID: 1809138929}
+  m_RootOrder: 8
+--- !u!114 &1200384216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1200384214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 2
+  name: Phone
+  investigateObj: {fileID: 0}
+  area: {fileID: 0}
+  cMovement: {fileID: 0}
+  characterStance: {fileID: 0}
+  spriteRendererToUpdate: {fileID: 0}
+  spriteToUpdateFrom: {fileID: 0}
+  spriteToUpdateTo: {fileID: 0}
+  spriteToActivate: {fileID: 0}
+  objsToEnable: []
+  inventoryObject: {fileID: 0}
+  neededInventoryObjs: []
+  disableOnPickup: 0
+  disableOnOpen: 0
+  clipPlay: {fileID: 0}
+--- !u!60 &1200384217
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1200384214}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 2.22000003, y: -3.16000009}
+  m_Points:
+    m_Paths:
+    - - {x: -2.70611596, y: 4.58079243}
+      - {x: -1.60526037, y: 4.37405872}
+      - {x: -.968490601, y: 3.30935049}
+      - {x: -2.20573258, y: 2.21306944}
+      - {x: -3.20891428, y: 2.77930999}
+      - {x: -3.12388563, y: 3.39434028}
+      - {x: -3.52811384, y: 3.52894449}
+      - {x: -3.28303957, y: 3.9441669}
 --- !u!1 &1201677071
 GameObject:
   m_ObjectHideFlags: 0
@@ -2479,6 +2807,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1856033330}
+  - {fileID: 1131684682}
   m_Father: {fileID: 1831106508}
   m_RootOrder: 2
 --- !u!114 &1201677073
@@ -2495,6 +2824,80 @@ MonoBehaviour:
   standPosition: {x: -2.92000008, y: 1.5, z: 0}
   sortingLayerNr: 2
   characterStance: {fileID: 144604, guid: 990d4c377d0f2c341a31720035805208, type: 2}
+--- !u!1 &1240106826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1240106828}
+  - 114: {fileID: 1240106827}
+  - 60: {fileID: 1240106829}
+  m_Layer: 0
+  m_Name: Drinks_whiskey
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1240106827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1240106826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 2
+  name: Whiskey
+  investigateObj: {fileID: 0}
+  area: {fileID: 0}
+  cMovement: {fileID: 0}
+  characterStance: {fileID: 0}
+  spriteRendererToUpdate: {fileID: 0}
+  spriteToUpdateFrom: {fileID: 0}
+  spriteToUpdateTo: {fileID: 0}
+  spriteToActivate: {fileID: 0}
+  objsToEnable: []
+  inventoryObject: {fileID: 0}
+  neededInventoryObjs: []
+  disableOnPickup: 0
+  disableOnOpen: 0
+  clipPlay: {fileID: 0}
+--- !u!4 &1240106828
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1240106826}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.38, y: 2.06999993, z: -.579999983}
+  m_LocalScale: {x: 1.5151515, y: 1.5151515, z: 1.5151515}
+  m_Children: []
+  m_Father: {fileID: 349332136}
+  m_RootOrder: 0
+--- !u!60 &1240106829
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1240106826}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.980000019, y: -1.37}
+  m_Points:
+    m_Paths:
+    - - {x: .753195465, y: 2.91195488}
+      - {x: 1.38559198, y: 2.07612705}
+      - {x: 1.39891648, y: .958092511}
+      - {x: .351454675, y: .854576528}
+      - {x: .309588403, y: 1.98497081}
 --- !u!1 &1242591523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2742,6 +3145,80 @@ MonoBehaviour:
   disableOnPickup: 1
   disableOnOpen: 0
   clipPlay: {fileID: 0}
+--- !u!1 &1284800441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1284800444}
+  - 114: {fileID: 1284800443}
+  - 60: {fileID: 1284800442}
+  m_Layer: 0
+  m_Name: Drinks_glasses
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!60 &1284800442
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1284800441}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -1.37}
+  m_Points:
+    m_Paths:
+    - - {x: .298060358, y: 2.09271193}
+      - {x: .47532168, y: 1.71201932}
+      - {x: .458304256, y: 1.10980403}
+      - {x: -.498131514, y: .854576588}
+      - {x: -.72205019, y: 1.5601778}
+--- !u!114 &1284800443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1284800441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 2
+  name: Glasses
+  investigateObj: {fileID: 0}
+  area: {fileID: 0}
+  cMovement: {fileID: 0}
+  characterStance: {fileID: 0}
+  spriteRendererToUpdate: {fileID: 0}
+  spriteToUpdateFrom: {fileID: 0}
+  spriteToUpdateTo: {fileID: 0}
+  spriteToActivate: {fileID: 0}
+  objsToEnable: []
+  inventoryObject: {fileID: 0}
+  neededInventoryObjs: []
+  disableOnPickup: 0
+  disableOnOpen: 0
+  clipPlay: {fileID: 0}
+--- !u!4 &1284800444
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1284800441}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.319999993, y: 1.71000004, z: -.579999983}
+  m_LocalScale: {x: 1.5151515, y: 1.5151515, z: 1.5151515}
+  m_Children: []
+  m_Father: {fileID: 349332136}
+  m_RootOrder: 1
 --- !u!1 &1334675570
 GameObject:
   m_ObjectHideFlags: 0
@@ -2842,6 +3319,79 @@ MonoBehaviour:
   standPosition: {x: 3.76999998, y: -.569999993, z: 0}
   sortingLayerNr: 2
   characterStance: {fileID: 144604, guid: e34a302130b7bcc4e9d414f53fb62671, type: 2}
+--- !u!1 &1359833042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1359833043}
+  - 114: {fileID: 1359833045}
+  - 60: {fileID: 1359833044}
+  m_Layer: 0
+  m_Name: License_license
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1359833043
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1359833042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.10000002, y: 3.69000006, z: 0}
+  m_LocalScale: {x: 1.5151515, y: 1.5151515, z: 1.5151515}
+  m_Children: []
+  m_Father: {fileID: 687193688}
+  m_RootOrder: 0
+--- !u!60 &1359833044
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1359833042}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -4.00454378, y: 1.06674266}
+      - {x: 5.41661549, y: .809997678}
+      - {x: 4.98165894, y: -6.18136835}
+      - {x: -3.91213369, y: -5.69439602}
+--- !u!114 &1359833045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1359833042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 3
+  name: License
+  investigateObj: {fileID: 0}
+  area: {fileID: 0}
+  cMovement: {fileID: 0}
+  characterStance: {fileID: 0}
+  spriteRendererToUpdate: {fileID: 0}
+  spriteToUpdateFrom: {fileID: 0}
+  spriteToUpdateTo: {fileID: 0}
+  spriteToActivate: {fileID: 0}
+  objsToEnable: []
+  inventoryObject: {fileID: 0}
+  neededInventoryObjs: []
+  disableOnPickup: 0
+  disableOnOpen: 0
+  clipPlay: {fileID: 0}
 --- !u!1 &1370792590
 GameObject:
   m_ObjectHideFlags: 0
@@ -3262,7 +3812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionType: 1
   name: Shelf
-  investigateObj: {fileID: 0}
+  investigateObj: {fileID: 1670362953}
   area: {fileID: 0}
   cMovement: {fileID: 0}
   characterStance: {fileID: 144604, guid: 7c9c26877ab87d94b938303cf007468f, type: 2}
@@ -3335,7 +3885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionType: 0
+  interactionType: 2
   name: Cabinet
   investigateObj: {fileID: 0}
   area: {fileID: 0}
@@ -3499,6 +4049,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1186510818}
   m_RootOrder: 0
+--- !u!1 &1670362953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1670362955}
+  - 212: {fileID: 1670362954}
+  - 225: {fileID: 1670362958}
+  - 114: {fileID: 1670362957}
+  - 61: {fileID: 1670362956}
+  m_Layer: 0
+  m_Name: Shelf_zoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!212 &1670362954
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1670362953}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 2090045315
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 218de942eed14ff4f84ef6475f923fb0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &1670362955
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1670362953}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .0900000036, y: 0, z: -.280000001}
+  m_LocalScale: {x: .660000026, y: .660000026, z: .660000026}
+  m_Children:
+  - {fileID: 1007868038}
+  m_Father: {fileID: 843935428}
+  m_RootOrder: 3
+--- !u!61 &1670362956
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1670362953}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 2.98023224e-08, y: 2.32830644e-10}
+  serializedVersion: 2
+  m_Size: {x: 20.4799995, y: 15.3599997}
+--- !u!114 &1670362957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1670362953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466695e5c67f8d648979098bc87c1ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standPosition: {x: 0, y: 0, z: 0}
+  sortingLayerNr: 2
+  characterStance: {fileID: 0}
+--- !u!225 &1670362958
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1670362953}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1697412741
 GameObject:
   m_ObjectHideFlags: 0
@@ -3563,8 +4209,9 @@ GameObject:
   - 4: {fileID: 1727587349}
   - 212: {fileID: 1727587351}
   - 114: {fileID: 1727587350}
+  - 60: {fileID: 1727587352}
   m_Layer: 0
-  m_Name: Desk_pen
+  m_Name: Inventory_pen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3594,7 +4241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 3
-  name: Temp
+  name: Pen
   investigateObj: {fileID: 0}
   area: {fileID: 0}
   cMovement: {fileID: 0}
@@ -3635,6 +4282,26 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f985e9f72dcffb54c8dc8aba20a9423e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!60 &1727587352
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1727587348}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: .577270031, y: .490756571}
+      - {x: .177803993, y: .61158818}
+      - {x: -.433709383, y: .0793920755}
+      - {x: -.569466352, y: -.0814393163}
+      - {x: -.584392309, y: -.507196069}
+      - {x: -.129168987, y: -.589391768}
+      - {x: .577270389, y: .0770471692}
 --- !u!4 &1740672967 stripped
 Transform:
   m_PrefabParentObject: {fileID: 493062, guid: 8545fab818651e748a333b270a321e25, type: 2}
@@ -3682,26 +4349,25 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: .36500001, y: .0850000009}
-      - {x: .294999987, y: .104999997}
-      - {x: .194999993, y: .0850000009}
-      - {x: -.0850000009, y: .194999993}
-      - {x: -.234999999, y: .275000006}
+    - - {x: .466772437, y: .131260127}
+      - {x: .396772504, y: .197520465}
+      - {x: .315276504, y: .214528531}
+      - {x: .183309257, y: .306024283}
+      - {x: .0333089828, y: .46929273}
       - {x: -.314999998, y: .275000006}
       - {x: -.38499999, y: .254999995}
       - {x: -.405000001, y: .144999996}
       - {x: -.405000001, y: .0450000018}
-      - {x: -.294999987, y: -.0350000001}
-      - {x: -.254999995, y: -.0250000004}
-      - {x: .0949999988, y: -.075000003}
+      - {x: -.387521029, y: -.183032542}
+      - {x: -.0530325174, y: -.306301147}
       - {x: .155000001, y: -.275000006}
       - {x: .344999999, y: -.275000006}
-      - {x: .38499999, y: -.185000002}
-      - {x: .405000001, y: -.135000005}
-      - {x: .405000001, y: .0250000004}
+      - {x: .43125999, y: -.240512162}
+      - {x: .497520328, y: -.181260377}
+      - {x: .525276303, y: .0342518985}
     - - {x: .215000004, y: -.075000003}
       - {x: .314999998, y: .0149999997}
-      - {x: .314999998, y: -.0649999976}
+      - {x: .296495795, y: -.0557480156}
       - {x: .245000005, y: -.144999996}
 --- !u!114 &1743913298
 MonoBehaviour:
@@ -3793,6 +4459,7 @@ Transform:
   - {fileID: 1842157561}
   - {fileID: 747023257}
   - {fileID: 1727587349}
+  - {fileID: 1200384215}
   m_Father: {fileID: 843935428}
   m_RootOrder: 0
 --- !u!212 &1809138930
@@ -4278,7 +4945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionType: 1
+  interactionType: 0
   name: Bookshelf
   investigateObj: {fileID: 0}
   area: {fileID: 0}
@@ -4294,6 +4961,60 @@ MonoBehaviour:
   disableOnPickup: 0
   disableOnOpen: 0
   clipPlay: {fileID: 0}
+--- !u!1 &1923269101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1923269102}
+  - 212: {fileID: 1923269103}
+  m_Layer: 0
+  m_Name: visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1923269102
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1923269101}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .908999979, y: -.921000004, z: 0}
+  m_LocalScale: {x: 1.12239051, y: 1.12239099, z: 1.12239099}
+  m_Children: []
+  m_Father: {fileID: 1131684682}
+  m_RootOrder: 0
+--- !u!212 &1923269103
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1923269101}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 428758205
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300014, guid: 4abf0bca98ced8641a133a1b782b9ed7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1972659779
 GameObject:
   m_ObjectHideFlags: 0
@@ -4354,7 +5075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionType: 1
+  interactionType: 2
   name: Papers
   investigateObj: {fileID: 0}
   area: {fileID: 0}
@@ -4410,9 +5131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionType: 3
+  interactionType: 1
   name: Licence
-  investigateObj: {fileID: 144604, guid: 7c9c26877ab87d94b938303cf007468f, type: 2}
+  investigateObj: {fileID: 687193687}
   area: {fileID: 0}
   cMovement: {fileID: 0}
   characterStance: {fileID: 0}
@@ -4467,7 +5188,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2099245087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.93000007, y: 5.86000013, z: -.899999976}
+  m_LocalPosition: {x: -3.5, y: 5.07000017, z: -.899999976}
   m_LocalScale: {x: 1.5151515, y: 1.5151515, z: 1.5151515}
   m_Children: []
   m_Father: {fileID: 1809138929}
@@ -4482,7 +5203,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 2.54999995, y: -3.6099999}
+  m_Offset: {x: 2.22000003, y: -3.16000009}
   m_Points:
     m_Paths:
     - - {x: -2.92407155, y: 4.40642786}
@@ -4504,7 +5225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80c47619bddc7d43aeef19384769a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionType: 1
+  interactionType: 2
   name: Lamp
   investigateObj: {fileID: 0}
   area: {fileID: 0}

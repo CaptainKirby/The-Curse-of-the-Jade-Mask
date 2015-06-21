@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4abf0bca98ced8641a133a1b782b9ed7
-timeCreated: 1432501511
+timeCreated: 1434902241
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -11,6 +11,7 @@ TextureImporter:
     21300008: OfficeTypewriter
     21300010: OfficeObjects_6
     21300012: OfficeChair
+    21300014: OfficeObjects_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -123,6 +124,16 @@ TextureImporter:
         y: 547
         width: 225
         height: 281
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: OfficeObjects_1
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 1363
+        width: 309
+        height: 361
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
