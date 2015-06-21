@@ -289,9 +289,8 @@ MonoBehaviour:
         outs: 01000000
         advanced: 0
         metadata: 
-        text: 'My clients sit here when they tell me what their problem is.
-
-          I should advertise as a psychologist, charge double.'
+        text: My clients sit here when they tell me what their problem is. I should
+          advertise as a psychologist, charge double.
         name: 
         portrait: 
         audio: 
@@ -5057,4 +5056,4 @@ MonoBehaviour:
     themes:
       themes: []
       selection: 0
-    selectorScrollPosition: {x: 0, y: 262.015991}
+    selectorScrollPosition: {x: 0, y: 0}
