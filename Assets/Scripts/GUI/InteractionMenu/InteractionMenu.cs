@@ -404,6 +404,10 @@ public class InteractionMenu : MonoBehaviour
 			CloseInteractiveMenu();
 			CCircle(img);
 
+			if(iO.spriteToActivate != null)
+			{
+				iO.spriteToActivate.gameObject.SetActive(true);
+			}
 			if(iO.spriteRendererToUpdate != null)
 			{
 				SpriteRenderer r = iO.spriteRendererToUpdate;

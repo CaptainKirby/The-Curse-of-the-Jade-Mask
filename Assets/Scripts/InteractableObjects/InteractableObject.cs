@@ -22,6 +22,8 @@ public class InteractableObject : MonoBehaviour {
 
 	public Sprite spriteToUpdateTo;
 
+	public SpriteRenderer spriteToActivate;
+
 	public GameObject[] objsToEnable;
 
 	public GameObject inventoryObject;
