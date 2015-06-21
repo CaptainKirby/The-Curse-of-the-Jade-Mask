@@ -4948,7 +4948,7 @@ GameObject:
   - 60: {fileID: 1985790795}
   - 114: {fileID: 1985790794}
   m_Layer: 0
-  m_Name: Office_licence
+  m_Name: Office_license
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4978,7 +4978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 1
-  name: Licence
+  name: License
   investigateObj: {fileID: 687193687}
   area: {fileID: 0}
   cMovement: {fileID: 0}
