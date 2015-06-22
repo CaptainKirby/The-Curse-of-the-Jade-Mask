@@ -631,7 +631,7 @@ MonoBehaviour:
         variables: []
         selection: 0
     - id: 8
-      name: Office_shelf_Observe
+      name: OfficeSHelf2
       startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
@@ -862,7 +862,7 @@ MonoBehaviour:
     - id: 11
       name: Office_door_Observe
       startPage: 1
-      scrollPosition: {x: 22.0019531, y: 60}
+      scrollPosition: {x: 22.0019531, y: 51.9995117}
       phases:
       - id: 0
         type: 6
@@ -902,7 +902,7 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: "\u201CDouglas Quinn, P.I.\u201D Yeah, that\u2019s my name there. Burke\u2019s
+        text: "\u201CDouglas Quinn, P.I.\u201D Yeah, it's got my name on it. Burke\u2019s
           used to be there, too, when we were partners. \nSometimes, money comes walking
           through here, in the shape of a client. I sure could use some at the moment."
         name: 
@@ -1090,7 +1090,7 @@ MonoBehaviour:
         variables: []
         selection: 0
     - id: 14
-      name: Office_Shelf_observe
+      name: Office_shelf_observe
       startPage: 0
       scrollPosition: {x: 0, y: 0}
       phases:
@@ -1747,7 +1747,7 @@ MonoBehaviour:
     - id: 23
       name: Desk_papers_Observe
       startPage: 1
-      scrollPosition: {x: 0, y: 0}
+      scrollPosition: {x: 0, y: 46}
       phases:
       - id: 0
         type: 6
@@ -1788,8 +1788,8 @@ MonoBehaviour:
         advanced: 0
         metadata: 
         text: "Notes from a previous case of a missing husband. He\u2019d jumped on
-          a train to San Francisco. Tracked him down drunk at a bar, gambling away
-          their savings."
+          a train to San Francisco. Tracked him down at a bar, gambling away their
+          savings."
         name: 
         portrait: 
         audio: 
@@ -3683,7 +3683,7 @@ MonoBehaviour:
         outs: 00000000
         advanced: 0
         metadata: 
-        text: If a clients ever doubts my professionalism, I can point them to this...
+        text: If a client ever doubts my professionalism, I can point them to this...
           I framed it perfectly.
         name: 
         portrait: 
@@ -4816,9 +4816,9 @@ MonoBehaviour:
         variables: []
         selection: 0
     - id: 64
-      name: Writingdesk_drawer_Open_False
+      name: Writingdesk_drawer_Open
       startPage: 0
-      scrollPosition: {x: 0, y: 0}
+      scrollPosition: {x: 0, y: 32.0019531}
       phases:
       - id: 0
         type: 0
@@ -5056,4 +5056,4 @@ MonoBehaviour:
     themes:
       themes: []
       selection: 0
-    selectorScrollPosition: {x: 0, y: 536}
+    selectorScrollPosition: {x: 0, y: 0}
