@@ -631,7 +631,7 @@ public class InteractionMenu : MonoBehaviour
 		CloseInteractiveMenu();
 		GameController.instance.inventoryController.gameObject.SetActive (false);
 		GameController.instance.outroImage.SetActive (true);
-		yield return new WaitForSeconds (5);
+		yield return new WaitForSeconds (7);
 		Application.LoadLevel (0);
 	}
 	void PlayClip()
