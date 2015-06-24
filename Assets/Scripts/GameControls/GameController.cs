@@ -32,6 +32,8 @@ public class GameController : MonoBehaviour {
 	public PlayerState playerState = PlayerState.OpenArea;
 
 	public GameObject audioClipSource;
+
+	public GameObject voiceSource;
 	//This is the public reference that other classes will use
 	public static GameController instance
 	{
@@ -86,6 +88,18 @@ public class GameController : MonoBehaviour {
 		else
 		{
 			Debug.Log ("No Interaction Menu assigned in Game Settings!");
+		}
+
+		if(gameSettings.voiceSource != null)
+		{
+			voiceSource = Instantiate(gameSettings.voiceSource, Vector3.zero, Quaternion.identity) as GameObject;
+			voiceSource.gameObject.name = "VoiceSource";
+			voiceSource.gameObject.transform.SetParent(GameObject.Find("AUDIO").transform);
+			
+		}
+		else
+		{
+			Debug.Log ("No VS assigned in Game Settings!");
 		}
 		if (Application.loadedLevelName != "MainMenu") {
 			if (dialogueHolder == null) {

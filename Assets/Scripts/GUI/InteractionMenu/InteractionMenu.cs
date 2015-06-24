@@ -377,7 +377,7 @@ public class InteractionMenu : MonoBehaviour
 		{
 //			
 			PlaySound(GameController.instance.gameSettings.clickSound1);
-
+			PlayVO(iO.observeVO);
 
 			CCircle(img);
 //			if(DialoguerDialogues
@@ -404,7 +404,7 @@ public class InteractionMenu : MonoBehaviour
 		if (img == pickupIconActive) 
 		{
 			PlaySound(GameController.instance.gameSettings.clickSound2);
-
+			PlayVO(iO.pickupVO);
 
 			CCircle(img);
 			if(gObj.GetComponent<InteractableObject>().inventoryObject != null)
@@ -459,7 +459,7 @@ public class InteractionMenu : MonoBehaviour
 		if (img == zoomIconActive) 
 		{
 			PlaySound(GameController.instance.gameSettings.clickSound1);
-
+			PlayVO(iO.zoomVO);
 
 			if(gObj.GetComponent<InteractableObject>().investigateObj != null)
 			{
@@ -493,6 +493,7 @@ public class InteractionMenu : MonoBehaviour
 		}
 		if (img == useIconActive) 
 		{
+			PlayVO(iO.useVO);
 			PlaySound(GameController.instance.gameSettings.clickSound1);
 			DialoguerDialogues diag = DialoguerDialogues.None;
 			try{
@@ -559,6 +560,7 @@ public class InteractionMenu : MonoBehaviour
 			}
 			else
 			{
+				PlayVO(iO.openVO);
 				DialoguerDialogues diag = DialoguerDialogues.None;
 				try{
 					diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Open" );
@@ -624,7 +626,13 @@ public class InteractionMenu : MonoBehaviour
 		GameController.instance.dCon.continueButton.SetActive (false);
 		GameController.instance.dCon.endButton.SetActive (false);
 	}
-	
+
+	void PlayVO(AudioClip vO)
+	{
+		GameController.instance.voiceSource.GetComponent<AudioSource>().clip = vO;
+		GameController.instance.voiceSource.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+		GameController.instance.voiceSource.GetComponent<AudioSource>().Play ();
+	}
 	void CCircle(Image img)
 	{
 		if(GameController.instance.gameSettings.clickCircle != null)

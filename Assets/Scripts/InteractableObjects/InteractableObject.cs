@@ -37,6 +37,12 @@ public class InteractableObject : MonoBehaviour {
 
 	public GameObject clickInventoryItemNeeded;
 	public Image changeToImage;
+
+	public AudioClip observeVO;
+	public AudioClip openVO;
+	public AudioClip pickupVO;
+	public AudioClip zoomVO;
+	public AudioClip useVO;
 	void Start()
 	{
 		area = this.transform.parent.gameObject;

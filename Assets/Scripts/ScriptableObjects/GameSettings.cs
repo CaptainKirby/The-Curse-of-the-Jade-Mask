@@ -33,6 +33,7 @@ public class GameSettings : ScriptableObject {
 	public GameObject endButton;
 	public GameObject musicSource;
 	public GameObject audioClipSource;
+	public GameObject voiceSource;
 	public AudioClip pickupSound;
 	public AudioClip clickSound1;
 	public AudioClip clickSound2;
