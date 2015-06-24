@@ -17,6 +17,7 @@ public class MainMenuButton : MonoBehaviour, IPointerUpHandler, IPointerDownHand
 	public void OnPointerEnter(PointerEventData data)
 	{
 		insideThis = true;
+
 //		if(mouseDown)
 //		{
 			text.color = GameController.instance.gameSettings.hoverColor;
@@ -32,6 +33,7 @@ public class MainMenuButton : MonoBehaviour, IPointerUpHandler, IPointerDownHand
 	}
 	public void OnPointerDown(PointerEventData data)
 	{
+		Debug.Log ("GNEUGI");
 		if(insideThis)
 		{
 			text.color = GameController.instance.gameSettings.mouseDownColor;
