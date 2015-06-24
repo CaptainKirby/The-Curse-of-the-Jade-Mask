@@ -377,7 +377,9 @@ public class InteractionMenu : MonoBehaviour
 		{
 //			
 			PlaySound(GameController.instance.gameSettings.clickSound1);
-			PlayVO(iO.observeVO);
+
+			if(iO.observeVO != null)
+				PlayVO(iO.observeVO);
 
 			CCircle(img);
 //			if(DialoguerDialogues
@@ -404,7 +406,8 @@ public class InteractionMenu : MonoBehaviour
 		if (img == pickupIconActive) 
 		{
 			PlaySound(GameController.instance.gameSettings.clickSound2);
-			PlayVO(iO.pickupVO);
+			if(iO.pickupVO != null)
+				PlayVO(iO.pickupVO);
 
 			CCircle(img);
 			if(gObj.GetComponent<InteractableObject>().inventoryObject != null)
@@ -459,7 +462,8 @@ public class InteractionMenu : MonoBehaviour
 		if (img == zoomIconActive) 
 		{
 			PlaySound(GameController.instance.gameSettings.clickSound1);
-			PlayVO(iO.zoomVO);
+			if(iO.zoomVO != null)
+				PlayVO(iO.zoomVO);
 
 			if(gObj.GetComponent<InteractableObject>().investigateObj != null)
 			{
@@ -493,7 +497,9 @@ public class InteractionMenu : MonoBehaviour
 		}
 		if (img == useIconActive) 
 		{
-			PlayVO(iO.useVO);
+			if(iO.useVO != null)
+				PlayVO(iO.useVO);
+
 			PlaySound(GameController.instance.gameSettings.clickSound1);
 			DialoguerDialogues diag = DialoguerDialogues.None;
 			try{
@@ -560,7 +566,9 @@ public class InteractionMenu : MonoBehaviour
 			}
 			else
 			{
-				PlayVO(iO.openVO);
+				if(iO.openVO != null)
+					PlayVO(iO.openVO);
+
 				DialoguerDialogues diag = DialoguerDialogues.None;
 				try{
 					diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Open" );

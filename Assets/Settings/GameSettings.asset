@@ -31,6 +31,7 @@ MonoBehaviour:
   endButton: {fileID: 132238, guid: c627dd80e1e298a41be312dd4538dd12, type: 2}
   musicSource: {fileID: 0}
   audioClipSource: {fileID: 109928, guid: f0146f1fe2d3b5f4e8e7d8ec289a159c, type: 2}
+  voiceSource: {fileID: 109928, guid: 29a54fd584a3f4745a6f2ec4215b6c09, type: 2}
   pickupSound: {fileID: 8300000, guid: 87567a6130246a341a2422677119178b, type: 3}
   clickSound1: {fileID: 8300000, guid: bdfb517b851521d48a3f4f5ffb67a354, type: 3}
   clickSound2: {fileID: 8300000, guid: 2ee2bf4bd426059449adcc6bec0813f2, type: 3}
