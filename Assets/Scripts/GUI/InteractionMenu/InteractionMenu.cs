@@ -608,6 +608,8 @@ public class InteractionMenu : MonoBehaviour
 					DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Leave_True" );
 					Dialoguer.StartDialogue(diag); 
 					GameController.instance.dCon.obsTextObj.SetActive(true);
+					StartCoroutine(End ());
+
 				}
 
 				else
@@ -615,9 +617,22 @@ public class InteractionMenu : MonoBehaviour
 					DialoguerDialogues diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Leave_False" );
 					Dialoguer.StartDialogue(diag); 
 					GameController.instance.dCon.obsTextObj.SetActive(true);
+//					StartCoroutine(End ());
+
 				}
 			}
 		}
+	}
+	IEnumerator End()
+	{
+		GameController.instance.dCon.obsTextObj.SetActive(false);
+		GameController.instance.dCon.continueButton.SetActive (false);
+		GameController.instance.dCon.endButton.SetActive (false);
+		CloseInteractiveMenu();
+		GameController.instance.inventoryController.gameObject.SetActive (false);
+		GameController.instance.outroImage.SetActive (true);
+		yield return new WaitForSeconds (5);
+		Application.LoadLevel (0);
 	}
 	void PlayClip()
 	{

@@ -28,7 +28,7 @@ public class MainMenuButton : MonoBehaviour, IPointerUpHandler, IPointerDownHand
 		insideThis = false;
 //		if(mouseDown)
 //		{
-			text.color = GameController.instance.gameSettings.activeColor;
+//			text.color = GameController.instance.gameSettings.activeColor;
 //		}
 	}
 	public void OnPointerDown(PointerEventData data)

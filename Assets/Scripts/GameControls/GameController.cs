@@ -34,6 +34,8 @@ public class GameController : MonoBehaviour {
 	public GameObject audioClipSource;
 
 	public GameObject voiceSource;
+
+	public GameObject outroImage;
 	//This is the public reference that other classes will use
 	public static GameController instance
 	{
@@ -50,6 +52,11 @@ public class GameController : MonoBehaviour {
 
 	void Awake ()  
 	{
+
+		outroImage = GameObject.Find ("OutroImage");
+		if(outroImage != null)
+			outroImage.SetActive (false);
+
 		if (Application.loadedLevelName != "MainMenu") {
 			if (gameSettings.uiCanvas != null) {
 				//instantiate and declare
