@@ -10,7 +10,7 @@ public class DialogueController : MonoBehaviour {
 
 	private GameController gCon;
 	private GameObject obsTextPrefab;
-	[HideInInspector]
+//	[HideInInspector]
 	public GameObject obsTextObj;
 	public Text obsTextC;
 	private GameObject continueButtonPrefab;
@@ -31,7 +31,8 @@ public class DialogueController : MonoBehaviour {
 	void Start () {
 		Dialoguer.Initialize ();
 
-
+//		DialoguerEvents
+		Dialoguer.events.ClearAll ();
 		//observe text init
 		gCon = GameController.instance;
 		obsTextPrefab = gCon.gameSettings.observeText;
@@ -72,7 +73,10 @@ public class DialogueController : MonoBehaviour {
 
 	private void OnStarted()
 	{
-		obsTextObj.SetActive (false);
+//		Dialoguer.ClearAll();
+
+		if(obsTextObj.activeSelf)
+			obsTextObj.SetActive (false);
 
 		started = true;
 	}
