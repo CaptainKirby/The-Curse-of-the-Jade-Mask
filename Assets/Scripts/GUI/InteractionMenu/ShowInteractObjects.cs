@@ -41,8 +41,15 @@ public class ShowInteractObjects : MonoBehaviour {
 
 	void Update()
 	{
+//		if(Input.GetMouseButtonDown(0))
+//		{
+//			GameController.instance.audioClipSource.GetComponent<AudioSource>().clip = GameController.instance.gameSettings.clickSound3;
+//			GameController.instance.audioClipSource.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+//			GameController.instance.audioClipSource.GetComponent<AudioSource>().Play ();
+//		}
 		if(Input.GetMouseButtonDown(0) && GameController.instance.playerState != GameController.PlayerState.Zoom)
 		{
+
 			if(GameController.instance.gameSettings.clickCircle != null && !clickCircleShow)
 			{
 				GameObject c = Instantiate(GameController.instance.gameSettings.clickCircle, Vector3.zero, Quaternion.identity) as GameObject;

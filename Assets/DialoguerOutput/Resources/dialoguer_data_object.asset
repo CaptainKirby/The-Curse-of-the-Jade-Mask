@@ -1090,7 +1090,7 @@ MonoBehaviour:
         variables: []
         selection: 0
     - id: 14
-      name: Office_shelf_observe
+      name: Office_shelf_Observe
       startPage: 0
       scrollPosition: {x: 0, y: 0}
       phases:
@@ -2832,7 +2832,7 @@ MonoBehaviour:
         variables: []
         selection: 0
     - id: 38
-      name: Desk_cabinet_Open
+      name: Desk_cabinet_Open_True
       startPage: 1
       scrollPosition: {x: 0, y: 0}
       phases:
@@ -4586,7 +4586,7 @@ MonoBehaviour:
         variables: []
         selection: 0
     - id: 61
-      name: Shelf_books_observe
+      name: Shelf_books_Observe
       startPage: 0
       scrollPosition: {x: 0, y: 0}
       phases:
@@ -4968,7 +4968,7 @@ MonoBehaviour:
         variables: []
         selection: 0
     - id: 66
-      name: Writingdesk_drawer_open_True
+      name: Writingdesk_drawer_Open_True
       startPage: 0
       scrollPosition: {x: 0, y: 0}
       phases:
@@ -5056,4 +5056,4 @@ MonoBehaviour:
     themes:
       themes: []
       selection: 0
-    selectorScrollPosition: {x: 0, y: 646.018677}
+    selectorScrollPosition: {x: 0, y: 28.9386883}
