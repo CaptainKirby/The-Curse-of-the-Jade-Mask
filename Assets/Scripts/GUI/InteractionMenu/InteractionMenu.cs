@@ -21,7 +21,7 @@ public class InteractionMenu : MonoBehaviour
 	private Image leaveIconActive;
 	private Image useIconActive;
 
-	[HideInInspector]
+//	[HideInInspector]
 	public bool open = false;
 
 	public float screenRatioWidth;
@@ -43,9 +43,10 @@ public class InteractionMenu : MonoBehaviour
 			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 			if(hit.collider != null)
 			{
-
+				Debug.Log ("PICK");
 			if(open && !EventSystem.current.currentSelectedGameObject)
 			{	
+										PlaySound(GameController.instance.gameSettings.clickSound3);
 //				Debug.Log (EventSystem.current.currentSelectedGameObject);
 
 					Debug.Log ("GNEU");
@@ -92,10 +93,12 @@ public class InteractionMenu : MonoBehaviour
 			}
 			else
 			{
-				CloseInteractiveMenu();
-				GameController.instance.dCon.obsTextObj.SetActive(false);
-				GameController.instance.dCon.continueButton.SetActive (false);
-				GameController.instance.dCon.endButton.SetActive (false);
+				CloseInteractiveMenu(); 
+				PlaySound(GameController.instance.gameSettings.clickSound3);
+//				GameController.instance.dCon.obsTextObj.SetActive(false);
+//				GameController.instance.dCon.continueButton.SetActive (false);
+//				GameController.instance.dCon.endButton.SetActive (false);
+				Debug.Log ("PICKKKKK");
 
 			}
 
@@ -189,7 +192,7 @@ public class InteractionMenu : MonoBehaviour
 		//set position on canvas
 		currentInteractiveMenu.transform.position = WorldToGuiPoint (position);
 		currentInteractiveMenu.gameObject.GetComponent<Animator> ().Play ("MenuPopup");
-		GameController.instance.audioClipSource.GetComponent<AudioSource> ().clip = GameController.instance.gameSettings.clickSound3;
+		GameController.instance.audioClipSource.GetComponent<AudioSource> ().clip = GameController.instance.gameSettings.clickSound4;
 		GameController.instance.audioClipSource.GetComponent<AudioSource> ().pitch = Random.Range (0.85f, 1.15f);
 		GameController.instance.audioClipSource.GetComponent<AudioSource> ().Play ();
 		// get name and text component
@@ -372,6 +375,7 @@ public class InteractionMenu : MonoBehaviour
 		InteractableObject iO = gObj.GetComponent<InteractableObject>();
 		if(img == observeIconActive)
 		{
+//			
 			PlaySound(GameController.instance.gameSettings.clickSound1);
 
 
@@ -392,7 +396,7 @@ public class InteractionMenu : MonoBehaviour
 			{
 				Dialoguer.StartDialogue(diag); 
 				GameController.instance.dCon.obsTextObj.SetActive(true);
-				
+				Debug.Log("NUEG");
 				
 			}
 //			}
@@ -469,6 +473,7 @@ public class InteractionMenu : MonoBehaviour
 					{
 						backButton = Instantiate(GameController.instance.gameSettings.zoomBackButton, Vector3.zero, Quaternion.identity) as GameObject;
 						backButton.transform.SetParent(GameController.instance.uiCanvas.transform);
+						backButton.GetComponent<Button>().onClick.AddListener(()=> PlayClip());
 						RectTransform rT = backButton.GetComponent<RectTransform>();
 
 						rT.anchoredPosition = GameController.instance.gameSettings.zoomBackButton.GetComponent<RectTransform>().anchoredPosition;
@@ -517,8 +522,10 @@ public class InteractionMenu : MonoBehaviour
 			CCircle(img);
 			if(iO.clickInventoryItemNeeded == null)
 			{
+
 //				Debug.Log ("BGNEU");
 				OpenStuff(iO, gObj);
+
 //				if(iO.spriteToActivate != null)
 //				{
 //					iO.spriteToActivate.gameObject.SetActive(true);
@@ -602,6 +609,11 @@ public class InteractionMenu : MonoBehaviour
 			}
 		}
 	}
+	void PlayClip()
+	{
+		GameController.instance.audioClipSource.GetComponent<AudioSource>().clip = GameController.instance.gameSettings.clickSound3;
+		GameController.instance.audioClipSource.GetComponent<AudioSource> ().Play ();
+	}
 	public void GoBackFromZoom(InteractableObject intObj)
 	{
 		intObj.investigateObj.SetActive (false);
@@ -636,12 +648,26 @@ public class InteractionMenu : MonoBehaviour
 	{
 
 		//open stuff
-		PlaySound(GameController.instance.gameSettings.clickSound1);
+		PlaySound(GameController.instance.gameSettings.clickSound4);
 		
+		DialoguerDialogues diag = DialoguerDialogues.None;
+		try{
+			diag = (DialoguerDialogues) System.Enum.Parse( typeof( DialoguerDialogues ), gObj.name + "_Open_True" );
+		}
+		catch
+		{
+			Debug.Log ("Dialogue needs to be set!");
+		}
 		
+		if(diag != DialoguerDialogues.None)
+		{
+			Dialoguer.StartDialogue(diag); 
+			GameController.instance.dCon.obsTextObj.SetActive(true);
+			
+			
+		}
 		CloseInteractiveMenu();
-//		
-
+		//		
 			if(iO.spriteToActivate != null)
 			{
 				iO.spriteToActivate.gameObject.SetActive(true);
