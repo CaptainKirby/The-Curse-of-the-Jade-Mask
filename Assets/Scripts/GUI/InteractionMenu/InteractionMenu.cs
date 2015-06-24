@@ -98,7 +98,7 @@ public class InteractionMenu : MonoBehaviour
 //				GameController.instance.dCon.obsTextObj.SetActive(false);
 //				GameController.instance.dCon.continueButton.SetActive (false);
 //				GameController.instance.dCon.endButton.SetActive (false);
-				Debug.Log ("PICKKKKK");
+//				Debug.Log ("PICKKKKK");
 
 			}
 
@@ -653,7 +653,7 @@ public class InteractionMenu : MonoBehaviour
 	void PlayVO(AudioClip vO)
 	{
 		GameController.instance.voiceSource.GetComponent<AudioSource>().clip = vO;
-		GameController.instance.voiceSource.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+//		GameController.instance.voiceSource.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
 		GameController.instance.voiceSource.GetComponent<AudioSource>().Play ();
 	}
 	void CCircle(Image img)

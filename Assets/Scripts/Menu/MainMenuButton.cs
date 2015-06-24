@@ -20,6 +20,7 @@ public class MainMenuButton : MonoBehaviour, IPointerUpHandler, IPointerDownHand
 
 //		if(mouseDown)
 //		{
+		if(GetComponent<Button>().enabled)
 			text.color = GameController.instance.gameSettings.hoverColor;
 //		}
 	}
@@ -36,7 +37,8 @@ public class MainMenuButton : MonoBehaviour, IPointerUpHandler, IPointerDownHand
 		Debug.Log ("GNEUGI");
 		if(insideThis)
 		{
-			text.color = GameController.instance.gameSettings.mouseDownColor;
+			if(GetComponent<Button>().enabled)
+				text.color = GameController.instance.gameSettings.mouseDownColor;
 		}
 	}
 
@@ -44,7 +46,8 @@ public class MainMenuButton : MonoBehaviour, IPointerUpHandler, IPointerDownHand
 	{
 		if(insideThis)
 		{
-			StartCoroutine(Use());
+			if(GetComponent<Button>().enabled)
+				StartCoroutine(Use());
 		}
 	}
 
@@ -56,6 +59,10 @@ public class MainMenuButton : MonoBehaviour, IPointerUpHandler, IPointerDownHand
 		{
 			Application.LoadLevel("Office");
 		}
+//		if(buttonType == ButtonType.Options)
+//		{
+//			Application.LoadLevel("Options");
+//		}
 //		if(buttonType = ButtonType.Options)
 		if (insideThis)
 			text.color = GameController.instance.gameSettings.hoverColor;
